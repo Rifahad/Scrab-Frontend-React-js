@@ -1,50 +1,84 @@
-import React from 'react'
-import Logo from '../assets/Logo.png'
+import { useState } from 'react';
+import { FaTruckPickup } from "react-icons/fa";
+import { BsFillTrash2Fill } from "react-icons/bs";
+import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-function Navbar() {
+const Navbar = () => {
+  const [selected, setSelected] = useState('Collections');
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const handleSelect = (text) => {
+    setSelected(text);
+    setDropdownOpen(false);
+  };
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
+
   return (
-    <header>
-    <nav className="bg-white border-gray-200 px-4 lg:px-8 py-2.5 dark:bg-red-500">
-        <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-            <a href="https://flowbite.com" className="flex items-center">
-                <img src={Logo} className="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
-                <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">PMK</span>
-            </a>
-            <div className="flex items-center lg:order-2">
-                <a href="#" className="text-gray-800 dark:text-white hover:bg-green-500 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Log in</a>
-                <a href="#" className="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">Get started</a>
-                <button data-collapse-toggle="mobile-menu-2" type="button" className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-2" aria-expanded="false">
-                    <span className="sr-only">Open main menu</span>
-                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
-                    <svg className="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                </button>
-            </div>
-            <div className="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
-                <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-                    <li>
-                        <a href="#" className="block py-2 pr-4 pl-3 text-green-500 rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-green-500" aria-current="page">Home</a>
-                    </li>
-                    <li>
-                        <a href="#" className="block py-2 pr-4 pl-3 text-gray-900 border-b border-gray-100 hover:bg-green-500 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-green-500 dark:hover:bg-gray-700 dark:hover:text-green-500 lg:dark:hover:bg-transparent dark:border-gray-700">Company</a>
-                    </li>
-                    <li>
-                        <a href="#" className="block py-2 pr-4 pl-3 text-gray-900 border-b border-gray-100 hover:bg-green-500 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-green-500 dark:hover:bg-gray-700 dark:hover:text-green-500 lg:dark:hover:bg-transparent dark:border-gray-700">Marketplace</a>
-                    </li>
-                    <li>
-                        <a href="#" className="block py-2 pr-4 pl-3 text-gray-900 border-b border-gray-100 hover:bg-green-500 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-green-500 dark:hover:bg-gray-700 dark:hover:text-green-500 lg:dark:hover:bg-transparent dark:border-gray-700">Features</a>
-                    </li>
-                    <li>
-                        <a href="#" className="block py-2 pr-4 pl-3 text-gray-900 border-b border-gray-100 hover:bg-green-500 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-green-500 dark:hover:bg-gray-700 dark:hover:text-green-500 lg:dark:hover:bg-transparent dark:border-gray-700">Team</a>
-                    </li>
-                    <li>
-                        <a href="#" className="block py-2 pr-4 pl-3 text-gray-900 border-b border-gray-100 hover:bg-green-500 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-green-500 dark:hover:bg-gray-700 dark:hover:text-green-500 lg:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</header>
-  )
-}
+    <div className="2xl:container 2xl:mx-auto">
+      <div className="bg-white rounded shadow-lg py-5 px-7">
+        <nav className="flex justify-between">
+          <div className="flex items-center space-x-3 lg:pr-16 pr-6">
+            <BsFillTrash2Fill className='text-[40px] text-[#5F8F15] transition-all rounded-full w-14 -rotate-45 hover:shadow-sm shadow-lg ring hover:ring-4 ring-white' />
+            <h2 className="font-normal text-2xl leading-6 text-[#5F8F15]">PMK</h2>
+          </div>
 
-export default Navbar
+          <ul className="hidden md:flex flex-auto space-x-2">
+            {['Home', 'Products', 'Contact', 'Utility', 'About Us'].map((item) => (
+              <li
+                key={item}
+                onClick={() => handleSelect(item)}
+                className={`focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#5F8F15] ${
+                  selected === item ? 'text-white bg-[#5F8F15]' : 'text-gray-600 border border-white bg-gray-50'
+                } cursor-pointer px-3 py-2.5 font-normal text-xs leading-3 shadow-md rounded`}
+              >
+                <a href={`/${item.toLowerCase().replace(/\s+/g, '-')}`} className={selected === item ? 'text-white' : 'text-gray-600'}>
+                  {item}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div className="flex space-x-5 justify-center items-center pl-2">
+            <button Link={}  className={`flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#5F8F15] ${
+              selected ? 'text-white bg-[#5F8F15]' : 'text-gray-600 border border-white bg-gray-50'
+            } cursor-pointer px-3 py-2.5 font-normal text-xs leading-3 shadow-md rounded`} ><FaTruckPickup className='text-[25px]'  />PickUp</button>
+          </div>
+
+          <div className="block md:hidden w-8 h-8 relative cursor-pointer" onClick={toggleDropdown}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M4 6H20M4 12H20M4 18H11"
+                stroke="#1F2937"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            {dropdownOpen && (
+              <ul className="p-2 w-40 border-r bg-white absolute rounded z-40 right-0 shadow mt-2 top-10">
+                {['Collections', 'Arts', 'Space', 'Game', 'Utility', 'Cards'].map((item) => (
+                  <li
+                    key={item}  
+                    onClick={() => handleSelect(item)}
+                    className={`cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-[#5F8F15] focus:text-[#5F8F15] focus:outline-none ${
+                      selected === item ? 'font-bold' : ''
+                    }`}
+                  >
+                    <div className="flex items-center">
+                      <span className="ml-2">{item}</span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </nav>
+      </div>
+    </div>
+  );
+};
+
+export default Navbar;
