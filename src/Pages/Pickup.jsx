@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BsFillTrash2Fill } from 'react-icons/bs';
+import axiosInstance from '../instance/AxiosInstance'
 
 function Pickup() {
   const [formData, setFormData] = useState({
@@ -46,6 +47,14 @@ function Pickup() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form Data:', formData);
+    try {
+      const response = axiosInstance.post('/pickup',formData)
+      console.log(response)
+      
+    } catch (error) {
+      console.error(error)
+    }
+
     // Add form submission logic here
   };
 
