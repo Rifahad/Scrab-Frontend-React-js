@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { FaTruckPickup } from "react-icons/fa";
 import { BsFillTrash2Fill } from "react-icons/bs";
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [selected, setSelected] = useState('Collections');
@@ -40,9 +41,11 @@ const Navbar = () => {
             ))}
           </ul>
           <div className="flex space-x-5 justify-center items-center pl-2">
+          <Link to={'/pickup/'}>
             <button  className={`flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#5F8F15] ${
               selected ? 'text-white bg-[#5F8F15]' : 'text-gray-600 border border-white bg-gray-50'
             } cursor-pointer px-3 py-2.5 font-normal text-xs leading-3 shadow-md rounded`} ><FaTruckPickup className='text-[25px]'  />PickUp</button>
+            </Link>
           </div>
 
           <div className="block md:hidden w-8 h-8 relative cursor-pointer" onClick={toggleDropdown}>

@@ -10,7 +10,7 @@ function ProductCard() {
 
   return (
     <>
-      <div className="relative bg-white border border-gray-300 rounded-lg shadow-lg shadow-green-500 md:max-w-sm">
+      <div className="relative bg-white border border-gray-300 rounded-lg shadow-lg hover:shadow-green-500 md:max-w-sm">
         <div className="absolute top-4 right-4">
           <button
             id="dropdownButton"
