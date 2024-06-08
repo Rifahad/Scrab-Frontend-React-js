@@ -26,7 +26,7 @@ const Navbar = () => {
           </div>
 
           <ul className="hidden md:flex flex-auto space-x-2">
-            {['Home', 'Products', 'Contact', 'Utility', 'About Us'].map((item) => (
+            {['Home', 'Products', 'Contact', 'About Us'].map((item) => (
               <li
                 key={item}
                 onClick={() => handleSelect(item)}
@@ -60,7 +60,7 @@ const Navbar = () => {
             </svg>
             {dropdownOpen && (
               <ul className="p-2 w-40 border-r bg-white absolute rounded z-40 right-0 shadow mt-2 top-10">
-                {['Collections', 'Arts', 'Space', 'Game', 'Utility', 'Cards'].map((item) => (
+                {['Home', 'Products', 'Contact', 'About Us'].map((item) => (
                   <li
                     key={item}  
                     onClick={() => handleSelect(item)}

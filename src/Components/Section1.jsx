@@ -34,10 +34,10 @@ function Section1() {
       <div className="container mx-auto py-16 bg-white">
         <div className="row">
           <div className="col-lg-7 col-12">
-            <h2 className="text-3xl font-bold pt-8 text-green-600">
+            <h2 className="text-3xl font-bold pt-8 text-green-600 text-center sm:text-start">
               Zero Waste Societies
             </h2>
-            <div className="mt-7 mb-8 me-lg-14 text-lg text-gray-600">
+            <div className="mt-7 mb-8 me-lg-14 text-lg text-gray-600 text-center sm:text-start">
               With our zero waste management services we help your society to
               turn zero waste by incorporating zero waste practices within its
               residents & stakeholders.
@@ -129,7 +129,7 @@ function Section1() {
       >
         <div className="w-full h-full flex justify-center mt-[150px]">
           <div className="bg-black bg-opacity-50 p-4 flex items-center justify-center flex-col">
-            <div className="font-inter text-2xl font-extrabold tracking-tight text-white">
+            <div className="font-inter text-2xl font-extrabold tracking-tight text-white text-center sm:text-start">
               Majestic peaks, nature's embrace.
             </div>
             <div className="mt-1 text-sm font-medium text-slate-300">

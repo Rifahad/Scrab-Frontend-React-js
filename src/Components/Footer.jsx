@@ -1,8 +1,8 @@
 
 function Footer() {
   return (
-    <footer className="bg-white text-black py-8 z-10 border-t-2 border-[#5F8F15]">
-      <div className="container mx-auto flex flex-col md:flex-row">
+    <footer className="bg-white text-black py-8 z-10 border-t-2 border-[#5F8F15] ">
+      <div className="container mx-auto flex flex-col md:flex-row p-12 sm:py-0">
         {/* Left Side */}
         <div className="md:w-1/3 mb-8 md:mb-0">
           {/* <img src={Logo} alt="Logo" className="h-12 mb-4" /> */}

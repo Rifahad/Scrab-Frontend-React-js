@@ -13,10 +13,10 @@ function Home() {
       <div className="container mx-auto py-20 min-h-[50vh] flex items-center">
         <div className="flex flex-col md:flex-row items-center justify-between w-full">
           <div className="md:w-1/2 mb-8 md:mb-0">
-            <h2 className="text-3xl font-bold mb-6">
+            <h2 className="text-3xl font-bold mb-6 text-center sm:text-start">
               What we do with your <span className="text-green-600">Waste</span>
             </h2>
-            <p className="text-gray-600 leading-relaxed">
+            <p className="text-gray-600 leading-relaxed text-center sm:text-start">
               After you sell your dry recyclable waste to us, they are collected
               in The KMP's facility to be segregated, baled and then
               transported to the authorized recyclers to take new forms so as to

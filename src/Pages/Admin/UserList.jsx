@@ -16,7 +16,6 @@ const UserList = () => {
       country: "India",
       date: "31-10-2024",
     },
-    // Add more user objects as needed
   ];
 
   const [startDate, setStartDate] = useState("");
