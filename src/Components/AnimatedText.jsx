@@ -31,7 +31,7 @@ const AnimatedText = () => {
         <img src={Lorry} alt="" />
       <div className="flex w-[70%] flex-col items-center justify-center gap-10">
         <h1 ref={h1Ref} className="sm:text-6xl">
-          Welcome to PMK
+          Welcome to ECO SCRAP
         </h1>
         <p ref={pRef}>Sell, what you don't need</p>
         <p>

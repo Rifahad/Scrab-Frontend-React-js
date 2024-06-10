@@ -2,6 +2,7 @@ import React from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const validationSchema = Yup.object({
   full_name: Yup.string().required("Full Name is required"),
@@ -42,7 +43,7 @@ const handleLocation = async (setFieldValue) => {
       const { latitude, longitude } = position.coords;
       try {
         const response = await axios.get(
-          `https://nominatim.openstreetmap.org/reverse`,
+        `  https://nominatim.openstreetmap.org/reverse`,
           {
             params: { lat: latitude, lon: longitude, format: "json" },
           }
@@ -65,7 +66,7 @@ const handleLocation = async (setFieldValue) => {
   }
 };
 
-const handleSubmit = async (values, { setSubmitting }) => {
+const handleSubmit = async (values, { setSubmitting }, navigate) => {
   try {
     const formData = new FormData();
     formData.append("full_name", values.full_name);
@@ -90,6 +91,9 @@ const handleSubmit = async (values, { setSubmitting }) => {
     );
 
     console.log("Server Response:", response.data);
+    if(response.status==200){
+    navigate("/");
+    }
   } catch (error) {
     console.error("Error submitting form:", error);
   }
@@ -99,13 +103,14 @@ const handleSubmit = async (values, { setSubmitting }) => {
 };
 
 const Pickup = () => {
+  const navigate = useNavigate();
   return (
     <div className="p-6 bg-white flex items-center justify-center">
       <div className="container max-w-screen-lg mx-auto">
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
-          onSubmit={handleSubmit}
+          onSubmit={(values, actions) => handleSubmit(values, actions, navigate)}
         >
           {({ setFieldValue, isSubmitting }) => (
             <Form>

@@ -6,7 +6,7 @@ function Footer() {
         {/* Left Side */}
         <div className="md:w-1/3 mb-8 md:mb-0">
           {/* <img src={Logo} alt="Logo" className="h-12 mb-4" /> */}
-          <h2 className="text-xl font-rye mb-2">PMC</h2>
+          <h2 className="text-xl font-rye mb-2">ECO SCRAP</h2>
           <p className="text-gray-400">
           Sell, What you don't need ..
           </p>

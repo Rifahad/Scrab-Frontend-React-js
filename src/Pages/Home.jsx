@@ -18,7 +18,7 @@ function Home() {
             </h2>
             <p className="text-gray-600 leading-relaxed text-center sm:text-start">
               After you sell your dry recyclable waste to us, they are collected
-              in The KMP's facility to be segregated, baled and then
+              in The ECO SCRAP's facility to be segregated, baled and then
               transported to the authorized recyclers to take new forms so as to
               enter back into the economy to achieve circularity.
             </p>

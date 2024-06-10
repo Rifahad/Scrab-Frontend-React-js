@@ -1,4 +1,3 @@
-
 function About() {
   return (
     <>
@@ -9,11 +8,11 @@ function About() {
               We didn't reinvent the wheel
             </h2>
             <p className="mb-4">
-              We are strategists, designers and developers. Innovators and
-              problem solvers. Small enough to be simple and quick, but big
-              enough to deliver the scope you want at the pace you need. Small
-              enough to be simple and quick, but big enough to deliver the scope
-              you want at the pace you need.
+              Welcome to EcoScrap! We are dedicated to turning waste into
+              valuable resources, all while promoting a cleaner, greener planet.
+              Our mission is simple: reduce environmental impact through
+              responsible scrap management and recycling practices. Partner with
+              us to make a difference today!
             </p>
             <p>
               We are strategists, designers and developers. Innovators and
@@ -34,7 +33,6 @@ function About() {
           </div>
         </div>
       </section>
-
     </>
   );
 }

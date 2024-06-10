@@ -5,15 +5,18 @@ import Dashbord from '../Pages/Admin/Dashbord'
 import ProductList from '../Pages/Admin/ProductList'
 import UserList from '../Pages/Admin/UserList'
 import CardForm from '../Pages/Admin/CardFom'
+import Editproduct from '../../src/Components/Admin/editform'
 
 function AdminRouter() {
   return (
     <Routes>
       <Route path="/" element={<AdminLayout />}>
         <Route index element={<Dashbord />} />
-        <Route path='/products' element={<ProductList />} />
+        <Route path='/adminProduct' element={<ProductList />} />
         <Route path='/Users' element={<UserList />} />
         <Route path='/edit' element={<CardForm />} />
+        <Route path='/editProduct' element={< Editproduct/>} />
+
 
       </Route>
     </Routes>

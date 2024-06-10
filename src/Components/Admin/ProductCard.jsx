@@ -1,7 +1,8 @@
-import  { useState } from "react";
-import GifImage from '../../assets/GifImage.gif'
+import { useState } from "react";
+import GifImage from "../../assets/GifImage.gif";
+import { Card } from "antd";
 
-function ProductCard() {
+function ProductCard({ data, carddelete }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -39,33 +40,34 @@ function ProductCard() {
             <ul className="py-2" aria-labelledby="dropdownButton">
               <li>
                 <a
-                  href="/edit"
+                  href="/editProduct"
+                  onClick={() => cardedit(data._id)}
                   className="block px-4 py-2 text-sm text-black hover:bg-gray-100"
                 >
                   Edit
                 </a>
               </li>
               <li>
-                <a
-                  href="/deleteProduct"
+                <p
+                  onClick={() => carddelete(data._id)}
                   className="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100"
                 >
                   Delete
-                </a>
+                </p>
               </li>
             </ul>
           </div>
         </div>
         <img
-          className="object-cover w-full h-80"
-          src={GifImage}
+          className="object-fill w-full h-80"
+          src={"http://localhost:7000/" + data.Image}
           alt="Demo Image"
         />
         <div className="p-4 leading-normal">
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-black">
-            PAPER
+            {data.title}
           </h5>
-          <p>$ 15</p>
+          <p>${data.price}</p>
           <p className="mb-3 font-normal text-black">
             Here are the biggest enterprise technology acquisitions of 2021 so
             far, in reverse chronological order.

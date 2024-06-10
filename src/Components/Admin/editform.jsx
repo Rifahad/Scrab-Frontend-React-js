@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const CardForm = () => {
+const editform = () => {
     const [formData, setFormData] = useState({
         title: '',
         price: '',
@@ -17,6 +17,8 @@ const CardForm = () => {
         }
     };
 
+
+
     const handleSubmitting = async (e) => {
         e.preventDefault();
         try {
@@ -25,7 +27,7 @@ const CardForm = () => {
             formDataObj.append("title", formData.title);
             formDataObj.append("price", formData.price);
     
-            const response = await axios.post('http://localhost:7000/card', formDataObj, {
+            const response = await axios.post('http://localhost:7000/editproduct', formDataObj, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -35,9 +37,10 @@ const CardForm = () => {
             console.error('Error:', error);
         }
     };
-    
-    return (
-        <div className="flex items-center justify-center">
+
+  return (
+    <div>
+       <div className="flex items-center justify-center">
             <div className="mx-auto w-full max-w-[550px] bg-white border rounded">
                 <form action='/card' className="py-4 px-9" onSubmit={handleSubmitting} method='post' encType='multipart/form-data'>
                     <div className="mb-5">
@@ -102,7 +105,9 @@ const CardForm = () => {
                 </form>
             </div>
         </div>
-    );
-};
 
-export default CardForm;
+    </div>
+  )
+}
+
+export default editform
