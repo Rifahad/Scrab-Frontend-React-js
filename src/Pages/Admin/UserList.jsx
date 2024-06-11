@@ -47,31 +47,48 @@ const UserList = () => {
       console.log(error, "error in delete doc check into the delete btn");
     }
   }
-
   const downloadPDF = (user) => {
     const input = document.getElementById(`user-${user._id}`);
-    html2canvas(input).then(() => {
+    html2canvas(input).then((canvas) => {
       const pdf = new jsPDF("p", "mm", "a4");
       const pdfWidth = pdf.internal.pageSize.getWidth();
-      pdf.setFont("helvetica", "bold");
-      pdf.setTextColor(0, 128, 0);
-      pdf.setFontSize(20);
-      pdf.text("User Order Details", pdfWidth / 2, 10, { align: "center" });  
-      pdf.setFont("helvetica", "normal");
-      pdf.setTextColor(0, 0, 0);
-      pdf.setFontSize(12);
-      pdf.text(`Name: ${user.full_name}`, 10, 30);
-      pdf.text(`Phone: ${user.phone}`, 10, 40);
-      pdf.text(`Location: ${user.address}`, 10, 50);
-      pdf.text(`Country: ${user.country}`, 10, 60);
-      pdf.text(
-        `Date/Time: ${new Date(user.createdAt).toLocaleString()}`,
-        10,
-        70
-      );
-      pdf.save(`${user.full_name}_details.pdf`);
+      const pdfHeight = pdf.internal.pageSize.getHeight();
+  
+      // Create an image element and set its source to the imported logo
+      const img = new Image();
+      img.src = Logo;
+      img.onload = () => {
+        // Convert the image to a base64 URL
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img, 0, 0);
+        const imgData = canvas.toDataURL("image/png");
+  
+        pdf.addImage(imgData, 'PNG', 10, 10, 50, 20); // Adjust the position and size as needed
+        pdf.setFont("helvetica", "bold");
+        pdf.setTextColor(0, 128, 0);
+        pdf.setFontSize(20);
+        pdf.text("User Order Details", pdfWidth / 2, 40, { align: "center" });
+        pdf.setFont("helvetica", "normal");
+        pdf.setTextColor(0, 0, 0);
+        pdf.setFontSize(12);
+        pdf.text(`Name: ${user.full_name}`, 10, 60);
+        pdf.text(`Phone: ${user.phone}`, 10, 70);
+        pdf.text(`Location: ${user.address}`, 10, 80);
+        pdf.text(`Country: ${user.country}`, 10, 90);
+        pdf.text(
+          `Date/Time: ${new Date(user.createdAt).toLocaleString()}`,
+          10,
+          100
+        );
+  
+        pdf.save(`${user.full_name}_details.pdf`);
+      };
     });
   };
+  
   
 
   return (
