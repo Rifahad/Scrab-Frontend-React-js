@@ -1,6 +1,4 @@
 import { useState } from "react";
-import GifImage from "../../assets/GifImage.gif";
-import { Card } from "antd";
 
 function ProductCard({ data, carddelete }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -68,10 +66,6 @@ function ProductCard({ data, carddelete }) {
             {data.title}
           </h5>
           <p>${data.price}</p>
-          <p className="mb-3 font-normal text-black">
-            Here are the biggest enterprise technology acquisitions of 2021 so
-            far, in reverse chronological order.
-          </p>
         </div>
       </div>
     </>

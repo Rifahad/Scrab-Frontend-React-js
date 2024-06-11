@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Swal from 'sweetalert2'; // Ensure you have SweetAlert2 installed and imported
 
 const CardForm = () => {
     const [formData, setFormData] = useState({
@@ -24,15 +25,29 @@ const CardForm = () => {
             formDataObj.append("file", formData.file); 
             formDataObj.append("title", formData.title);
             formDataObj.append("price", formData.price);
-    
+
             const response = await axios.post('http://localhost:7000/card', formDataObj, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
             });
             console.log('Success:', response.data);
+            if (response.data) {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Your work has been saved",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
         } catch (error) {
             console.error('Error:', error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!',
+            });
         }
     };
     
@@ -94,6 +109,7 @@ const CardForm = () => {
 
                     <div>
                         <button
+                            type="submit" // Add this to ensure the form is submitted
                             className="hover:shadow-form w-full rounded-md bg-green-500 py-3 px-8 text-center text-base font-semibold text-white outline-none"
                         >
                             Confirm adding Products

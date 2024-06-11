@@ -1,7 +1,6 @@
-import ProductCard from "../../Components/Admin/ProductCard";
 
 function Dashbord() {
-  return <ProductCard />;
+  return <h1>hai</h1>;
 }
 
 export default Dashbord;

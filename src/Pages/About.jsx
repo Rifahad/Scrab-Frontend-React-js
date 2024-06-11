@@ -5,18 +5,17 @@ function About() {
         <div className="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
           <div className="font-light text-gray-500 sm:text-lg dark:text-gray-400">
             <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">
-              We didn't reinvent the wheel
+              Welcome to Eco Scrap
             </h2>
             <p className="mb-4">
-              Welcome to EcoScrap! We are dedicated to turning waste into
-              valuable resources, all while promoting a cleaner, greener planet.
-              Our mission is simple: reduce environmental impact through
-              responsible scrap management and recycling practices. Partner with
-              us to make a difference today!
+              We are dedicated to turning waste into valuable resources, all
+              while promoting a cleaner, greener planet. Our mission is simple:
+              reduce environmental impact through responsible scrap management
+              and recycling practices. Partner with us to make a difference
+              today!
             </p>
             <p>
-              We are strategists, designers and developers. Innovators and
-              problem solvers. Small enough to be simple and quick.
+            TKM Shop Kannur
             </p>
           </div>
           <div className="grid grid-cols-2 gap-4 mt-8">

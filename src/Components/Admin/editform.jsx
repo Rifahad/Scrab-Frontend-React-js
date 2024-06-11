@@ -45,7 +45,7 @@ const editform = () => {
                 <form action='/card' className="py-4 px-9" onSubmit={handleSubmitting} method='post' encType='multipart/form-data'>
                     <div className="mb-5">
                         <label htmlFor="title" className="mb-3 block text-base font-medium text-[#07074D]">
-                            Add Products Here:
+                            Edit Products Here:
                         </label>
                         <input
                             type="text"

@@ -14,10 +14,8 @@ function AdminRouter() {
         <Route index element={<Dashbord />} />
         <Route path='/adminProduct' element={<ProductList />} />
         <Route path='/Users' element={<UserList />} />
-        <Route path='/edit' element={<CardForm />} />
+        <Route path='/add' element={<CardForm />} />
         <Route path='/editProduct' element={< Editproduct/>} />
-
-
       </Route>
     </Routes>
   )
