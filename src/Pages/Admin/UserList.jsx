@@ -52,7 +52,6 @@ const UserList = () => {
     html2canvas(input).then((canvas) => {
       const pdf = new jsPDF("p", "mm", "a4");
       const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = pdf.internal.pageSize.getHeight();
   
       // Create an image element and set its source to the imported logo
       const img = new Image();

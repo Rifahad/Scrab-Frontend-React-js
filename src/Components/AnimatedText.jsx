@@ -1,7 +1,5 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-
-import { Carousel } from "antd";
 import Lorry from "../assets/Lorry.png";
 import GifImage from "../assets/GifImage.gif";
 
