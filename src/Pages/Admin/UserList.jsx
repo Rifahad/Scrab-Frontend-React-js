@@ -111,12 +111,13 @@ const UserList = () => {
           <table className="w-full table-auto">
             <thead>
               <tr className="bg-gray-200">
-                <th className="px-4 py-2 text-center">Name : </th>
-                <th className="px-4 py-2 text-center">Phone : </th>
-                <th className="px-4 py-2 text-center">Location : </th>
-                <th className="px-4 py-2 text-center">Country : </th>
-                <th className="px-4 py-2 text-center">Date / Time : </th>
-                <th className="px-4 py-2 text-center">Actions : </th>
+                <th className="px-4 py-2 text-center">Name </th>
+                <th className="px-4 py-2 text-center">Image </th>
+                <th className="px-4 py-2 text-center">Phone </th>
+                <th className="px-4 py-2 text-center">Location </th>
+                <th className="px-4 py-2 text-center">Country </th>
+                <th className="px-4 py-2 text-center">Date / Time</th>
+                <th className="px-4 py-2 text-center">Actions </th>
               </tr>
             </thead>
             <tbody>
@@ -127,7 +128,9 @@ const UserList = () => {
                   className="hover:bg-gray-100 hover:bg-opacity-25"
                 >
                   <td className="px-4 py-2 text-center">{user.full_name}</td>
-                  <td className="px-4 py-2 text-center">{user.phone}</td>
+                  <td className="px-4 py-2 text-center"><img src={"http://localhost:7000//assets/pickupImage/"+ user.pickupImage} className="w-32 h-32" alt="" /></td>
+                  <td className="px-4 py-2 text-center">{user.phone}</td
+                  >
                   <td className="px-4 py-2 text-center">{user.address}</td>
                   <td className="px-4 py-2 text-center">{user.country}</td>
                   <td className="px-4 py-2 text-center">

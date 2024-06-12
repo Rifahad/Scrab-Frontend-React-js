@@ -12,7 +12,7 @@ const validationSchema = Yup.object({
   country: Yup.string().required("Country is required"),
   state: Yup.string().required("State is required"),
   zipcode: Yup.string().required("Zipcode is required"),
-  kilogram: Yup.mixed()
+  pickupImage: Yup.mixed()
     .required("Image is required")
     .test(
       "fileSize",
@@ -34,7 +34,7 @@ const initialValues = {
   country: "",
   state: "",
   zipcode: "",
-  kilogram: null,
+  pickupImage: null,
 };
 
 const handleLocation = async (setFieldValue) => {
@@ -76,10 +76,8 @@ const handleSubmit = async (values, { setSubmitting }, navigate) => {
     formData.append("country", values.country);
     formData.append("state", values.state);
     formData.append("zipcode", values.zipcode);
-    formData.append("kilogram", values.kilogram);
-
-    console.log("Submitting form data:", values); // Log form data for debugging
-
+    formData.append("pickupImage", values.pickupImage);
+  
     const response = await axios.post(
       "http://localhost:7000/pickup",
       formData,
@@ -91,8 +89,8 @@ const handleSubmit = async (values, { setSubmitting }, navigate) => {
     );
 
     console.log("Server Response:", response.data);
-    if(response.status==200){
-    navigate("/");
+    if (response.status === 200) {
+      navigate("/");
     }
   } catch (error) {
     console.error("Error submitting form:", error);
@@ -235,21 +233,21 @@ const Pickup = () => {
                         />
                       </div>
                       <div className="md:col-span-5">
-                        <label htmlFor="kilogram">Upload Image of Items</label>
+                        <label htmlFor="pickupImage">Upload Image of Items</label>
                         <input
                           type="file"
-                          name="kilogram"
-                          id="kilogram"
+                          name="pickupImage"
+                          id="pickupImage"
                           className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                           onChange={(event) => {
                             setFieldValue(
-                              "kilogram",
+                              "pickupImage",
                               event.currentTarget.files[0]
                             );
                           }}
                         />
                         <ErrorMessage
-                          name="kilogram"
+                          name="pickupImage"
                           component="div"
                           className="text-red-500"
                         />
