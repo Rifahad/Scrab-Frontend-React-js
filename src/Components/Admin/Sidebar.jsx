@@ -1,7 +1,13 @@
 import React from 'react';
 import { BsFillTrash2Fill } from 'react-icons/bs';
+import { useNavigate } from 'react-router-dom';
+
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
+    const navigate =useNavigate()
+    const handleDoubleClick = () => {
+        navigate('/');
+      };
     return (
         <>
             <div 
@@ -13,7 +19,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
             >
                 <div className="flex items-center justify-center mt-8">
                     <div className="flex items-center">
-                    <BsFillTrash2Fill className='text-[40px] text-[#5F8F15] transition-all rounded-full w-14 -rotate-45 hover:shadow-sm shadow-lg ring hover:ring-4 ring-white' />
+                    <BsFillTrash2Fill className='text-[40px] text-[#5F8F15] transition-all rounded-full w-14 -rotate-45 hover:shadow-sm shadow-lg ring hover:ring-4 ring-white' onDoubleClick={handleDoubleClick} />
                         <span className="mx-2 text-2xl font-semibold text-green-500">ECO SCRAP</span>
                     </div>
                 </div>

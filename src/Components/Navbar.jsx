@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { FaTruckPickup } from "react-icons/fa";
 import { BsFillTrash2Fill } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [selected, setSelected] = useState("Collections");
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleSelect = (text) => {
     setSelected(text);
@@ -16,12 +17,19 @@ const Navbar = () => {
     setDropdownOpen(!dropdownOpen);
   };
 
+  const handleDoubleClick = () => {
+    navigate('/admin');
+  };
+
   return (
     <div className="2xl:container 2xl:mx-auto">
       <div className="bg-white rounded shadow-lg py-5 px-7">
         <nav className="flex justify-between">
           <div className="flex items-center space-x-3 lg:pr-16 pr-6">
-            <BsFillTrash2Fill className="text-[40px] text-[#5F8F15] transition-all rounded-full w-14 -rotate-45 hover:shadow-sm shadow-lg ring hover:ring-4 ring-white" />
+            <BsFillTrash2Fill
+              className="text-[40px] text-[#5F8F15] transition-all rounded-full w-14 -rotate-45 hover:shadow-sm shadow-lg ring hover:ring-4 ring-white"
+              onDoubleClick={handleDoubleClick}
+            />
             <h2 className="font-normal text-2xl leading-6 text-[#5F8F15]">
               ECO SCRAP
             </h2>
