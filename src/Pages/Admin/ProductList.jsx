@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import ProductCard from "../../Components/Admin/ProductCard";
 import axios from "axios";
 import axiosInstance from "../../instance/AxiosInstance";
-import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 function ProductList() {
 
   const [product, setProduct] = useState([]);
+  console.log(product);
 
   async function listProduct() {
     const response = await axiosInstance.get("/adminProduct");
