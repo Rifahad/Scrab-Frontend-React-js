@@ -1,0 +1,25 @@
+.circles {
+  position: absolute;
+  top: 500px;
+  width: 0px;
+  height: 0px;
+  background-color: green;
+  border-radius: 50%;
+  /* filter: blur(100px); */
+
+  animation: bg 5s ease infinite alternate;
+}
+
+@keyframes bg {
+  100% {
+    box-shadow: 0px 350px 200px 70px green, 0px -350px 200px 70px green,
+      -350px 0px 200px 70px green, 350px 0px 200px 70px green;
+    transform: rotate(360deg);
+  }
+}
+
+
+
+.demo {
+    border : conic-gradient(rgb(104, 104, 104),white,rgb(104, 104, 104),white,rgb(104, 104, 104));
+}
