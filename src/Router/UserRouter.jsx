@@ -7,15 +7,13 @@ import Products from '../Pages/Products'
 import About from '../Pages/About'
 import Contact from '../Pages/Contact'
 import Land from '../Pages/Land'
-import SignIn from '../Pages/Agent/SignIn'
-import SignUp from '../Pages/Agent/SignUp'
+import AgentForm from '../Pages/Agent/AgentForm'
 
 function UserRouter() {
   return (
     <Routes>
         <Route path="/" element={<Land />} />
-        <Route path="/sign-in" element={<SignIn />} />
-        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/agent-form" element={<AgentForm />} />
 
      <Route path="/" element={<UserLayout />} >
         <Route path="/home" element={<Home />} />

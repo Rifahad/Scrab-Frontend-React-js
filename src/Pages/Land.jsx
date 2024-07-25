@@ -12,7 +12,7 @@ const Land = () => {
           </div>
           <h1>Home Page </h1>
         </Link>
-        <Link to={'/sign-in'} className="w-44 h-44  md:w-96 md:h-96 shadow-inner shadow-green-500 flex flex-col items-center justify-center">
+        <Link to={'/agent-form'} className="w-44 h-44  md:w-96 md:h-96 shadow-inner shadow-green-500 flex flex-col items-center justify-center">
           <div className="w-[80%] h-[80%] rounded-full shadow-inner shadow-green-500 flex items-center justify-center ">
             Company Icon
           </div>
