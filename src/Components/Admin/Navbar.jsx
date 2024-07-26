@@ -1,6 +1,5 @@
-import React from 'react';
 
-const Header = ({ setSidebarOpen }) => {
+const Navbar = ({ setSidebarOpen }) => {
     return (
         <header className="flex items-center justify-between px-6 py-8 bg-white border-b-4 border-green-500">
             <div className="flex items-center">
@@ -14,4 +13,4 @@ const Header = ({ setSidebarOpen }) => {
     );
 };
 
-export default Header;
+export default Navbar;
