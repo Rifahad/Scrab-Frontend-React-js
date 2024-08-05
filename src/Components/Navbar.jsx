@@ -1,16 +1,17 @@
 import { useState } from "react";
 import { FaTruckPickup } from "react-icons/fa";
-import { BsFillTrash2Fill } from "react-icons/bs";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Logo from '../assets/img/Logo.png';
 
 const Navbar = () => {
   const [selected, setSelected] = useState("Collections");
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const navigate = useNavigate();
 
-  const handleSelect = (text) => {
+  const handleSelect = (text, path) => {
     setSelected(text);
     setDropdownOpen(false);
+    navigate(path);
   };
 
   const toggleDropdown = () => {
@@ -26,97 +27,63 @@ const Navbar = () => {
       <div className="bg-white rounded shadow-lg py-5 px-7">
         <nav className="flex justify-between">
           <div className="flex items-center space-x-3 lg:pr-16 pr-6">
-            <BsFillTrash2Fill
-              className="text-[40px] text-[#5F8F15] transition-all rounded-full w-14 -rotate-45 hover:shadow-sm shadow-lg ring hover:ring-4 ring-white"
-              onDoubleClick={handleDoubleClick}
-            />
-            <h2 className="font-normal text-2xl leading-6 text-[#5F8F15]">
-              ECO SCRAP
-            </h2>
+            <img src={Logo} onDoubleClick={handleDoubleClick} className="w-12" alt="Logo" />
+            <h2 className="text-2xl leading-6 text-black font-black">Eco Scrap</h2>
           </div>
 
           <ul className="hidden md:flex flex-auto space-x-2">
             <li
-              onClick={() => handleSelect("Home")}
-              className={`focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#5F8F15] ${
+              onClick={() => handleSelect("Home", "/")}
+              className={`focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary ${
                 selected === "Home"
-                  ? "text-white bg-[#5F8F15]"
+                  ? "text-white bg-primary"
                   : "text-gray-600 border border-white bg-gray-50"
               } cursor-pointer px-3 py-2.5 font-normal text-xs leading-3 shadow-md rounded`}
             >
-              <Link
-                to="/"
-                className={selected === "Home" ? "text-white" : "text-gray-600"}
-              >
-                Home
-              </Link>
+              Home
             </li>
             <li
-              onClick={() => handleSelect("Products")}
-              className={`focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#5F8F15] ${
+              onClick={() => handleSelect("Products", "/products")}
+              className={`focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary ${
                 selected === "Products"
-                  ? "text-white bg-[#5F8F15]"
+                  ? "text-white bg-primary"
                   : "text-gray-600 border border-white bg-gray-50"
               } cursor-pointer px-3 py-2.5 font-normal text-xs leading-3 shadow-md rounded`}
             >
-              <Link
-                to="/products"
-                className={
-                  selected === "Products" ? "text-white" : "text-gray-600"
-                }
-              >
-                Products
-              </Link>
+              Products
             </li>
             <li
-              onClick={() => handleSelect("Contact")}
-              className={`focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#5F8F15] ${
+              onClick={() => handleSelect("Contact", "/contact")}
+              className={`focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary ${
                 selected === "Contact"
-                  ? "text-white bg-[#5F8F15]"
+                  ? "text-white bg-primary"
                   : "text-gray-600 border border-white bg-gray-50"
               } cursor-pointer px-3 py-2.5 font-normal text-xs leading-3 shadow-md rounded`}
             >
-              <Link
-                to="/contact"
-                className={
-                  selected === "Contact" ? "text-white" : "text-gray-600"
-                }
-              >
-                Contact
-              </Link>
+              Contact
             </li>
             <li
-              onClick={() => handleSelect("About Us")}
-              className={`focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#5F8F15] ${
+              onClick={() => handleSelect("About Us", "/about-us")}
+              className={`focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary ${
                 selected === "About Us"
-                  ? "text-white bg-[#5F8F15]"
+                  ? "text-white bg-primary"
                   : "text-gray-600 border border-white bg-gray-50"
               } cursor-pointer px-3 py-2.5 font-normal text-xs leading-3 shadow-md rounded`}
             >
-              <Link
-                to="/about-us"
-                className={
-                  selected === "About Us" ? "text-white" : "text-gray-600"
-                }
-              >
-                About Us
-              </Link>
+              About Us
             </li>
           </ul>
 
           <div className="flex space-x-5 justify-center items-center pl-2">
-            <Link to={"/pickup/"}>
-              <button
-                className={`flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#5F8F15] ${
-                  selected
-                    ? "text-white bg-[#5F8F15]"
-                    : "text-gray-600 border border-white bg-gray-50"
-                } cursor-pointer px-3 py-2.5 font-normal text-xs leading-3 shadow-md rounded`}
-              >
-                <FaTruckPickup className="text-[25px]" />
-                PickUp
-              </button>
-            </Link>
+            <button
+              onClick={() => navigate("/pickup")}
+              className={`flex items-center bg-primary gap-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary ${
+                selected === "PickUp" ? "text-white bg-primary" : "text-white border border-white bg-gray-50"
+              } cursor-pointer px-3 py-2.5 font-normal text-xs leading-3 shadow-md rounded`}
+            >
+              <FaTruckPickup className="text-[25px] " />
+              PickUp
+            </button>
           </div>
 
           <div
@@ -141,44 +108,36 @@ const Navbar = () => {
             {dropdownOpen && (
               <ul className="p-2 w-40 border-r bg-white absolute rounded z-40 right-0 shadow mt-2 top-10">
                 <li
-                  onClick={() => handleSelect("Home")}
-                  className={`cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-[#5F8F15] focus:text-[#5F8F15] focus:outline-none ${
+                  onClick={() => handleSelect("Home", "/")}
+                  className={`cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-primary focus:text-primary focus:outline-none ${
                     selected === "Home" ? "font-bold" : ""
                   }`}
                 >
-                  <Link to="/" className="flex items-center">
-                    <span className="ml-2">Home</span>
-                  </Link>
+                  Home
                 </li>
                 <li
-                  onClick={() => handleSelect("Products")}
-                  className={`cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-[#5F8F15] focus:text-[#5F8F15] focus:outline-none ${
+                  onClick={() => handleSelect("Products", "/products")}
+                  className={`cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-primary focus:text-primary focus:outline-none ${
                     selected === "Products" ? "font-bold" : ""
                   }`}
                 >
-                  <Link to="/products" className="flex items-center">
-                    <span className="ml-2">Products</span>
-                  </Link>
+                  Products
                 </li>
                 <li
-                  onClick={() => handleSelect("Contact")}
-                  className={`cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-[#5F8F15] focus:text-[#5F8F15] focus:outline-none ${
+                  onClick={() => handleSelect("Contact", "/contact")}
+                  className={`cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-primary focus:text-primary focus:outline-none ${
                     selected === "Contact" ? "font-bold" : ""
                   }`}
                 >
-                  <Link to="/contact" className="flex items-center">
-                    <span className="ml-2">Contact</span>
-                  </Link>
+                  Contact
                 </li>
                 <li
-                  onClick={() => handleSelect("About Us")}
-                  className={`cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-[#5F8F15] focus:text-[#5F8F15] focus:outline-none ${
+                  onClick={() => handleSelect("About Us", "/about-us")}
+                  className={`cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-primary focus:text-primary focus:outline-none ${
                     selected === "About Us" ? "font-bold" : ""
                   }`}
                 >
-                  <Link to="/about-us" className="flex items-center">
-                    <span className="ml-2">About Us</span>
-                  </Link>
+                  About Us
                 </li>
               </ul>
             )}

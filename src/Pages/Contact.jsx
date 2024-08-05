@@ -112,7 +112,7 @@ function Contact() {
                 </div>
                 <button
                   type="submit"
-                  className="mb-6 w-full rounded bg-[#5F8F15] text-white px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal"
+                  className="mb-6 w-full rounded bg-primary text-white px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal"
                 >
                   Send
                 </button>
@@ -123,7 +123,7 @@ function Contact() {
                 <div className="mb-12 w-full md:w-6/12 lg:w-full xl:w-6/12">
                   <div className="flex items-start">
                     <div className="shrink-0">
-                      <div className="inline-block rounded-md bg-[#bedf8c] p-4 text-primary">
+                      <div className="inline-block rounded-md bg-[#8cdfa1] p-4 text-primary">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
@@ -152,7 +152,7 @@ function Contact() {
                 <div className="mb-12 w-full md:w-6/12 lg:w-full xl:w-6/12">
                   <div className="flex items-start">
                     <div className="shrink-0">
-                      <div className="inline-block rounded-md bg-[#bedf8c] p-4 text-primary">
+                      <div className="inline-block rounded-md bg-[#8cdfa1] p-4 text-primary">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
@@ -181,7 +181,7 @@ function Contact() {
                 <div className="w-full md:w-6/12 lg:w-full xl:w-6/12">
                   <div className="flex items-start">
                     <div className="shrink-0">
-                      <div className="inline-block rounded-md bg-[#bedf8c] p-4 text-primary">
+                      <div className="inline-block rounded-md bg-[#8cdfa1] p-4 text-primary">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"

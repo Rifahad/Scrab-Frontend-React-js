@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import ProductCard from "../../Components/Admin/ProductCard";
 import axios from "axios";
-import axiosInstance from "../../instance/AxiosInstance";
 import Swal from "sweetalert2";
 
 function ProductList() {
@@ -10,7 +9,7 @@ function ProductList() {
   console.log(product);
 
   async function listProduct() {
-    const response = await axiosInstance.get("/adminProduct");
+    const response = await  axios.get("http://localhost:7000/adminproducts")
     setProduct(response.data.adminCard);
   }
   useEffect(() => {

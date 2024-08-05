@@ -1,4 +1,13 @@
+import { useState } from "react";
+
 const AgentForm = () => {
+
+  const [agentData, setAgentData] = useState({
+    companyName:"",
+    scrapImage:null,
+    phone:'',
+
+  })
   return (
     <>
       <div className="flex justify-center items-center w-screen h-screen bg-white">
@@ -6,29 +15,28 @@ const AgentForm = () => {
           <div className="w-full p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl">
             <div className="flex">
               <h1 className="font-bold uppercase text-5xl">
-                Send us a <br /> message
+                Share Details About <br /> Scrap You Have
               </h1>
             </div>
             <div className="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
               <input
                 className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                 type="text"
-                placeholder="First Name*"
+                placeholder="Company Name*"
               />
               <input
                 className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                type="text"
-                placeholder="Last Name*"
-              />
-              <input
-                className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                type="email"
-                placeholder="Email*"
+                type="file"
               />
               <input
                 className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                 type="number"
                 placeholder="Phone*"
+              />
+              <input
+                className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                type="text"
+                placeholder="How Many Ton You Have ?*"
               />
             </div>
             <div className="my-4">
@@ -39,18 +47,18 @@ const AgentForm = () => {
             </div>
             <div className="my-2 w-1/2 lg:w-1/4">
               <button
-                className="uppercase text-sm font-bold tracking-wide bg-green-500 text-gray-100 p-3 rounded-lg w-full 
+                className="uppercase text-sm font-bold tracking-wide bg-green-400 text-gray-100 p-3 rounded-lg w-full 
                       focus:outline-none focus:shadow-outline"
               >
-                Send Message
+                Submit
               </button>
             </div>
           </div>
 
           <div
-            className="w-full lg:-mt-96 lg:w-2/6 px-8 py-12 ml-auto bg-gradient-to-l from-green-500 to-black"
+            className="w-full lg:-mt-96 lg:w-2/6 px-8 py-12 ml-auto shadow-inner shadow-black bg-white bg-opacity-25 rounded"
           >
-            <div className="flex flex-col text-white">
+            <div className="flex flex-col text-black">
               <h1 className="font-bold uppercase text-4xl my-4">
                 Drop in our office
               </h1>

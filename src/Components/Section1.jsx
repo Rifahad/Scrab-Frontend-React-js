@@ -1,4 +1,3 @@
-import VideoIcon from "../assets/Logo.png";
 import Background from "../assets/background1.jpg";
 import Garbage from "../assets/trees.png";
 import Background2 from "../assets/Background2.jpg";
@@ -12,7 +11,7 @@ function Section1() {
         <div className="w-full h-full flex justify-center mt-[150px]">
           <div className="bg-black bg-opacity-50 p-4 flex items-center justify-center flex-col">
             <div className="font-inter text-2xl font-extrabold tracking-tight text-white">
-              Majestic peaks, nature's embrace.
+              Majestic peaks, nature&apos;s embrace.
             </div>
             <div className="mt-1 text-sm font-medium text-slate-300">
               Adventure calls, conquer mountain trails.
@@ -34,7 +33,7 @@ function Section1() {
       <div className="container mx-auto py-16 bg-white">
         <div className="row">
           <div className="col-lg-7 col-12">
-            <h2 className="text-3xl font-bold pt-8 text-green-600 text-center sm:text-start">
+            <h2 className="text-3xl font-bold pt-8 text-primary text-center sm:text-start">
               Zero Waste Societies
             </h2>
             <div className="mt-7 mb-8 me-lg-14 text-lg text-gray-600 text-center sm:text-start">
@@ -51,13 +50,13 @@ function Section1() {
               style={{ transform: "translateX(-0px)" }}
             >
               <div className="min-w-[316px] max-w-[375px] me-5">
-                <div className="card zero-waste-card rounded-lg h-full bg-green-600 text-white">
+                <div className="card zero-waste-card rounded-lg h-full bg-primary text-white">
                   <div className="card-body">
                     <div className="flex flex-col">
                       <div className="p-6 p-lg-3">
                         <div className="flex items-center">
                           <h4 className="flex-grow text-lg font-bold">Why</h4>
-                          <div className="flex-row px-7 py-5 flex items-center justify-center title-lg rounded-full bg-white text-green-600">
+                          <div className="flex-row px-7 py-5 flex items-center justify-center title-lg rounded-full bg-white text-primary">
                             1
                           </div>
                         </div>
@@ -71,7 +70,7 @@ function Section1() {
                 </div>
               </div>
               <div className="min-w-[316px] max-w-[375px] me-5">
-                <div className="card zero-waste-card rounded-lg h-full bg-green-600 text-white">
+                <div className="card zero-waste-card rounded-lg h-full bg-primary text-white">
                   <div className="card-body">
                     <div className="flex flex-col">
                       <div className="p-6 p-lg-3">
@@ -79,7 +78,7 @@ function Section1() {
                           <h4 className="flex-grow text-lg font-bold">
                             Benefits
                           </h4>
-                          <div className="flex-row px-7 py-5 flex items-center justify-center title-lg rounded-full bg-white text-green-600">
+                          <div className="flex-row px-7 py-5 flex items-center justify-center title-lg rounded-full bg-white text-primary">
                             2
                           </div>
                         </div>
@@ -94,7 +93,7 @@ function Section1() {
                 </div>
               </div>
               <div className="min-w-[316px] max-w-[375px] me-5">
-                <div className="card zero-waste-card rounded-lg h-full bg-green-600 text-white">
+                <div className="card zero-waste-card rounded-lg h-full bg-primary text-white">
                   <div className="card-body">
                     <div className="flex flex-col">
                       <div className="p-6 p-lg-3">
@@ -102,7 +101,7 @@ function Section1() {
                           <h4 className="flex-grow text-lg font-bold">
                             Our Solution
                           </h4>
-                          <div className="flex-row px-7 py-5 flex items-center justify-center title-lg rounded-full bg-white text-green-600">
+                          <div className="flex-row px-7 py-5 flex items-center justify-center title-lg rounded-full bg-white text-primary">
                             3
                           </div>
                         </div>

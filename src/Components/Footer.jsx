@@ -1,14 +1,14 @@
 
 function Footer() {
   return (
-    <footer className="bg-white text-black py-8 z-10 border-t-2 border-[#5F8F15] ">
+    <footer className="bg-white text-black py-8 z-10 border-t-2 border-primary">
       <div className="container mx-auto flex flex-col md:flex-row p-12 sm:py-0">
         {/* Left Side */}
         <div className="md:w-1/3 mb-8 md:mb-0">
           {/* <img src={Logo} alt="Logo" className="h-12 mb-4" /> */}
           <h2 className="text-xl font-rye mb-2">ECO SCRAP</h2>
           <p className="text-gray-400">
-          Sell, What you don't need ..
+          Sell, What you don&apos;t need ..
           </p>
         </div>
 
@@ -68,7 +68,7 @@ function Footer() {
       </div>
       <div className="container mx-auto mt-8 border-t border-gray-700 pt-4 flex flex-col md:flex-row items-center justify-between">
         <p className="text-gray-400">
-          &copy; {new Date().getFullYear()} REDROCKS. All rights reserved.
+          &copy; {new Date().getFullYear()} ECOSCRAP. All rights reserved.
         </p>
         <div className="flex space-x-4">
           <a
