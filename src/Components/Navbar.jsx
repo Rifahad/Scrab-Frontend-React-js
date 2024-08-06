@@ -23,7 +23,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="2xl:container 2xl:mx-auto">
+    <div className="2xl:container 2xl:mx-auto mb-2">
       <div className="bg-white rounded shadow-lg py-5 px-7">
         <nav className="flex justify-between">
           <div className="flex items-center space-x-3 lg:pr-16 pr-6">

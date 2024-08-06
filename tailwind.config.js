@@ -22,7 +22,7 @@ export default {
         current: colors.current,
         transparent: colors.transparent,
         primary: "#16A34A",
-        secondary: "#ff7e33",
+        secondary: "#01D3FC",
         info: "#0C63E7",
         black: colors.black,
         white: colors.white,
@@ -366,7 +366,7 @@ export default {
         0: '0',
         DEFAULT: '1',
       },
-      fontFamily: {
+      fontfamily: {
         sans: [
           'ui-sans-serif',
           'system-ui',

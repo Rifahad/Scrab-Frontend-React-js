@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
@@ -12,18 +12,7 @@ const validationSchema = Yup.object({
   country: Yup.string().required("Country is required"),
   state: Yup.string().required("State is required"),
   zipcode: Yup.string().required("Zipcode is required"),
-  pickupImage: Yup.mixed()
-    .required("Image is required")
-    .test(
-      "fileSize",
-      "File too large",
-      (value) => value && value.size <= 1024 * 1024 // 1MB file size limit
-    )
-    .test(
-      "fileType",
-      "Unsupported File Format",
-      (value) => value && ["image/jpeg", "image/png"].includes(value.type)
-    ),
+  pickupImage: Yup.mixed().required("Image is required"),
 });
 
 const initialValues = {
@@ -39,34 +28,50 @@ const initialValues = {
 
 const handleLocation = async (setFieldValue) => {
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(async (position) => {
-      const { latitude, longitude } = position.coords;
-      try {
-        const response = await axios.get(
-        `  https://nominatim.openstreetmap.org/reverse`,
-          {
-            params: { lat: latitude, lon: longitude, format: "json" },
-          }
-        );
-        const { address } = response.data;
-        setFieldValue("address", address.road || "");
-        setFieldValue(
-          "city",
-          address.city || address.town || address.village || ""
-        );
-        setFieldValue("country", address.country || "");
-        setFieldValue("state", address.state || "");
-        setFieldValue("zipcode", address.postcode || "");
-      } catch (error) {
-        console.error("Error fetching location data:", error);
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        const { latitude, longitude } = position.coords;
+        try {
+          const response = await axios.get(
+            `https://nominatim.openstreetmap.org/reverse`,
+            {
+              params: {
+                lat: latitude,
+                lon: longitude,
+                format: "json",
+              },
+            }
+          );
+
+          const { address } = response.data;
+          console.log("Nominatim Response:", address);
+
+          const street = address.road || address.pedestrian || address.footway || address.cycleway || address.residential || address.path || "";
+
+          setFieldValue("address", street || "");
+          setFieldValue("city", address.city || address.town || address.village || "");
+          setFieldValue("country", address.country || "");
+          setFieldValue("state", address.state || "");
+          setFieldValue("zipcode", address.postcode || "");
+        } catch (error) {
+          console.error("Error fetching location data:", error);
+        }
+      },
+      (error) => {
+        console.error("Geolocation error:", error);
+        alert("Error retrieving your location. Please try again.");
+      },
+      {
+        enableHighAccuracy: true,
+        timeout: 5000,
       }
-    });
+    );
   } else {
     alert("Geolocation is not supported by this browser.");
   }
 };
 
-const handleSubmit = async (values, { setSubmitting }, navigate) => {
+const handleSubmit = async (values, { resetForm, setSubmitting }, navigate) => {
   try {
     const formData = new FormData();
     formData.append("full_name", values.full_name);
@@ -77,7 +82,7 @@ const handleSubmit = async (values, { setSubmitting }, navigate) => {
     formData.append("state", values.state);
     formData.append("zipcode", values.zipcode);
     formData.append("pickupImage", values.pickupImage);
-  
+
     const response = await axios.post(
       "http://localhost:7000/pickup",
       formData,
@@ -90,6 +95,7 @@ const handleSubmit = async (values, { setSubmitting }, navigate) => {
 
     console.log("Server Response:", response.data);
     if (response.status === 200) {
+      resetForm();
       navigate("/");
     }
   } catch (error) {
@@ -101,7 +107,9 @@ const handleSubmit = async (values, { setSubmitting }, navigate) => {
 };
 
 const Pickup = () => {
+  const [previewImage, setPreviewImage] = useState(null);
   const navigate = useNavigate();
+
   return (
     <div className="p-6 bg-white flex items-center justify-center">
       <div className="container max-w-screen-lg mx-auto">
@@ -110,7 +118,7 @@ const Pickup = () => {
           validationSchema={validationSchema}
           onSubmit={(values, actions) => handleSubmit(values, actions, navigate)}
         >
-          {({ setFieldValue, isSubmitting }) => (
+          {({ setFieldValue, isSubmitting, resetForm }) => (
             <Form>
               <div className="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
                 <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
@@ -123,6 +131,15 @@ const Pickup = () => {
                     >
                       Use Current Location
                     </button>
+                    {previewImage && (
+                      <div className="mt-4">
+                        <img
+                          src={previewImage}
+                          alt="Preview"
+                          className="h-40 w-full object-cover rounded"
+                        />
+                      </div>
+                    )}
                   </div>
 
                   <div className="lg:col-span-2">
@@ -232,18 +249,19 @@ const Pickup = () => {
                           className="text-red-500"
                         />
                       </div>
+
                       <div className="md:col-span-5">
                         <label htmlFor="pickupImage">Upload Image of Items</label>
                         <input
                           type="file"
                           name="pickupImage"
                           id="pickupImage"
+                          accept="image/*;capture=camera"
                           className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                           onChange={(event) => {
-                            setFieldValue(
-                              "pickupImage",
-                              event.currentTarget.files[0]
-                            );
+                            const file = event.currentTarget.files[0];
+                            setFieldValue("pickupImage", file);
+                            setPreviewImage(URL.createObjectURL(file));
                           }}
                         />
                         <ErrorMessage
