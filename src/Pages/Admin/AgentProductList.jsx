@@ -1,4 +1,22 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+
 const AgentProductList = () => {
+const [agent,setAgent] = useState('')
+
+
+const Getagent = async ()=>{
+  const response = await  axios.get('http://localhost:7000/agentdata')
+  console.log(response,'datagotted');
+  setAgent(response.data.agentdata)
+}
+console.log(agent,'agent data')
+useEffect(()=>{
+  Getagent()
+},[])
+
+// const response = await axios.get('')
+
   return (
     <>
       <div className="bg-black w-full">

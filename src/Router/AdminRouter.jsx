@@ -4,7 +4,7 @@ import Dashbord from "../Pages/Admin/Dashbord";
 import ProductList from "../Pages/Admin/ProductList";
 import UserList from "../Pages/Admin/UserList";
 import CardForm from "../Pages/Admin/CardFom";
-import Editproduct from "../Components/Admin/Editform";
+import Editproduct from "../Components/Admin/editform";
 import Login from "../Pages/Admin/Login";
 import Auth from "../Components/Auth";
 import AgentProductList from "../Pages/Admin/AgentProductList";

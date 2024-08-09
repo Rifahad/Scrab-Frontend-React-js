@@ -60,7 +60,7 @@ const EditForm = () => {
       const data = await response.json();
       if (data.success) {
         alert("Product updated successfully");
-        navigate("/admin/products"); // Redirect to the product list page
+        navigate("/admin/adminProduct"); // Redirect to the product list page
       } else {
         // Handle error (e.g., show an error message)
         alert("Error updating product");
