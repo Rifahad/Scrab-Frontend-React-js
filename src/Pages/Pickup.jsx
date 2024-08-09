@@ -96,7 +96,10 @@ const handleSubmit = async (values, { resetForm, setSubmitting }, navigate) => {
     console.log("Server Response:", response.data);
     if (response.status === 200) {
       resetForm();
-      navigate("/");
+      
+      setTimeout(()=>{
+        navigate("/");
+      },2000)
     }
   } catch (error) {
     console.error("Error submitting form:", error);
