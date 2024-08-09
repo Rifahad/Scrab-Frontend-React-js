@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2'; // Ensure you have SweetAlert2 installed and imported
-
+import { useNavigate } from 'react-router-dom';
 const CardForm = () => {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         title: '',
         price: '',
@@ -40,6 +41,10 @@ const CardForm = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
+                setTimeout(() => {
+                    navigate('/admin/adminProduct');
+                }, 1500);
+
             }
         } catch (error) {
             console.error('Error:', error);
