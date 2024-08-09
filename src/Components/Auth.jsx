@@ -7,6 +7,7 @@ const Auth = () => {
     const [auth,setAuth] = useState(false)
     useEffect(()=>{
         const checkAuth = () =>{
+            
             try {
                 const token = localStorage.getItem('token')
                 if(token){
