@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import {
   FaMapMarkerAlt,
   FaPhone,
@@ -10,6 +11,7 @@ import {
 } from "react-icons/fa";
 
 const AgentForm = () => {
+  const navigate = useNavigate();
   const [agentData, setAgentData] = useState({
     companyName: "",
     scrapImage: null,
@@ -75,6 +77,9 @@ const AgentForm = () => {
           tonAmount: "",
           message: "",
         });
+        setTimeout(() => {
+          navigate("/");
+        }, 1000);
       } else {
         console.error("Form submission failed");
       }
