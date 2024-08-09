@@ -1,4 +1,4 @@
-import { FaFacebookF, FaInstagram, FaTwitter, FaGithub, FaDribbble } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram, FaTwitter,  FaWhatsapp } from 'react-icons/fa';
 
 import Logo from "../assets/img/Logo.png"
 function Footer() {
@@ -52,24 +52,24 @@ function Footer() {
 
           <ul className="mt-6 space-y-4 text-sm">
             <li>
-              <a href="#" className="text-gray-700 transition hover:opacity-75"> 1on1 Coaching </a>
+              <a href="#" className="text-gray-700 transition hover:opacity-75"> Sell products </a>
             </li>
 
             <li>
-              <a href="#" className="text-gray-700 transition hover:opacity-75"> Company Review </a>
+              <a href="#" className="text-gray-700 transition hover:opacity-75"> Buy products </a>
             </li>
 
             <li>
-              <a href="#" className="text-gray-700 transition hover:opacity-75"> Accounts Review </a>
+              <a href="#" className="text-gray-700 transition hover:opacity-75"> Pickup service </a>
             </li>
 
             <li>
-              <a href="#" className="text-gray-700 transition hover:opacity-75"> HR Consulting </a>
+              <a href="#" className="text-gray-700 transition hover:opacity-75"> 24x7  </a>
             </li>
 
-            <li>
+            {/* <li>
               <a href="#" className="text-gray-700 transition hover:opacity-75"> SEO Optimisation </a>
-            </li>
+            </li> */}
           </ul>
         </div>
 
@@ -78,16 +78,16 @@ function Footer() {
 
           <ul className="mt-6 space-y-4 text-sm">
             <li>
-              <a href="#" className="text-gray-700 transition hover:opacity-75"> About </a>
+              <a href="#" className="text-gray-700 transition hover:opacity-75"> TMK </a>
             </li>
 
-            <li>
+            {/* <li>
               <a href="#" className="text-gray-700 transition hover:opacity-75"> Meet the Team </a>
-            </li>
+            </li> */}
 
-            <li>
+            {/* <li>
               <a href="#" className="text-gray-700 transition hover:opacity-75"> Accounts Review </a>
-            </li>
+            </li> */}
           </ul>
         </div>
 
@@ -100,11 +100,11 @@ function Footer() {
             </li>
 
             <li>
-              <a href="#" className="text-gray-700 transition hover:opacity-75"> FAQs </a>
+              <a href="#" className="text-gray-700 transition hover:opacity-75">Instagram </a>
             </li>
 
             <li>
-              <a href="#" className="text-gray-700 transition hover:opacity-75"> Live Chat </a>
+              <a href="#" className="text-gray-700 transition hover:opacity-75"> Whatsupp </a>
             </li>
           </ul>
         </div>
@@ -132,6 +132,7 @@ function Footer() {
         </div>
 
         <div className="col-span-2 sm:col-span-1">
+          {/* ********************  */}
           <p className="font-medium text-gray-900">Downloads</p>
 
           <ul className="mt-6 space-y-4 text-sm">
@@ -155,7 +156,7 @@ function Footer() {
       className="text-gray-700 transition hover:opacity-75"
     >
       <span className="sr-only">Facebook</span>
-      <FaFacebookF className="h-6 w-6" />
+      <FaWhatsapp className="h-6 w-6" />
     </a>
   </li>
 
@@ -179,7 +180,7 @@ function Footer() {
       className="text-gray-700 transition hover:opacity-75"
     >
       <span className="sr-only">Twitter</span>
-      <FaTwitter className="h-6 w-6" />
+      <FaFacebookF className="h-6 w-6" />
     </a>
   </li>
 
@@ -191,21 +192,11 @@ function Footer() {
       className="text-gray-700 transition hover:opacity-75"
     >
       <span className="sr-only">GitHub</span>
-      <FaGithub className="h-6 w-6" />
+      <FaTwitter className="h-6 w-6" />
     </a>
   </li>
 
-  <li>
-    <a
-      href="#"
-      rel="noreferrer"
-      target="_blank"
-      className="text-gray-700 transition hover:opacity-75"
-    >
-      <span className="sr-only">Dribbble</span>
-      <FaDribbble className="h-6 w-6" />
-    </a>
-  </li>
+
 </ul>
 
 
