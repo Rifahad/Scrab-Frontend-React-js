@@ -26,42 +26,46 @@ const AgentForm = () => {
 
   const handleChange = (e) => {
     setAgentData({ ...agentData, [e.target.name]: e.target.value });
-    if (e.target.name === 'tonAmount') {
+    if (e.target.name === "tonAmount") {
       validateInput(e.target.value);
     }
   };
 
   const validateInput = (value) => {
     if (value < 500) {
-      setError('Please enter more than 500.');
+      setError("Please enter more than 500.");
     } else {
-      setError('');
+      setError("");
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (agentData.tonAmount < 500) {
-      setError('Please enter more than 500.');
+      setError("Please enter more than 500.");
       return;
     }
-  
+
     const formData = new FormData();
     formData.append("companyName", agentData.companyName);
     formData.append("companyImage", agentData.scrapImage);
     formData.append("phone", agentData.phone);
     formData.append("tonAmount", agentData.tonAmount);
     formData.append("message", agentData.message);
-  
+
     try {
       console.log(agentData, "formdata");
-      const response = await axios.post("http://localhost:7000/pickupcompany", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
-  
+      const response = await axios.post(
+        "http://localhost:7000/pickupcompany",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
       if (response.status === 200) {
         console.log("Form submitted successfully");
         setAgentData({
@@ -114,14 +118,20 @@ const AgentForm = () => {
               />
               <div className="relative">
                 <input
-                  className={`w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline ${error && 'border-red-500'}`}
+                  className={`w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline ${
+                    error && "border-red-500"
+                  }`}
                   type="text"
                   placeholder="How Many Ton You Have ?*"
                   name="tonAmount"
                   value={agentData.tonAmount}
                   onChange={handleChange}
                 />
-                {error && <p className="text-red-500 text-xs italic mt-1 absolute">{error}</p>}
+                {error && (
+                  <p className="text-red-500 text-xs italic mt-1 absolute">
+                    {error}
+                  </p>
+                )}
               </div>
             </div>
             <div className="my-4">
@@ -171,15 +181,19 @@ const AgentForm = () => {
               </div>
               <div className="flex flex-col">
                 <h2 className="text-2xl text-green-400">Call Us</h2>
-                <p className="text-gray-400">Tel: xxx-xxx-xxx</p>
-                <p className="text-gray-400">Fax: xxx-xxx-xxx</p>
+                <p className="text-gray-400">Tel: 813 7869 563</p>
+                <p className="text-gray-400">gmail: mubeensiraj13@gmail.com</p>
               </div>
             </div>
             <div className="flex gap-5 my-4 w-full lg:w-1/2">
+              <a href="">
+                <FaWhatsapp className="text-xl text-green-400 transform transition-transform duration-300 hover:scale-150" />
+              </a>
+              <a href="https://www.instagram.com/mubeen3_07/">
+                <FaInstagram className="text-xl text-green-400 transform transition-transform duration-300 hover:scale-150" />
+              </a>
               <FaFacebookF className="text-xl text-green-400 transform transition-transform duration-300 hover:scale-150" />
               <FaLinkedinIn className="text-xl text-green-400 transform transition-transform duration-300 hover:scale-150" />
-              <FaInstagram className="text-xl text-green-400 transform transition-transform duration-300 hover:scale-150" />
-              <FaWhatsapp className="text-xl text-green-400 transform transition-transform duration-300 hover:scale-150" />
             </div>
           </div>
         </div>

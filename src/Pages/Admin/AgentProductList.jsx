@@ -2,92 +2,81 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const AgentProductList = () => {
-const [agent,setAgent] = useState('')
+const [agent,setAgent] = useState([])
 
 
 const Getagent = async ()=>{
-  const response = await  axios.get('http://localhost:7000/agentdata')
-  console.log(response,'datagotted');
-  setAgent(response.data.agentdata)
+  const response = await  axios.get('http://localhost:7000/companydata')
+  console.log(response.data.Agent,'datagotted');
+  setAgent(response.data.Agent)
+  console.log(agent,'saved data')
 }
-console.log(agent,'agent data')
 useEffect(()=>{
   Getagent()
 },[])
 
-// const response = await axios.get('')
+async function deleteDoc(id) {
+  try {
+    const response = await axios.post(
+      `http://localhost:7000/admin/User/delete?id=${id}`
+    );
+    if (response.status === 200) {
+      setAgent(agent.filter((user) => user._id !== id));
+    }
+  } catch (error) {
+    console.log(error, "error in delete doc check into the delete btn");
+  }
+}
 
   return (
     <>
-      <div className="bg-black w-full">
-        <div className="max-w-2xl px-4 py-6 sm:px-6 sm:py-24 lg:max-w-7xl">
-          <h2 className="sr-only">Products</h2>
-
-          <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 xl:gap-x-8">
-            <a href="#" className="group">
-              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-                <img
-                  src="https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg"
-                  alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
-                  className="h-full w-full object-cover object-center group-hover:opacity-75"
-                />
-              </div>
-              <h3 className="mt-4 text-sm text-gray-700">Earthen Bottle</h3>
-              <p className="mt-1 text-lg font-medium text-gray-900">$48</p>
-            </a>
-            <a href="#" className="group">
-              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-                <img
-                  src="https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg"
-                  alt="Olive drab green insulated bottle with flared screw lid and flat top."
-                  className="h-full w-full object-cover object-center group-hover:opacity-75"
-                />
-              </div>
-              <h3 className="mt-4 text-sm text-gray-700">Nomad Tumbler</h3>
-              <p className="mt-1 text-lg font-medium text-gray-900">$35</p>
-            </a>
-            <a href="#" className="group">
-              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-                <img
-                  src="https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg"
-                  alt="Person using a pen to cross a task off a productivity paper card."
-                  className="h-full w-full object-cover object-center group-hover:opacity-75"
-                />
-              </div>
-              <h3 className="mt-4 text-sm text-gray-700">Focus Paper Refill</h3>
-              <p className="mt-1 text-lg font-medium text-gray-900">$89</p>
-            </a>
-            
-            <a href="#" className="group">
-              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-                <img
-                  src="https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg"
-                  alt="Hand holding black machined steel mechanical pencil with brass tip and top."
-                  className="h-full w-full object-cover object-center group-hover:opacity-75"
-                />
-              </div>
-              <h3 className="mt-4 text-sm text-gray-700">
-                Machined Mechanical Pencil
-              </h3>
-              <p className="mt-1 text-lg font-medium text-gray-900">$35</p>
-            </a>
-            <a href="#" className="group">
-              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-                <img
-                  src="https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg"
-                  alt="Hand holding black machined steel mechanical pencil with brass tip and top."
-                  className="h-full w-full object-cover object-center group-hover:opacity-75"
-                />
-              </div>
-              <h3 className="mt-4 text-sm text-gray-700">
-                Machined Mechanical Pencil
-              </h3>
-              <p className="mt-1 text-lg font-medium text-gray-900">$35</p>
-            </a>
+     <div className="bg-white bg-opacity-15 shadow-md rounded-lg">
+      <div className="px-6 py-4">
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-xl font-semibold">All Orders</h2>
+          <div className="flex items-center space-x-2">
+           
           </div>
         </div>
+        <div className="overflow-x-auto">
+          <table className="w-full table-auto">
+            <thead>
+              <tr className="bg-gray-200">
+                <th className="px-4 py-2 text-center">Name </th>
+                <th className="px-4 py-2 text-center">Image </th>
+                <th className="px-4 py-2 text-center">Phone </th>
+                <th className="px-4 py-2 text-center">Kilogram </th>           
+                <th className="px-4 py-2 text-center">Actions </th>
+              </tr>
+            </thead>
+            <tbody>
+              {agent.map((user, index) => (
+                <tr
+                  key={index}
+                  id={`user-${user._id}`}
+                  className="hover:bg-gray-100 hover:bg-opacity-25"
+                >
+                  <td className="px-4 py-2 text-center">{user.Companyname}</td>
+                  <td className="px-4 py-2 text-center"><img src={"http://localhost:7000//assets/companyImage/"+ user.companyImage} className="w-32 h-32" alt="" /></td>
+                  <td className="px-4 py-2 text-center">{user.phone}</td >
+                  <td className="px-4 py-2 text-center">{user.kilogram}</td>                  
+                  <td className="px-4 py-2 flex items-center justify-center space-x-2">
+                   
+                    <button
+                      onClick={() => deleteDoc(user._id)}
+                      className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md"
+                    >
+                      Delete Order
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
-    </>
+    </div>
+         </>
   );
 };
 

@@ -162,7 +162,7 @@ function Footer() {
 
   <li>
     <a
-      href="#"
+      href="https://www.instagram.com/mubeen3_07/"
       rel="noreferrer"
       target="_blank"
       className="text-gray-700 transition hover:opacity-75"
