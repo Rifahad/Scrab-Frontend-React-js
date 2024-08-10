@@ -11,6 +11,7 @@ function AgentProductList() {
   async function listProduct() {
     const response = await  axios.get("http://localhost:7000/adminagentProduct")
     console.log(response.data.Agent,'data gooted from backend');
+    setagentProduct(response.data.Agent);
     
   }
   useEffect(() => {
