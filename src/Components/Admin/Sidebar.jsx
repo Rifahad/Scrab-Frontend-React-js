@@ -31,30 +31,50 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
         </svg>
         <span className="mx-3 text-black">Dashboard</span>
     </Link>
-    <Link className="flex items-center px-6 py-2 mt-4 text-green-500 bg-transparent hover:bg-green-500 hover:text-black" to="/admin/adminProduct">
+
+    <Link className="flex items-center px-6 py-2 mt-4 text-green-500 bg-transparent hover:bg-green-500 hover:text-black" to="/admin/users">
         <svg className="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2h-2a2 2 0 00-2 2v2m0 0H9m4 0H5m4 0V9a2 2 0 00-2-2H5a2 2 0 00-2 2v2" />
         </svg>
-        <span className="mx-3 text-black">Products</span>
+        <span className="mx-3 text-black">Users List</span>
     </Link>
+
+    <Link className="flex items-center px-6 py-2 mt-4 text-green-500 bg-transparent hover:bg-green-500 hover:text-black" to="/admin/AgentProductList">
+        <svg className="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2h-2a2 2 0 00-2 2v2m0 0H9m4 0H5m4 0V9a2 2 0 00-2-2H5a2 2 0 00-2 2v2" />
+        </svg>
+        <span className="mx-3 text-black">Company List</span>
+    </Link>
+
     <Link className="flex items-center px-6 py-2 mt-4 text-green-500 bg-transparent hover:bg-green-500 hover:text-black" to="/admin/add">
         <svg className="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z" />
         </svg>
         <span className="mx-3 text-black">Add Products</span>
     </Link>
-    <Link className="flex items-center px-6 py-2 mt-4 text-green-500 bg-transparent hover:bg-green-500 hover:text-black" to="/admin/users">
+    <Link className="flex items-center px-6 py-2 mt-4 text-green-500 bg-transparent hover:bg-green-500 hover:text-black" to="/admin/adminProduct">
         <svg className="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2h-2a2 2 0 00-2 2v2m0 0H9m4 0H5m4 0V9a2 2 0 00-2-2H5a2 2 0 00-2 2v2" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z" />
         </svg>
-        <span className="mx-3 text-black">Users</span>
+        <span className="mx-3 text-black">Products</span>
     </Link>
-    <Link className="flex items-center px-6 py-2 mt-4 text-green-500 bg-transparent hover:bg-green-500 hover:text-black" to="/admin/AgentProductList">
-        <svg className="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2h-2a2 2 0 00-2 2v2m0 0H9m4 0H5m4 0V9a2 2 0 00-2-2H5a2 2 0 00-2 2v2" />
+ 
+    <Link className="flex items-center px-6 py-2 mt-4 text-green-500 bg-transparent hover:bg-green-500 hover:text-black" to="/admin/Agentproductadd">
+    <svg className="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z" />
         </svg>
-        <span className="mx-3 text-black">Agent Products</span>
+        <span className="mx-3 text-black"> Add Company products</span>
     </Link>
+ 
+
+    <Link className="flex items-center px-6 py-2 mt-4 text-green-500 bg-transparent hover:bg-green-500 hover:text-black" to="/admin/Agentproducts">
+    <svg className="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z" />
+        </svg>
+        <span className="mx-3 text-black"> Company products</span>
+    </Link>
+
+
 </nav>
 
             </div>

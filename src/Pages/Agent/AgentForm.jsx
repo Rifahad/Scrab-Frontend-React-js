@@ -12,13 +12,13 @@ import {
 
 const AgentForm = () => {
   const navigate = useNavigate();
-  const [validate,setValidate] = useState('')
   const [agentData, setAgentData] = useState({
     companyName: "",
     scrapImage: null,
     phone: "+91",
     tonAmount: 500,
     message: "",
+    
   });
 
   const [error, setError] = useState("");

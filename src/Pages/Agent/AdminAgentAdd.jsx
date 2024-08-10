@@ -22,12 +22,14 @@ const CardForm = () => {
     const handleSubmitting = async (e) => {
         e.preventDefault();
         try {
+            console.log(formData,'form data');
+            
             const formDataObj = new FormData();
             formDataObj.append("file", formData.file); 
             formDataObj.append("title", formData.title);
             formDataObj.append("price", formData.price);
 
-            const response = await axios.post('http://localhost:7000/card', formDataObj, {
+            const response = await axios.post('http://localhost:7000/companycard', formDataObj, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -42,7 +44,7 @@ const CardForm = () => {
                     timer: 1500
                 });
                 setTimeout(() => {
-                    navigate('/admin/adminProduct');
+                    navigate('/admin/Agentproducts');
                 }, 1000);
 
             }
@@ -62,7 +64,7 @@ const CardForm = () => {
                 <form action='/card' className="py-4 px-9" onSubmit={handleSubmitting} method='post' encType='multipart/form-data'>
                     <div className="mb-5">
                         <label htmlFor="title" className="mb-3 block text-base font-medium text-[#07074D]">
-                            Add Products Here:
+                            Add company Products Here:
                         </label>
                         <input
                             type="text"

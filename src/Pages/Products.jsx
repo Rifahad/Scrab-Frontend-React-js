@@ -37,11 +37,11 @@ function Products() {
             <div className="text-xl font-semibold text-gray-800">{card.title}</div>
             <p className="text-gray-600">₹{card.price}</p>
           </div>
-          <div className="px-6 py-4">
+          {/* <div className="px-6 py-4">
             <span className="inline-block px-2 py-1 font-semibold text-teal-900 bg-teal-200 rounded-full">good</span>
             <span className="inline-block px-2 py-1 font-semibold text-indigo-900 bg-indigo-200 rounded-full">Book</span>
             <span className="inline-block px-2 py-1 font-semibold text-purple-900 bg-purple-200 rounded-full">Carboard</span>
-          </div>
+          </div> */}
           <div className="px-6 py-4">
             <a href="#" className="text-[#5F8F15] hover:underline">
               Learn more..

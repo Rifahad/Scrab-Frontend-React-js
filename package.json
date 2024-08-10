@@ -12,6 +12,7 @@
   "dependencies": {
     "@heroicons/react": "^2.1.5",
     "@material-tailwind/react": "^2.1.9",
+    "@react-google-maps/api": "^2.19.3",
     "@react-spring/web": "^9.7.3",
     "antd": "^5.17.4",
     "apexcharts": "^3.51.0",

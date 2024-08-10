@@ -7,7 +7,9 @@ import CardForm from "../Pages/Admin/CardFom";
 import Editproduct from "../Components/Admin/editform";
 import Login from "../Pages/Admin/Login";
 import Auth from "../Components/Auth";
-import AgentProductList from "../Pages/Admin/AgentProductList";
+import AgentList from "../Pages/Admin/AgentList";
+import AdminAgentForm  from "../Pages/Agent/AdminAgentAdd"
+import AdminagentProductList from "../Pages/Admin/Agentproductlist"
 
 function AdminRouter() {
   return (
@@ -20,7 +22,9 @@ function AdminRouter() {
           <Route path="/Users" element={<UserList />} />
           <Route path="/add" element={<CardForm />} />
           <Route path="/editProduct/" element={<Editproduct />} />
-          <Route path="/AgentProductList" element={<AgentProductList />} />
+          <Route path="/AgentProductList" element={<AgentList />} />
+          <Route path="/Agentproductadd" element={<AdminAgentForm/>}/>
+          <Route path="/Agentproducts" element={ <AdminagentProductList/>}/>
 
         </Route>
       </Route>
