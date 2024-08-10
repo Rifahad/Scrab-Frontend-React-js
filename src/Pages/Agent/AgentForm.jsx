@@ -12,10 +12,11 @@ import {
 
 const AgentForm = () => {
   const navigate = useNavigate();
+  const [validate,setValidate] = useState('')
   const [agentData, setAgentData] = useState({
     companyName: "",
     scrapImage: null,
-    phone: "",
+    phone: "+91",
     tonAmount: 500,
     message: "",
   });
@@ -67,6 +68,9 @@ const AgentForm = () => {
           },
         }
       );
+      if (response.data.msg === 'complete the form please') {
+        alert('Please complete the form');
+      }
 
       if (response.status === 200) {
         console.log("Form submitted successfully");
@@ -106,12 +110,14 @@ const AgentForm = () => {
                 name="companyName"
                 value={agentData.companyName}
                 onChange={handleChange}
+                required
               />
               <input
                 className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                 type="file"
                 name="scrapImage"
                 onChange={handleFileChange}
+                required
               />
               <input
                 className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
@@ -120,6 +126,8 @@ const AgentForm = () => {
                 name="phone"
                 value={agentData.phone}
                 onChange={handleChange}
+                maxLength={13}
+                required
               />
               <div className="relative">
                 <input
@@ -131,6 +139,8 @@ const AgentForm = () => {
                   name="tonAmount"
                   value={agentData.tonAmount}
                   onChange={handleChange}
+                  maxLength={1000}
+                  required
                 />
                 {error && (
                   <p className="text-red-500 text-xs italic mt-1 absolute">
@@ -146,6 +156,7 @@ const AgentForm = () => {
                 name="message"
                 value={agentData.message}
                 onChange={handleChange}
+                maxLength={250}
               ></textarea>
             </div>
             <div className="my-2 w-full lg:w-1/4">
