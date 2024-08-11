@@ -41,7 +41,7 @@ function Footer() {
               <button
                 className="mt-1 w-full bg-green-600 px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition-none hover:bg-teal-600 sm:mt-0 sm:w-auto sm:shrink-0"
               >
-                Sign Up
+               meassage
               </button>
             </div>
           </form>
