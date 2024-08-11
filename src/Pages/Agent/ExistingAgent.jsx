@@ -33,7 +33,8 @@ const ExistingAgent = () => {
       ) {
         navigate("/companyproducts");
       } else if (
-        response.data.message === "render agentform"
+        response.status === 202 &&
+        response.data.msg === "render agentform"
       ) {
         navigate("/agent-form");
       }else{
@@ -62,7 +63,7 @@ const ExistingAgent = () => {
         <input
           onChange={handleChange}
           value={existingAgent.number}
-          type="tel"
+          type="number"
           name="number"
           ref={inputRef} 
           id="number"
