@@ -15,11 +15,10 @@ const AgentForm = () => {
   const navigate = useNavigate();
   const [agentData, setAgentData] = useState({
     companyName: "",
-    scrapImage: null,
-    phone: "+91",
+    phone: "",
     tonAmount: 500,
+    location:"",
     message: "",
-    
   });
 
   const [error, setError] = useState("");
@@ -53,8 +52,8 @@ const AgentForm = () => {
 
     const formData = new FormData();
     formData.append("companyName", agentData.companyName);
-    formData.append("companyImage", agentData.scrapImage);
     formData.append("phone", agentData.phone);
+    formData.append("location",agentData.location)
     formData.append("tonAmount", agentData.tonAmount);
     formData.append("message", agentData.message);
 
@@ -69,22 +68,21 @@ const AgentForm = () => {
           },
         }
       );
-      if (response.data.msg === 'complete the form please') {
-        alert('Please complete the form');
+      if (response.data.msg === "complete the form please") {
+        alert("Please complete the form");
       }
 
       if (response.status === 200) {
         console.log("Form submitted successfully");
         setAgentData({
           companyName: "",
-          scrapImage: null,
           phone: "",
+          location:"",
           tonAmount: "",
           message: "",
         });
-        setTimeout(() => {
-          navigate("/");
-        }, 1000);
+          navigate("/companyproducts");
+     
       } else {
         console.error("Form submission failed");
       }
@@ -93,9 +91,6 @@ const AgentForm = () => {
     }
   };
 
-  const companyCheck = ()=>{
-    // const response = axios.get('/companycheck')
-  }
   return (
     <div className="flex justify-center items-center min-h-screen bg-white">
       <div className="container mx-auto my-4 px-4 lg:px-20">
@@ -104,11 +99,10 @@ const AgentForm = () => {
             <h1 className="font-bold uppercase text-green-400 text-4xl lg:text-5xl">
               Share Details About <br /> Scrap You Have
             </h1>
-            
           </div>
           <form onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
-                        <input
+              <input
                 className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                 type="text"
                 placeholder="Company Name*"
@@ -117,14 +111,9 @@ const AgentForm = () => {
                 onChange={handleChange}
                 required
               />
-              <input
-                className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                type="file"
-                name="scrapImage"
-                onChange={handleFileChange}
-                required
-              />
-              <input
+             
+            
+               <input
                 className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                 type="phone"
                 placeholder="Phone *"
@@ -134,6 +123,17 @@ const AgentForm = () => {
                 maxLength={13}
                 required
               />
+                <input
+                className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                type="text"
+                placeholder="location *"
+                name="location"
+                value={agentData.location}
+                onChange={handleChange}
+                maxLength={100}
+                required
+              />
+
               <div className="relative">
                 <input
                   className={`w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline ${
@@ -175,17 +175,15 @@ const AgentForm = () => {
             </div>
           </form>
 
-<Link  to='/ExistingAgent'>
-
-          <button 
-                type="submit"
-                className="uppercase text-sm font-bold tracking-wide bg-red-400  hover:bg-red-600 text-gray-100 p-3 rounded-lg w-full 
+          <Link to="/ExistingAgent">
+            <button
+              type="submit"
+              className="uppercase text-sm font-bold tracking-wide bg-red-400  hover:bg-red-600 text-gray-100 p-3 rounded-lg w-full 
                       focus:outline-none focus:shadow-outline"
-              >
-                Existing company
-                
-              </button> 
-              </Link>
+            >
+              Existing company
+            </button>
+          </Link>
         </div>
         <div className="w-full lg:-mt-12 lg:ml-[950px] md:ml-[550px] lg:w-2/6 px-8 py-12 shadow-inner bg-opacity-25 rounded backdrop-blur-md">
           <div className="flex flex-col text-black">

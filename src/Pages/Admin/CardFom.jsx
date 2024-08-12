@@ -41,9 +41,9 @@ const CardForm = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
-                setTimeout(() => {
+              
                     navigate('/admin/adminProduct');
-                }, 1000);
+        
 
             }
         } catch (error) {

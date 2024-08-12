@@ -43,9 +43,9 @@ const CardForm = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
-                setTimeout(() => {
+              
                     navigate('/admin/Agentproducts');
-                }, 1000);
+             
 
             }
         } catch (error) {
