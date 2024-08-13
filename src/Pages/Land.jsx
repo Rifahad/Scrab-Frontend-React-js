@@ -12,6 +12,7 @@ import Feature1 from "../assets/img/feature1.png";
 import Feature2 from "../assets/img/feature2.png";
 import Feature3 from "../assets/img/feature3.png";
 import Feature4 from "../assets/img/feature4.png";
+import { Link } from "react-router-dom";
 
 
 
@@ -159,23 +160,23 @@ const Land = () => {
                 your pickup today.
               </p>
               <div className="mt-16 flex flex-wrap justify-center gap-y-4 gap-x-6">
-                <a
-                  href="#"
-                  className="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
-                >
-                  <span className="relative text-base font-semibold text-white">
-                    Get started
-                  </span>
-                </a>
-                <a
-                  href="#"
-                  className="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-primary/10 before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
-                >
-                  <span className="relative text-base font-semibold text-primary">
-                    Learn more
-                  </span>
-                </a>
-              </div>
+      <Link
+        to="/home"  // Replace with the actual path
+        className="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
+      >
+        <span className="relative text-base font-semibold text-white">
+          Get started
+        </span>
+      </Link>
+      <Link
+        to="/help"  // Replace with the actual path
+        className="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-primary/10 before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
+      >
+        <span className="relative text-base font-semibold text-primary">
+          Learn more
+        </span>
+      </Link>
+    </div>
               <div className="hidden py-8 mt-16 border-y border-gray-100 sm:flex justify-between">
                 <div className="text-left">
                   <h6 className="text-lg font-semibold text-gray-700">
