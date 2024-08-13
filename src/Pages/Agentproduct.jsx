@@ -31,7 +31,7 @@ const Agentproduct = () => {
               <div className="relative">
                 <img
                   className="w-full h-48 object-fill"
-                  // src={'http://localhost:7000/' + item.Image}
+                  src={'http://localhost:7000/' + item.Image}
                   alt="card Image"
                 />
               </div>
