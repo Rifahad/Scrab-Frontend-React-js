@@ -1,6 +1,7 @@
 import { BsFillTrash2Fill } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import Logo from '../../assets/img/Logo.png'
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
     const navigate =useNavigate()
@@ -17,10 +18,16 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                 className={`fixed inset-y-0 left-0 z-30 w-64 overflow-y-auto rounded-r-2xl transition duration-300 transform bg-green-400 lg:translate-x-0 lg:static lg:inset-0 ${sidebarOpen ? 'translate-x-0 ease-out' : '-translate-x-full ease-in'}`}
             >
                 <div className="flex items-center justify-center mt-8">
-                    <div className="flex items-center">
+                    <div  className='w-20 ' >
+<img src={Logo}   onDoubleClick={handleDoubleClick} alt="" />
+{/* <span className="mx-2 text-md font-semibold text-black">ECO SCRAP</span> */}
+
+
+                    </div>
+                    {/* <div className="flex items-center">
                     <BsFillTrash2Fill className='text-[40px] text-[#5F8F15] transition-all rounded-full w-14 -rotate-45 hover:shadow-sm shadow-lg ring hover:ring-4 ring-white' onDoubleClick={handleDoubleClick} />
                         <span className="mx-2 text-2xl font-semibold text-black">ECO SCRAP</span>
-                    </div>
+                    </div> */}
                 </div>
 
 <nav className="mt-10">
