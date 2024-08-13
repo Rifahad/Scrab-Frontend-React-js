@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
@@ -26,7 +26,7 @@ const initialValues = {
   pickupImage: null,
 };
 
-const handleLocation = async (setFieldValue) => {
+const handleLocation = async (setFieldValue, setShowPTag) => {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
       async (position) => {
@@ -53,6 +53,8 @@ const handleLocation = async (setFieldValue) => {
           setFieldValue("country", address.country || "");
           setFieldValue("state", address.state || "");
           setFieldValue("zipcode", address.postcode || "");
+
+          setShowPTag(true);
         } catch (error) {
           console.error("Error fetching location data:", error);
         }
@@ -96,10 +98,7 @@ const handleSubmit = async (values, { resetForm, setSubmitting }, navigate) => {
     console.log("Server Response:", response.data);
     if (response.status === 200) {
       resetForm();
-      
-      setTimeout(()=>{
-        navigate("/");
-      },2000)
+      navigate("/");
     }
   } catch (error) {
     console.error("Error submitting form:", error);
@@ -111,7 +110,18 @@ const handleSubmit = async (values, { resetForm, setSubmitting }, navigate) => {
 
 const Pickup = () => {
   const [previewImage, setPreviewImage] = useState(null);
+  const [showPTag, setShowPTag] = useState(false);
   const navigate = useNavigate();
+  const btnref = useRef();
+  console.log(showPTag,'showtagee');
+  
+
+  const btnFocus = () => {
+    if (btnref.current) {
+      console.log("Button clicked");
+      btnref.current.focus();
+    }
+  };
 
   return (
     <div className="p-6 bg-white flex items-center justify-center">
@@ -128,12 +138,18 @@ const Pickup = () => {
                   <div className="text-gray-600">
                     <p className="font-medium text-lg">Personal Details</p>
                     <button
+                      ref={btnref}
                       type="button"
-                      onClick={() => handleLocation(setFieldValue)}
+                      onClick={() => handleLocation(setFieldValue, setShowPTag)}
                       className="bg-blue-500 text-white px-2 py-1 rounded mt-2"
                     >
                       Use Current Location
                     </button>
+                    {showPTag && (
+                      <p className="text-red-600 text-lg cursor-pointer" onClick={btnFocus}>
+                        please read carefully before submit.
+                      </p>
+                    )}
                     {previewImage && (
                       <div className="mt-4">
                         <img

@@ -23,10 +23,10 @@ const Agentproduct = () => {
   }, [agentcard]);
 
   return (
-    <>
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {agentcard.map((item, index) => (
+    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {agentcard.length > 0 ? (
+          agentcard.map((item, index) => (
             <div key={index} className="max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg hover:shadow-[#5F8F15]">
               <div className="relative">
                 <img
@@ -45,11 +45,13 @@ const Agentproduct = () => {
                 </a>
               </div>
             </div>
-          ))}
-        </div>
+          ))
+        ) : (
+          <p>There are no cards available</p>
+        )}
       </div>
-    </>
+    </div>
   );
-}
+};
 
 export default Agentproduct;

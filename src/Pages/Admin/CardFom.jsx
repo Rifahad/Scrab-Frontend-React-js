@@ -72,6 +72,7 @@ const CardForm = () => {
                             placeholder="Product Name"
                             className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-green-500 focus:shadow-md"
                             value={formData.title}
+                            required
                         />
                     </div>
 
@@ -87,6 +88,7 @@ const CardForm = () => {
                             placeholder="Product Price"
                             className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-green-500 focus:shadow-md"
                             value={formData.price}
+                            required
                         />
                     </div>
 
@@ -95,7 +97,7 @@ const CardForm = () => {
                             Upload Image Here
                         </label>
                         <div className="mb-8">
-                            <input type="file" name="file" id="file" className="sr-only" onChange={handleChange} accept="image/*"/>
+                            <input type="file" name="file" id="file" className="sr-only" onChange={handleChange} required accept="image/*"/>
                             <label
                                 htmlFor="file"
                                 className="relative flex min-h-[200px] items-center justify-center rounded-md border border-dashed border-[#e0e0e0] p-12 text-center"
