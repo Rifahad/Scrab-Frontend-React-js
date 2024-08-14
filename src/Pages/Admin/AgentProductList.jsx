@@ -33,10 +33,10 @@ function AgentProductList() {
         try {
           console.log("delete here", id);
           const response = await axios.post(
-            `http://localhost:7000/agentproductdelete?id=${id}`
+            `http://localhost:7000/adminagentProductdelete?id=${id}`
           );
           if (response.status === 200) {
-            setagentProduct(agentproduct.filter((user) => user._id !== id));
+            setagentProduct(agentproduct.filter((product) => product._id !== id));
             Swal.fire("Deleted!", "Your product has been deleted.", "success");
           } else {
             Swal.fire(
