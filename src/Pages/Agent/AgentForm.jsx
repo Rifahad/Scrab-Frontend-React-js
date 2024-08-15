@@ -112,17 +112,23 @@ const AgentForm = () => {
                 required
               />
              
-            
-               <input
-                className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                type="phone"
-                placeholder="Phone *"
-                name="phone"
-                value={agentData.phone}
-                onChange={handleChange}
-                maxLength={13}
-                required
-              />
+             <input
+  className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+  type="tel"
+  placeholder="Phone *"
+  name="phone"
+  value={agentData.phone}
+  onChange={(e) => {
+    const { value } = e.target;
+    // Allow only numbers and limit to maxLength
+    if (/^\d{0,13}$/.test(value)) {
+      handleChange(e);
+    }
+  }}
+  maxLength={13}
+  required
+/>
+
                 <input
                 className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                 type="text"
@@ -134,25 +140,32 @@ const AgentForm = () => {
                 required
               />
 
-              <div className="relative">
-                <input
-                  className={`w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline ${
-                    error && "border-red-500"
-                  }`}
-                  type="text"
-                  placeholder="How Many Ton You Have ?*"
-                  name="tonAmount"
-                  value={agentData.tonAmount}
-                  onChange={handleChange}
-                  maxLength={1000}
-                  required
-                />
-                {error && (
-                  <p className="text-red-500 text-xs italic mt-1 absolute">
-                    {error}
-                  </p>
-                )}
-              </div>
+<div className="relative">
+  <input
+    className={`w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline ${
+      error && "border-red-500"
+    }`}
+    type="tel"
+    placeholder="How Many Ton You Have ?*"
+    name="tonAmount"
+    value={agentData.tonAmount}
+    onChange={(e) => {
+      const { value } = e.target;
+      // Allow only numbers and limit to maxLength (which you set to 1000 here, but you might want to adjust)
+      if (/^\d{0,1000}$/.test(value)) {
+        handleChange(e);
+      }
+    }}
+    maxLength={6}
+    required
+  />
+  {error && (
+    <p className="text-red-500 text-xs italic mt-1 absolute">
+      {error}
+    </p>
+  )}
+</div>
+
             </div>
             <div className="my-4">
               <textarea
@@ -162,6 +175,7 @@ const AgentForm = () => {
                 value={agentData.message}
                 onChange={handleChange}
                 maxLength={250}
+                required
               ></textarea>
             </div>
             <div className="my-2 w-full   lg:w-1/4">
