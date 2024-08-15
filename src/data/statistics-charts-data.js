@@ -114,14 +114,14 @@ export const statisticsChartsData = [
   },
   {
     color: "white",
-    title: "Daily Sales",
+    title: " pickup user",
     description: "15% increase in today sales",
     footer: "updated 4 min ago",
     chart: dailySalesChart,
   },
   {
     color: "white",
-    title: "Completed Tasks",
+    title: "pickup company",
     description: "Last Campaign Performance",
     footer: "just updated",
     chart: completedTasksChart,

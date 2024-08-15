@@ -61,7 +61,7 @@ const CardForm = () => {
     return (
         <div className="flex items-center justify-center">
             <div className="mx-auto w-full max-w-[550px] bg-white border rounded">
-                <form action='/card' className="py-4 px-9" onSubmit={handleSubmitting} method='post' encType='multipart/form-data'>
+                <form action='/card' className="py-4 px-4" onSubmit={handleSubmitting} method='post' encType='multipart/form-data'>
                     <div className="mb-5">
                         <label htmlFor="title" className="mb-3 block text-base font-medium text-[#07074D]">
                             Add company Products Here:

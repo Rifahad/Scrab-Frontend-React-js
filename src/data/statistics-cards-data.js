@@ -4,13 +4,50 @@ import {
   UsersIcon,
   ChartBarIcon,
 } from "@heroicons/react/24/solid";
+import axios from "axios";
+import { useEffect } from "react";
+
+const totalUserCount = ()=>{
+  const response = axios.get('localhost:7000/dashboard/totalUserCount')
+  console.log(response.data);
+  
+
+}
+
+const totalAgentCount = ()=>{
+  const response = axios.get('localhost:7000/dashboard/totalAgentCount')
+  console.log(response.data);
+
+
+}
+const totalPickupCount = ()=>{
+  const response = axios.get('localhost:7000/dashboard/totalPickupCount')
+  console.log(response.data);
+
+
+}
+
+const totalAgentPickupCount = ()=>{
+  const response = axios.get('localhost:7000/dashboard/totalAgentPickupCount')
+  console.log(response.data);
+
+
+}
+// useEffect(()=>{
+//   totalUserCount()
+//   totalAgentCount()
+//   totalPickupCount()
+//   totalAgentPickupCount()
+// })
+
+
 
 export const statisticsCardsData = [
   {
     color: "gray",
     icon: BanknotesIcon,
-    title: "Today's Money",
-    value: "$53k",
+    title: "Total Users",
+    value: "13",
     footer: {
       color: "text-green-500",
       value: "+55%",
@@ -20,7 +57,7 @@ export const statisticsCardsData = [
   {
     color: "gray",
     icon: UsersIcon,
-    title: "Today's Users",
+    title: "Total Company ",
     value: "2,300",
     footer: {
       color: "text-green-500",
@@ -31,7 +68,7 @@ export const statisticsCardsData = [
   {
     color: "gray",
     icon: UserPlusIcon,
-    title: "New Clients",
+    title: "Total pickup  user Count",
     value: "3,462",
     footer: {
       color: "text-red-500",
@@ -42,8 +79,8 @@ export const statisticsCardsData = [
   {
     color: "gray",
     icon: ChartBarIcon,
-    title: "Sales",
-    value: "$103,430",
+    title: "Total Company pickup count",
+    value: "430",
     footer: {
       color: "text-green-500",
       value: "+5%",

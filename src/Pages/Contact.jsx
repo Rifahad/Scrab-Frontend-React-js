@@ -5,6 +5,7 @@ function Contact() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [sendCopy, setSendCopy] = useState(true);
+  const [whatsappNumber, setWhatsappNumber] = useState("");
 
   const handleFormSubmit = async () => {
     const formattedMessage = `
@@ -14,7 +15,6 @@ function Contact() {
       Send me a copy: ${sendCopy ? "Yes" : "No"}
     `;
 
-    const whatsappNumber = "+917406941223"; // Replace with the desired WhatsApp number
     const proxyUrl = "https://cors-anywhere.herokuapp.com/"; // CORS proxy service URL
 
     try {
@@ -69,46 +69,41 @@ function Contact() {
                   <input
                     type="text"
                     className="peer block w-full rounded border-2 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder-opacity-100 peer-focus:text-primary"
-                    id="exampleInput90"
+                    id="nameInput"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
+                    placeholder="Name"
                   />
-                  <label
-                    className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary"
-                    htmlFor="exampleInput90"
-                  >
-                    Name
-                  </label>
                 </div>
                 <div className="relative mb-6">
                   <input
                     type="email"
                     className="peer block w-full rounded border-2 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder-opacity-100 peer-focus:text-primary"
-                    id="exampleInput91"
+                    id="emailInput"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Email address"
                   />
-                  <label
-                    className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary"
-                    htmlFor="exampleInput91"
-                  >
-                    Email address
-                  </label>
                 </div>
                 <div className="relative mb-6">
                   <textarea
                     className="peer block w-full rounded border-2 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder-opacity-100"
-                    id="exampleFormControlTextarea1"
+                    id="messageInput"
                     rows="3"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
+                    placeholder="Message"
                   ></textarea>
-                  <label
-                    htmlFor="exampleFormControlTextarea1"
-                    className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary"
-                  >
-                    Message
-                  </label>
+                </div>
+                <div className="relative mb-6">
+                  <input
+                    type="tel"
+                    className="peer block w-full rounded border-2 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder-opacity-100 peer-focus:text-primary"
+                    id="whatsappNumberInput"
+                    value={whatsappNumber}
+                    onChange={(e) => setWhatsappNumber(e.target.value)}
+                    placeholder="WhatsApp Number"
+                  />
                 </div>
                 <button
                   type="submit"
@@ -164,7 +159,7 @@ function Contact() {
                           <path
                             strokeLinecap="round"
                             strokeLinejoin="round"
-                            d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5zm6-10.125a1.875 1.875 0 11-3.75 0 1.875 1.875 0 013.75 0z"
+                            d="M15 9h3.75M12 15h6m-6 6h6m-2.25-6v12m2.25 0v2.25m-2.25-2.25V24M3 12v2.25M7.5 6h3m-3 6h3m-3 6h3M9 6h1.5m-1.5 0V4.5m1.5 6V6m0 6v4.5m2.25-6v6"
                           />
                         </svg>
                       </div>
@@ -174,12 +169,12 @@ function Contact() {
                       <p className="text-sm text-neutral-500">
                         example@gmail.com
                       </p>
-                      <p className="text-sm text-neutral-500">1-600-890-4567</p>
+                      <p className="text-sm text-neutral-500">1-600-234-5678</p>
                     </div>
                   </div>
                 </div>
-                <div className="w-full md:w-6/12 lg:w-full xl:w-6/12">
-                  <div className="flex items-start">
+                <div className="mb-12 w-full md:w-6/12 lg:w-full xl:w-6/12">
+                  <div className="align-start flex">
                     <div className="shrink-0">
                       <div className="inline-block rounded-md bg-[#8cdfa1] p-4 text-primary">
                         <svg
@@ -188,22 +183,56 @@ function Contact() {
                           viewBox="0 0 24 24"
                           strokeWidth="2"
                           stroke="currentColor"
-                          className="h-6 w-6"
+                          className="h-7 w-7"
                         >
                           <path
                             strokeLinecap="round"
                             strokeLinejoin="round"
-                            d="M3.75 3h16.5M12 3v18"
+                            d="M18 12.25a6.75 6.75 0 11-13.5 0 6.75 6.75 0 0113.5 0z"
+                          />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M9.75 9.75L18 18"
                           />
                         </svg>
                       </div>
                     </div>
                     <div className="ml-6 grow">
-                      <p className="mb-2 font-bold">Content info</p>
+                      <p className="mb-2 font-bold">Accounting help</p>
                       <p className="text-sm text-neutral-500">
                         example@gmail.com
                       </p>
-                      <p className="text-sm text-neutral-500">1-600-890-4567</p>
+                      <p className="text-sm text-neutral-500">1-600-234-5678</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="mb-12 w-full md:w-6/12 lg:w-full xl:w-6/12">
+                  <div className="align-start flex">
+                    <div className="shrink-0">
+                      <div className="inline-block rounded-md bg-[#8cdfa1] p-4 text-primary">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth="2"
+                          stroke="currentColor"
+                          className="h-7 w-7"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M6.75 5.25v-3h-1.5v3h-3v1.5h3v3h1.5v-3h3v-1.5h-3zM3.75 15h-.75a2.25 2.25 0 00-2.25 2.25v2.25h12v-2.25A2.25 2.25 0 009.75 15h-.75a2.25 2.25 0 01-2.25-2.25V9.75H3.75v3.75A2.25 2.25 0 011.5 15zm16.5-2.25v-2.25a2.25 2.25 0 012.25-2.25h.75v-3.75H22.5a2.25 2.25 0 00-2.25-2.25h-2.25V1.5H14.25v3h-1.5v-3H10.5V1.5H7.5v3h-.75a2.25 2.25 0 00-2.25 2.25v2.25h2.25v3.75h.75A2.25 2.25 0 0110.5 15v3h-3v2.25A2.25 2.25 0 019.75 22.5h4.5A2.25 2.25 0 0116.5 20.25V18h-3v-3a2.25 2.25 0 012.25-2.25h.75v-3.75H22.5z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <div className="ml-6 grow">
+                      <p className="mb-2 font-bold">General inquiries</p>
+                      <p className="text-sm text-neutral-500">
+                        example@gmail.com
+                      </p>
+                      <p className="text-sm text-neutral-500">1-600-234-5678</p>
                     </div>
                   </div>
                 </div>
@@ -217,3 +246,4 @@ function Contact() {
 }
 
 export default Contact;
+  
