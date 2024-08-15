@@ -18,7 +18,7 @@ const AgentProductList = () => {
   async function deleteDoc(id) {
     try {
       const response = await axios.post(
-        `http://localhost:7000/admin/User/delete?id=${id}`
+        `http://localhost:7000/admin/adminAgentlistDelete?id=${id}`
       );
       if (response.status === 200) {
         setAgent(agent.filter((user) => user._id !== id));
