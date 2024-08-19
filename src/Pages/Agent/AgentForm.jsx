@@ -1,119 +1,276 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import {
+  FaPhone,
+  FaFacebookF,
+  FaInstagram,
+  FaWhatsapp,
+} from "react-icons/fa";
+
+import Logo from "../../assets/img/Logo.png";
 
 const AgentForm = () => {
-
+  const navigate = useNavigate();
   const [agentData, setAgentData] = useState({
-    companyName:"",
-    scrapImage:null,
-    phone:'',
+    companyName: "",
+    phone: "",
+    tonAmount: 500,
+    location: "",
+    message: "",
+  });
 
-  })
+  const [error, setError] = useState("");
+
+  const handleFileChange = (e) => {
+    setAgentData({ ...agentData, scrapImage: e.target.files[0] });
+  };
+
+  const handleChange = (e) => {
+    setAgentData({ ...agentData, [e.target.name]: e.target.value });
+    if (e.target.name === "tonAmount") {
+      validateInput(e.target.value);
+    }
+  };
+
+  const validateInput = (value) => {
+    if (value < 500) {
+      setError("Please enter more than 500.");
+    } else {
+      setError("");
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (agentData.tonAmount < 500) {
+      setError("Please enter more than 500.");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("companyName", agentData.companyName);
+    formData.append("phone", agentData.phone);
+    formData.append("location", agentData.location);
+    formData.append("tonAmount", agentData.tonAmount);
+    formData.append("message", agentData.message);
+
+    try {
+      const response = await axios.post(
+        "http://localhost:7000/pickupcompany",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      if (response.data.msg === "complete the form please") {
+        alert("Please complete the form");
+      }
+
+      if (response.status === 200) {
+        console.log("Form submitted successfully");
+        setAgentData({
+          companyName: "",
+          phone: "",
+          location: "",
+          tonAmount: "",
+          message: "",
+        });
+        navigate("/companyproducts");
+      } else {
+        console.error("Form submission failed");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
+  };
+
   return (
-    <>
-      <div className="flex justify-center items-center w-screen h-screen bg-white">
-        <div className="container mx-auto my-4 px-4 lg:px-20">
-          <div className="w-full p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl">
-            <div className="flex">
-              <h1 className="font-bold uppercase text-5xl">
-                Share Details About <br /> Scrap You Have
-              </h1>
+    <div className="flex flex-col min-h-screen">
+      <header className="flex justify-between items-center px-6 py-4">
+        <div className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2">
+            <div aria-hidden="true" className="flex space-x-1">
+              <img src={Logo} alt="" className="w-16" />
             </div>
-            <div className="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
-              <input
-                className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                type="text"
-                placeholder="Company Name*"
-              />
-              <input
-                className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                type="file"
-              />
-              <input
-                className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                type="number"
-                placeholder="Phone*"
-              />
-              <input
-                className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                type="text"
-                placeholder="How Many Ton You Have ?*"
-              />
-            </div>
-            <div className="my-4">
-              <textarea
-                placeholder="Message*"
-                className="w-full h-32 bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-              ></textarea>
-            </div>
-            <div className="my-2 w-1/2 lg:w-1/4">
-              <button
-                className="uppercase text-sm font-bold tracking-wide bg-green-400 text-gray-100 p-3 rounded-lg w-full 
-                      focus:outline-none focus:shadow-outline"
-              >
-                Submit
-              </button>
-            </div>
+            <span className="text-2xl font-bold text-gray-900">EcoScrap</span>
+          </Link>
+        </div>
+        <nav className="flex items-center gap-6">
+          <Link to="/help" className="hover:underline text-black">
+            Help
+          </Link>
+          <Link to="/ExistingAgent" className="hover:underline text-black">
+            Existing User
+          </Link>
+          <Link to="/contact" className="hover:underline text-black">
+            Contact Us
+          </Link>
+        </nav>
+      </header>
+      <main className="flex-1 bg-white py-12 px-6 md:px-12 lg:px-24 relative">
+        <div className="absolute inset-0  opacity-10 animate-gradient-x" />
+        <div className="max-w-4xl mx-auto grid gap-8 relative z-10">
+          <div>
+            <h1 className="text-3xl font-bold mb-4 text-black">
+              Share Details About Your Scrap
+            </h1>
+            <p className="text-black">
+              Fill out the form below to get in touch with us.
+            </p>
           </div>
-
-          <div
-            className="w-full lg:-mt-96 lg:w-2/6 px-8 py-12 ml-auto shadow-inner shadow-black bg-white bg-opacity-25 rounded"
-          >
-            <div className="flex flex-col text-black">
-              <h1 className="font-bold uppercase text-4xl my-4">
-                Drop in our office
-              </h1>
-              <p className="text-gray-400">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                tincidunt arcu diam, eu feugiat felis fermentum id. Curabitur
-                vitae nibh viverra, auctor turpis sed, scelerisque ex.
-              </p>
-
-              <div className="flex my-4 w-2/3 lg:w-1/2">
-                <div className="flex flex-col">
-                  <i className="fas fa-map-marker-alt pt-2 pr-2" />
-                </div>
-                <div className="flex flex-col">
-                  <h2 className="text-2xl">Main Office</h2>
-                  <p className="text-gray-400">
-                    5555 Tailwind RD, Pleasant Grove, UT 73533
+          <form className="grid gap-6" onSubmit={handleSubmit}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-2">
+                <label htmlFor="company-name" className="text-black">
+                  Company Name
+                </label>
+                <input
+                  id="company-name"
+                  name="companyName"
+                  value={agentData.companyName}
+                  onChange={handleChange}
+                  placeholder="Enter your company name"
+                  className="rounded-md shadow-md border-2 border-primary w-full p-3"
+                  required
+                />
+              </div>
+              <div className="space-y-2">
+                <label htmlFor="phone-number" className="text-black">
+                  Phone Number
+                </label>
+                <input
+                  id="phone-number"
+                  name="phone"
+                  value={agentData.phone}
+                  onChange={(e) => {
+                    const { value } = e.target;
+                    if (/^\d{0,13}$/.test(value)) {
+                      handleChange(e);
+                    }
+                  }}
+                  placeholder="Enter your phone number"
+                  className="rounded-md shadow-md border-2 border-primary w-full p-3"
+                  maxLength={13}
+                  required
+                />
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-2">
+                <label htmlFor="location" className="text-black">
+                  Location
+                </label>
+                <input
+                  id="location"
+                  name="location"
+                  value={agentData.location}
+                  onChange={handleChange}
+                  placeholder="Enter your location"
+                  className="rounded-md shadow-md border-2 border-primary w-full p-3"
+                  maxLength={100}
+                  required
+                />
+              </div>
+              <div className="space-y-2 relative">
+                <label htmlFor="tonAmount" className="text-black">
+                  How Many Tons Do You Have?
+                </label>
+                <input
+                  id="tonAmount"
+                  name="tonAmount"
+                  value={agentData.tonAmount}
+                  onChange={(e) => {
+                    const { value } = e.target;
+                    if (/^\d{0,6}$/.test(value)) {
+                      handleChange(e);
+                    }
+                  }}
+                  placeholder="Enter the amount of scrap"
+                  className={`rounded-md shadow-md border-2 border-primary w-full p-3 ${
+                    error ? "border-red-500" : ""
+                  }`}
+                  maxLength={6}
+                  required
+                />
+                {error && (
+                  <p className="text-red-500 text-xs italic mt-1 absolute">
+                    {error}
                   </p>
-                </div>
+                )}
               </div>
-
-              <div className="flex my-4 w-2/3 lg:w-1/2">
-                <div className="flex flex-col">
-                  <i className="fas fa-phone-alt pt-2 pr-2" />
-                </div>
-                <div className="flex flex-col">
-                  <h2 className="text-2xl">Call Us</h2>
-                  <p className="text-gray-400">Tel: xxx-xxx-xxx</p>
-                  <p className="text-gray-400">Fax: xxx-xxx-xxx</p>
-                </div>
-              </div>
-
-              <div className="flex my-4 w-2/3 lg:w-1/2">
-                <a
-                  href="https://www.facebook.com/ENLIGHTENEERING/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-full h-8 w-8 inline-block mx-1 text-center pt-1"
-                >
-                  <i className="fab fa-facebook-f text-blue-900" />
+            </div>
+            <div className="space-y-2">
+              <label htmlFor="message" className="text-black">
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                value={agentData.message}
+                onChange={handleChange}
+                placeholder="Enter any additional information"
+                className="rounded-md shadow-md border-2 border-primary w-full p-3 h-32"
+                maxLength={250}
+                required
+              />
+            </div>
+            <button
+              type="submit"
+              className="justify-self-end bg-primary text-white hover:bg-gray-800 rounded-xl shadow-md p-3 px-6"
+            >
+              Submit
+            </button>
+          </form>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+              <h2 className="text-xl font-bold mb-4 text-black">
+                Office Location
+              </h2>
+              <p className="text-black">
+                5555 Tailwind RD, Pleasant Grove, UT 73533
+              </p>
+            </div>
+            <div>
+              <h2 className="text-xl font-bold mb-4 text-black">
+                Contact Information
+              </h2>
+              <p className="text-black flex gap-2">
+                tel: 813 7869 563
+              </p>
+              <p className="text-black">Email: mubeensiraj13@gmail.com</p>
+            </div>
+            <div>
+              <h2 className="text-xl font-bold mb-4 text-black">Follow Us</h2>
+              <div className="flex items-center gap-4">
+                <a href="#">
+                  <FaWhatsapp className="text-xl text-black hover:text-gray-800" />
                 </a>
-                <a
-                  href="https://www.linkedin.com/company/enlighteneering-inc-"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-full bg-white h-8 w-8 inline-block mx-1 text-center pt-1"
-                >
-                  <i className="fab fa-linkedin-in text-blue-900" />
+                <a href="https://www.instagram.com/mubeen3_07/">
+                  <FaInstagram className="text-xl text-black hover:text-gray-800" />
                 </a>
+                <FaFacebookF className="text-xl text-black hover:text-gray-800" />                
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </>
+      </main>
+      <footer className="bg-primary text-white py-4 px-6 flex justify-between items-center">
+        <p className="text-sm">&copy; 2024 Eco scrap</p>
+        <nav className="flex items-center gap-6">
+          <Link to="/terms" className="hover:underline text-white">
+            Terms
+          </Link>
+          <Link to="/privacy" className="hover:underline text-white">
+            Privacy
+          </Link>
+        </nav>
+      </footer>
+    </div>
   );
 };
 

@@ -69,7 +69,6 @@ const CardForm = () => {
                             value={formData.title}
                         />
                     </div>
-
                     <div className="mb-5">
                         <label htmlFor="price" className="mb-3 block text-base font-medium text-[#07074D]">
                             Add Price:

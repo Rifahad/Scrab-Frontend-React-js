@@ -18,7 +18,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
             >
                 <div className="flex items-center justify-center mt-8">
                     <div className="flex items-center">
-                    <BsFillTrash2Fill className='text-[40px] text-[#5F8F15] transition-all rounded-full w-14 -rotate-45 hover:shadow-sm shadow-lg ring hover:ring-4 ring-white' onDoubleClick={handleDoubleClick} />
+                    <BsFillTrash2Fill className='text-[40px] text-[#5F8F15] transition-all rounded-full w-14 -rotate-45 hover:shadow-sm shadow-lg ring hover:ring-4 ring-white' onClick={handleDoubleClick} />
                         <span className="mx-2 text-2xl font-semibold text-black">ECO SCRAP</span>
                     </div>
                 </div>

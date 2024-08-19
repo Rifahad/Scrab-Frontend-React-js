@@ -1,5 +1,4 @@
 import BoxImage from "../assets/img/Box.png";
-import Logo from "../assets/img/Logo.png";
 import Footer from "../Components/Footer";
 import Work1 from "../assets/img/work1.png";
 import Work2 from "../assets/img/work2.png";
@@ -13,127 +12,13 @@ import Feature2 from "../assets/img/feature2.png";
 import Feature3 from "../assets/img/feature3.png";
 import Feature4 from "../assets/img/feature4.png";
 
-
+import NavbarAgent from "../Components/Agent/NavbarAgent";
 
 const Land = () => {
+ 
   return (
     <>
-      <header>
-        <nav className="z-10 w-full absolute">
-          <div className="max-w-7xl mx-auto px-6 md:px-12 xl:px-6">
-            <div className="flex flex-wrap items-center justify-between py-2 gap-6 md:py-4 md:gap-0 relative">
-              <input
-                aria-hidden="true"
-                type="checkbox"
-                name="toggle_nav"
-                id="toggle_nav"
-                className="hidden peer"
-              />
-              <div className="relative z-20 w-full flex justify-between lg:w-max md:px-0">
-                <a
-                  href="/home"
-                  aria-label="logo"
-                  className="flex space-x-2 items-center"
-                >
-                  <div aria-hidden="true" className="flex space-x-1">
-                    <img src={Logo} alt="" className="w-24" />
-                  </div>
-                  <span className="text-2xl font-bold text-gray-900">
-                    EcoScrap
-                  </span>
-                </a>
-
-                <div className="relative flex items-center lg:hidden max-h-10">
-                  <label
-                    role="button"
-                    htmlFor="toggle_nav"
-                    aria-label="humburger"
-                    id="hamburger"
-                    className="relative p-6 -mr-6"
-                  >
-                    <div
-                      aria-hidden="true"
-                      id="line"
-                      className="m-auto h-0.5 w-5 rounded bg-sky-900 transition duration-300"
-                    ></div>
-                    <div
-                      aria-hidden="true"
-                      id="line2"
-                      className="m-auto mt-2 h-0.5 w-5 rounded bg-sky-900 transition duration-300"
-                    ></div>
-                  </label>
-                </div>
-              </div>
-              <div
-                aria-hidden="true"
-                className="fixed z-10 inset-0 h-screen w-screen bg-white/70 backdrop-blur-2xl origin-bottom scale-y-0 transition duration-500 peer-checked:origin-top peer-checked:scale-y-100 lg:hidden"
-              ></div>
-              <div
-                className="flex-col z-20 flex-wrap gap-6 p-8 rounded-3xl border border-gray-100 bg-white shadow-2xl shadow-gray-600/10 justify-end w-full invisible opacity-0 translate-y-1 absolute top-full left-0 transition-all duration-300 scale-95 origin-top 
-                        lg:relative lg:scale-100 lg:peer-checked:translate-y-0 lg:translate-y-0 lg:flex lg:flex-row lg:items-center lg:gap-0 lg:p-0 lg:bg-transparent lg:w-7/12 lg:visible lg:opacity-100 lg:border-none
-                        peer-checked:scale-100 peer-checked:opacity-100 peer-checked:visible lg:shadow-none"
-              >
-                <div className="text-gray-600 lg:pr-4 lg:w-auto w-full lg:pt-0">
-                  <ul className="tracking-wide font-medium lg:text-sm flex-col flex lg:flex-row gap-6 lg:gap-0">
-                    <li>
-                      <a
-                        href="#Agent"
-                        className="block md:px-4 transition hover:text-primary"
-                      >
-                        <span>Agent</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/home"
-                        className="block md:px-4 transition hover:text-primary"
-                      >
-                        <span>User</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/help"
-                        className="block md:px-4 transition hover:text-primary"
-                      >
-                        <span>Help</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/contact"
-                        className="block md:px-4 transition hover:text-primary"
-                      >
-                        <span>Contact Us</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="mt-12 lg:mt-0">
-                  <a
-                    href="/pickup"
-                    className="relative flex h-9 w-full items-center justify-center px-4 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
-                  >
-                    <span className="relative text-sm font-semibold text-white">
-                      Directly Pick Up
-                    </span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </nav>
-        {/*
-        <style jsx>{`
-          #toggle_nav:checked ~ div #hamburger #line {
-            transform: rotate(45deg) translateY(6px);
-          }
-          #toggle_nav:checked ~ div #hamburger #line2 {
-            transform: rotate(-45deg) translateY(-4px);
-          }
-        `}</style> */}
-      </header>
+     <NavbarAgent />
 
       {/* hero section  */}
 
@@ -148,11 +33,19 @@ const Land = () => {
         <div className="max-w-7xl mx-auto px-6 md:px-12 xl:px-6">
           <div className="relative pt-36 ml-auto">
             <div className="lg:w-2/3 text-center mx-auto">
-              <h1 className="text-gray-900 font-bold text-5xl md:text-6xl xl:text-7xl">
+              <h1
+                className="text-gray-900 font-bold text-5xl md:text-6xl xl:text-7xl"
+                data-aos="zoom-in"
+                data-aos-delay="700"
+              >
                 Turning Your Scrap into Cash
                 <span className="text-primary"> at Home.</span>
               </h1>
-              <p className="mt-8 text-gray-700">
+              <p
+                className="mt-8 text-gray-700"
+                data-aos-delay="900"
+                data-aos="zoom-out"
+              >
                 Turn your scrap into cash with our home collection service. We
                 pick up, pay instantly, and recycle responsibly. Enjoy
                 hassle-free recycling from the comfort of your home schedule
@@ -162,6 +55,8 @@ const Land = () => {
                 <a
                   href="#"
                   className="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
+                  data-aos="fade-right"
+                  data-aos-delay="700"
                 >
                   <span className="relative text-base font-semibold text-white">
                     Get started
@@ -170,6 +65,8 @@ const Land = () => {
                 <a
                   href="#"
                   className="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-primary/10 before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
+                  data-aos="fade-left"
+                  data-aos-delay="700"
                 >
                   <span className="relative text-base font-semibold text-primary">
                     Learn more
@@ -177,23 +74,32 @@ const Land = () => {
                 </a>
               </div>
               <div className="hidden py-8 mt-16 border-y border-gray-100 sm:flex justify-between">
-                <div className="text-left">
+                <div className="text-left" data-aos="zoom-out">
                   <h6 className="text-lg font-semibold text-gray-700">
                     The Best Value
                   </h6>
-                  <p className="mt-2 text-gray-500">Get fair compensation for your <br/> scrap with our competitive rates.</p>
+                  <p className="mt-2 text-gray-500">
+                    Get fair compensation for your <br /> scrap with our
+                    competitive rates.
+                  </p>
                 </div>
-                <div className="text-left">
+                <div className="text-left" data-aos="zoom-out">
                   <h6 className="text-lg font-semibold text-gray-700">
-                  Fastest Service
+                    Fastest Service
                   </h6>
-                  <p className="mt-2 text-gray-500">Quick and efficient home pickups <br/> for hassle-free recycling.</p>
+                  <p className="mt-2 text-gray-500">
+                    Quick and efficient home pickups <br /> for hassle-free
+                    recycling.
+                  </p>
                 </div>
-                <div className="text-left">
+                <div className="text-left" data-aos="zoom-out">
                   <h6 className="text-lg font-semibold text-gray-700">
-                  Most Trusted
+                    Most Trusted
                   </h6>
-                  <p className="mt-2 text-gray-500">Join many satisfied customers who <br/> rely on our reliable service.</p>
+                  <p className="mt-2 text-gray-500">
+                    Join many satisfied customers who <br /> rely on our
+                    reliable service.
+                  </p>
                 </div>
               </div>
             </div>
@@ -206,6 +112,8 @@ const Land = () => {
                   alt="client logo"
                   width=""
                   height=""
+                  data-aos="fade-up"
+                  data-aos-delay="600"
                 />
               </div>
               <div className="p-4 grayscale transition duration-200 hover:grayscale-0">
@@ -216,6 +124,8 @@ const Land = () => {
                   alt="client logo"
                   width=""
                   height=""
+                  data-aos="fade-up"
+                  data-aos-delay="700"
                 />
               </div>
               <div className="p-4 flex grayscale transition duration-200 hover:grayscale-0">
@@ -226,6 +136,8 @@ const Land = () => {
                   alt="client logo"
                   width=""
                   height=""
+                  data-aos="fade-up"
+                  data-aos-delay="800"
                 />
               </div>
               <div className="p-4 grayscale transition duration-200 hover:grayscale-0">
@@ -236,6 +148,8 @@ const Land = () => {
                   alt="client logo"
                   width=""
                   height=""
+                  data-aos="fade-up"
+                  data-aos-delay="900"
                 />
               </div>
               <div className="p-4 flex grayscale transition duration-200 hover:grayscale-0">
@@ -246,6 +160,8 @@ const Land = () => {
                   alt="client logo"
                   width=""
                   height=""
+                  data-aos="fade-up"
+                  data-aos-delay="1000"
                 />
               </div>
               <div className="p-4 grayscale transition duration-200 hover:grayscale-0">
@@ -256,6 +172,8 @@ const Land = () => {
                   alt="client logo"
                   width=""
                   height=""
+                  data-aos="fade-up"
+                  data-aos-delay="1100"
                 />
               </div>
             </div>
@@ -292,13 +210,16 @@ const Land = () => {
                 alt="image"
                 loading="lazy"
                 className="w-full"
+                data-aos="flip-left"
+                data-aos-easing="ease-out-cubic"
+                data-aos-duration="800"
               />
             </div>
             <div className="md:7/12 lg:w-1/2">
-              <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">
-              How We Handle Your Information and Provide Value
+              <h2 className="text-3xl font-bold text-gray-900 md:text-4xl" data-aos="fade-up" data-aos-delay="100">
+                How We Handle Your Information and Provide Value
               </h2>
-              <p className="my-8 text-gray-600">
+              <p className="my-8 text-gray-600" data-aos="fade-up" data-aos-delay="150">
                 Nobis minus voluptatibus pariatur dignissimos libero quaerat
                 iure expedita at? Asperiores nemo possimus nesciunt dicta veniam
                 aspernatur quam mollitia. <br /> <br /> Vitae error, quaerat
@@ -308,7 +229,7 @@ const Land = () => {
               </p>
               <div className="divide-y space-y-4 divide-gray-100">
                 <div className="mt-8 flex gap-4 md:items-center">
-                  <div className="w-12 h-12 flex gap-4 rounded-full bg-indigo-100">
+                  <div className="w-12 h-12 flex gap-4 rounded-full bg-indigo-100 hover:animate-bounce" data-aos="zoom-in" data-aos-delay="400">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
@@ -323,10 +244,10 @@ const Land = () => {
                     </svg>
                   </div>
                   <div className="w-5/6">
-                    <h4 className="font-semibold text-lg text-gray-700">
+                    <h4 className="font-semibold text-lg text-gray-700" data-aos="fade-left" data-aos-delay="400">
                       Chat Anytime
                     </h4>
-                    <p className="text-gray-500">
+                    <p className="text-gray-500" data-aos="fade-left" data-aos-delay="400">
                       Asperiores nemo possimus nesciunt quam mollitia.
                     </p>
                   </div>
@@ -338,6 +259,7 @@ const Land = () => {
                       viewBox="0 0 24 24"
                       fill="currentColor"
                       className="w-6 h-6 m-auto text-teal-600"
+                      data-aos="fade-left" data-aos-delay="400"
                     >
                       <path
                         fillRule="evenodd"
@@ -347,10 +269,10 @@ const Land = () => {
                     </svg>
                   </div>
                   <div className="w-5/6">
-                    <h4 className="font-semibold text-lg text-gray-700">
+                    <h4 className="font-semibold text-lg text-gray-700" data-aos="fade-left" data-aos-delay="400">
                       Real Time Location
                     </h4>
-                    <p className="text-gray-500">
+                    <p className="text-gray-500" data-aos="fade-left" data-aos-delay="400">
                       Asperiores nemo possimus nesciunt quam mollitia.
                     </p>
                   </div>
@@ -378,10 +300,10 @@ const Land = () => {
               />
             </svg>
 
-            <h2 className="my-8 text-2xl font-bold text-gray-700 md:text-4xl">
+            <h2 className="my-8 text-2xl font-bold text-gray-700 md:text-4xl" data-aos="zoom-in" data-aos-delay="400">
               A technology-first approach to payments and finance
             </h2>
-            <p className="text-gray-600">
+            <p className="text-gray-600" data-aos="zoom-in-up" data-aos-delay="450">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus ad
               ipsum pariatur autem, fugit laborum in atque amet obcaecati? Nisi
               minima aspernatur, quidem nulla cupiditate nam consequatur
@@ -390,13 +312,15 @@ const Land = () => {
           </div>
           <div className="mt-16 grid divide-x divide-y divide-gray-100 overflow-hidden rounded-3xl border border-gray-100 text-gray-600 sm:grid-cols-2 lg:grid-cols-4 lg:divide-y-0 xl:grid-cols-4">
             <div className="group relative bg-white transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
-              <div className="relative space-y-8 py-12 p-8">
+              <div className="relative space-y-8 py-12 p-8" data-aos="zoom-in-right" data-aos-delay="400">
                 <img
                   src={Feature1}
                   className="w-12"
                   width="512"
                   height="512"
                   alt="burger illustration"
+                  data-aos="zoom-in"
+                  data-aos-delay="400"
                 />
 
                 <div className="space-y-2">
@@ -429,13 +353,15 @@ const Land = () => {
               </div>
             </div>
             <div className="group relative bg-white transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
-              <div className="relative space-y-8 py-12 p-8">
+              <div className="relative space-y-8 py-12 p-8" data-aos="zoom-in-right" data-aos-delay="600">
                 <img
                   src={Feature2}
                   className="w-12"
                   width="512"
                   height="512"
                   alt="burger illustration"
+                  data-aos="zoom-in"
+                  data-aos-delay="300"
                 />
 
                 <div className="space-y-2">
@@ -468,13 +394,15 @@ const Land = () => {
               </div>
             </div>
             <div className="group relative bg-white transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
-              <div className="relative space-y-8 py-12 p-8">
+              <div className="relative space-y-8 py-12 p-8" data-aos="zoom-in-right" data-aos-delay="800">
                 <img
                   src={Feature3}
                   className="w-12"
                   width="512"
                   height="512"
                   alt="burger illustration"
+                  data-aos="zoom-in"
+                  data-aos-delay="400"
                 />
 
                 <div className="space-y-2">
@@ -507,14 +435,16 @@ const Land = () => {
               </div>
             </div>
             <div className="group relative bg-gray-50 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
-              <div className="relative space-y-8 py-12 p-8 transition duration-300 group-hover:bg-white">
+              <div className="relative space-y-8 py-12 p-8 transition duration-300 group-hover:bg-white" data-aos="zoom-in-right" data-aos-delay="1000">
                 <img
                   src={Feature4}
                   className="w-12"
                   width="512"
                   height="512"
                   alt="burger illustration"
-                />
+                  data-aos="zoom-in"
+                  data-aos-delay="500"
+                />  
 
                 <div className="space-y-2">
                   <h5 className="text-xl font-semibold text-gray-700 transition group-hover:text-secondary">
@@ -550,7 +480,7 @@ const Land = () => {
       </div>
 
       {/* Agent Section */}
-      <div id="Agent" className="relative py-16">
+      <div id="Agent" className="relative py-16" >
         <div
           aria-hidden="true"
           className="absolute inset-0 h-max w-full m-auto grid grid-cols-2 -space-x-52 opacity-40"
@@ -568,19 +498,21 @@ const Land = () => {
                 src="https://wallpapers.com/images/featured/business-jzw8ax93flqonkce.webp"
                 alt="member photo"
                 className="h-24 w-24 rounded-full object-cover"
+                data-aos="zoom-in-up"
               />
             </div>
             <div className="mt-6 m-auto space-y-6 md:w-8/12 lg:w-7/12">
-              <h1 className="text-center text-4xl font-bold text-gray-800 md:text-5xl">
+              <h1 className="text-center text-4xl font-bold text-gray-800 md:text-5xl" data-aos="zoom-out-up" data-aos-delay="300">
                 Agent Or Entrepreneur
               </h1>
-              <p className="text-center text-xl text-gray-600">
+              <p className="text-center text-xl text-gray-600" data-aos="zoom-out" data-aos-delay="400">
                 Be a part to Contribute and work together.
               </p>
               <div className="flex flex-wrap justify-center gap-6">
                 <a
                   href="/agent-form"
                   className="relative flex h-12 w-full items-center justify-center px-8 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
+                data-aos="fade-right"
                 >
                   <span className="relative text-base font-semibold text-white">
                     Click Here
@@ -589,6 +521,7 @@ const Land = () => {
                 <a
                   href="#"
                   className="relative flex h-12 w-full items-center justify-center px-8 before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-primary/10 before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-gray-800 sm:w-max"
+                data-aos="fade-left"
                 >
                   <span className="relative text-base font-semibold text-primary">
                     Help

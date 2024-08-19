@@ -139,7 +139,9 @@ const Navbar = () => {
                 >
                   About Us
                 </li>
+                <img src={Logo} onClick={handleDoubleClick} className="w-12" alt="Logo" />
               </ul>
+
             )}
           </div>
         </nav>

@@ -5,5 +5,4 @@ const axiosInstance = axios.create({
     timeout : 100000,
 })
 
-
-export default axiosInstance
+export default axiosInstance    

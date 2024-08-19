@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
-import Logo from "../../assets/image.png"; // Make sure the path to the logo is correct
+import Logo from "../../assets/img/Logo.png";
 
 const UserList = () => {
   const [userData, setUserData] = useState([]);
