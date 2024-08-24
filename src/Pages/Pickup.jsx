@@ -264,6 +264,7 @@ const Pickup = () => {
                           type="file"
                           name="pickupImage"
                           id="pickupImage"
+                          capture="environment"
                           accept="image/*;capture=camera"
                           className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                           onChange={(event) => {

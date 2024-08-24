@@ -11,13 +11,13 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
   return (
     <>
       <div
-        className={`fixed inset-0 z-20 transition-opacity bg-black opacity-50 lg:hidden ${
+        className={`fixed inset-0 z-20 transition-opacity bg-black  opacity-50 lg:hidden ${
           sidebarOpen ? "block" : "hidden"
         }`}
         onClick={() => setSidebarOpen(false)}
       />
       <div
-        className={`fixed inset-y-0 left-0 z-30 w-64 overflow-y-auto rounded-r-2xl transition duration-300 transform bg-green-400 lg:translate-x-0 lg:static lg:inset-0 ${
+        className={`fixed inset-y-0 left-0 z-30 w-64 overflow-y-auto rounded-r-2xl transition duration-300 transform bg-black lg:translate-x-0 lg:static lg:inset-0 ${
           sidebarOpen ? "translate-x-0 ease-out" : "-translate-x-full ease-in"
         }`}
       >
@@ -25,9 +25,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
           <div className="w-20 ">
             <img src={Logo} onDoubleClick={handleDoubleClick} alt="" />
           </div>
-
         </div>
-
         <nav className="mt-10">
           <Link
             className="flex items-center px-6 py-2 mt-4 text-green-500 bg-transparent"
@@ -53,11 +51,11 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                 d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"
               />
             </svg>
-            <span className="mx-3 text-black">Dashboard</span>
+            <span className="mx-3 text-white">Dashboard</span>
           </Link>
 
           <Link
-            className="flex items-center px-6 py-2 mt-4 text-green-500 bg-transparent hover:bg-green-500 hover:text-black"
+            className="flex items-center px-6 py-2 mt-4 text-green-500 bg-transparent hover:bg-green-500 hover:text-white"
             to="/admin/users"
           >
             <svg
@@ -74,11 +72,11 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                 d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2h-2a2 2 0 00-2 2v2m0 0H9m4 0H5m4 0V9a2 2 0 00-2-2H5a2 2 0 00-2 2v2"
               />
             </svg>
-            <span className="mx-3 text-black">Users List</span>
+            <span className="mx-3 text-white">Users List</span>
           </Link>
 
           <Link
-            className="flex items-center px-6 py-2 mt-4 text-green-500 bg-transparent hover:bg-green-500 hover:text-black"
+            className="flex items-center px-6 py-2 mt-4 text-green-500 bg-transparent hover:bg-green-500 hover:text-white"
             to="/admin/AgentProductList"
           >
             <svg
@@ -95,11 +93,11 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                 d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2h-2a2 2 0 00-2 2v2m0 0H9m4 0H5m4 0V9a2 2 0 00-2-2H5a2 2 0 00-2 2v2"
               />
             </svg>
-            <span className="mx-3 text-black">Company List</span>
+            <span className="mx-3 text-white">Company List</span>
           </Link>
 
           <Link
-            className="flex items-center px-6 py-2 mt-4 text-green-500 bg-transparent hover:bg-green-500 hover:text-black"
+            className="flex items-center px-6 py-2 mt-4 text-green-500 bg-transparent hover:bg-green-500 hover:text-white"
             to="/admin/add"
           >
             <svg
@@ -116,10 +114,10 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                 d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z"
               />
             </svg>
-            <span className="mx-3 text-black">Add Products</span>
+            <span className="mx-3 text-white">Add Products</span>
           </Link>
           <Link
-            className="flex items-center px-6 py-2 mt-4 text-green-500 bg-transparent hover:bg-green-500 hover:text-black"
+            className="flex items-center px-6 py-2 mt-4 text-green-500 bg-transparent hover:bg-green-500 hover:text-white"
             to="/admin/adminProduct"
           >
             <svg
@@ -136,11 +134,11 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                 d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z"
               />
             </svg>
-            <span className="mx-3 text-black">Products</span>
+            <span className="mx-3 text-white">Products</span>
           </Link>
 
           <Link
-            className="flex items-center px-6 py-2 mt-4 text-green-500 bg-transparent hover:bg-green-500 hover:text-black"
+            className="flex items-center px-6 py-2 mt-4 text-green-500 bg-transparent hover:bg-green-500 hover:text-white"
             to="/admin/Agentproductadd"
           >
             <svg
@@ -157,11 +155,11 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                 d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z"
               />
             </svg>
-            <span className="mx-3 text-black"> Add Company products</span>
+            <span className="mx-3 text-white"> Add Company products</span>
           </Link>
 
           <Link
-            className="flex items-center px-6 py-2 mt-4 text-green-500 bg-transparent hover:bg-green-500 hover:text-black"
+            className="flex items-center px-6 py-2 mt-4 text-green-500 bg-transparent hover:bg-green-500 hover:text-white"
             to="/admin/Agentproducts"
           >
             <svg
@@ -178,7 +176,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                 d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z"
               />
             </svg>
-            <span className="mx-3 text-black"> Company products</span>
+            <span className="mx-3 text-white"> Company products</span>
           </Link>
         </nav>
       </div>

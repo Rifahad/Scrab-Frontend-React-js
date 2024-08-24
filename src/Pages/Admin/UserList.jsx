@@ -52,7 +52,7 @@ const UserList = () => {
     html2canvas(input).then((canvas) => {
       const pdf = new jsPDF("p", "mm", "a4");
       const pdfWidth = pdf.internal.pageSize.getWidth();
-  
+
       // Create an image element and set its source to the imported logo
       const img = new Image();
       img.src = Logo;
@@ -64,8 +64,8 @@ const UserList = () => {
         canvas.height = img.height;
         ctx.drawImage(img, 0, 0);
         const imgData = canvas.toDataURL("image/png");
-  
-        pdf.addImage(imgData, 'PNG', 10, 10, 50, 20); // Adjust the position and size as needed
+
+        pdf.addImage(imgData, "PNG", 10, 10, 50, 20); // Adjust the position and size as needed
         pdf.setFont("helvetica", "bold");
         pdf.setTextColor(0, 128, 0);
         pdf.setFontSize(20);
@@ -82,13 +82,11 @@ const UserList = () => {
           10,
           100
         );
-  
+
         pdf.save(`${user.full_name}_details.pdf`);
       };
     });
   };
-  
-  
 
   return (
     <div className="bg-white bg-opacity-15 shadow-md rounded-lg">
@@ -128,13 +126,25 @@ const UserList = () => {
                   className="hover:bg-gray-100 hover:bg-opacity-25"
                 >
                   <td className="px-4 py-2 text-center">{user.full_name}</td>
-                  <td className="px-4 py-2 text-center"><img src={"http://localhost:7000//assets/pickupImage/"+ user.pickupImage} className="w-32 h-32" alt="" /></td>
-                  <td className="px-4 py-2 text-center">{user.phone}</td
-                  >
+                  <td className="px-4 py-2 text-center">
+                    <img
+                      src={
+                        "http://localhost:7000//assets/pickupImage/" +
+                        user.pickupImage
+                      }
+                      className="w-32 h-32"
+                      alt=""
+                    />
+                  </td>
+                  <td className="px-4 py-2 text-center">{user.phone}</td>
                   <td className="px-4 py-2 text-center">{user.address}</td>
                   <td className="px-4 py-2 text-center">{user.country}</td>
                   <td className="px-4 py-2 text-center">
-                    {new Date(user.createdAt).toLocaleString()}
+                    {new Date(user.createdAt).toLocaleDateString("en-GB", {
+                      day: "2-digit",
+                      month: "2-digit",
+                      year: "numeric",
+                    })}
                   </td>
                   <td className="px-4 py-2 flex items-center justify-center space-x-2">
                     <button
