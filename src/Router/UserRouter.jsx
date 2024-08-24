@@ -10,6 +10,7 @@ import Land from '../Pages/Land';
 import AgentForm from '../Pages/Agent/AgentForm';
 import LoadingSpinner from '../Components/LoadingSpinner';
 import Help from '../Pages/Help';
+import Agentproductlist from '../Pages/Agent/Agentproduct'
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -23,7 +24,7 @@ function UserRouter() {
     setLoading(true);
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1000); 
+    }, 700); 
 
     return () => clearTimeout(timer);
   }, [location]);
@@ -45,6 +46,8 @@ function UserRouter() {
 
           <Route path="/agent-form" element={<AgentForm />} />
           <Route path='/existingagent' element={<ExistingAgent/>}/>
+          <Route  path='/companyproducts' element={<Agentproductlist/>}/>
+
 
           <Route path="/" element={<UserLayout />}>
             <Route path="/home" element={<Home />} />

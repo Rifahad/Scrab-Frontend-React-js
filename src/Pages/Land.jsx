@@ -13,12 +13,12 @@ import Feature3 from "../assets/img/feature3.png";
 import Feature4 from "../assets/img/feature4.png";
 
 import NavbarAgent from "../Components/Agent/NavbarAgent";
+import { Link } from "react-router-dom";
 
 const Land = () => {
- 
   return (
     <>
-     <NavbarAgent />
+      <NavbarAgent />
 
       {/* hero section  */}
 
@@ -52,8 +52,8 @@ const Land = () => {
                 your pickup today.
               </p>
               <div className="mt-16 flex flex-wrap justify-center gap-y-4 gap-x-6">
-                <a
-                  href="#"
+                <Link
+                  to="/home"
                   className="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
                   data-aos="fade-right"
                   data-aos-delay="700"
@@ -61,9 +61,9 @@ const Land = () => {
                   <span className="relative text-base font-semibold text-white">
                     Get started
                   </span>
-                </a>
-                <a
-                  href="#"
+                </Link>
+                <Link
+                  to="/help"
                   className="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-primary/10 before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
                   data-aos="fade-left"
                   data-aos-delay="700"
@@ -71,7 +71,7 @@ const Land = () => {
                   <span className="relative text-base font-semibold text-primary">
                     Learn more
                   </span>
-                </a>
+                </Link>
               </div>
               <div className="hidden py-8 mt-16 border-y border-gray-100 sm:flex justify-between">
                 <div className="text-left" data-aos="zoom-out">
@@ -216,10 +216,18 @@ const Land = () => {
               />
             </div>
             <div className="md:7/12 lg:w-1/2">
-              <h2 className="text-3xl font-bold text-gray-900 md:text-4xl" data-aos="fade-up" data-aos-delay="100">
+              <h2
+                className="text-3xl font-bold text-gray-900 md:text-4xl"
+                data-aos="fade-up"
+                data-aos-delay="100"
+              >
                 How We Handle Your Information and Provide Value
               </h2>
-              <p className="my-8 text-gray-600" data-aos="fade-up" data-aos-delay="150">
+              <p
+                className="my-8 text-gray-600"
+                data-aos="fade-up"
+                data-aos-delay="150"
+              >
                 Nobis minus voluptatibus pariatur dignissimos libero quaerat
                 iure expedita at? Asperiores nemo possimus nesciunt dicta veniam
                 aspernatur quam mollitia. <br /> <br /> Vitae error, quaerat
@@ -229,7 +237,11 @@ const Land = () => {
               </p>
               <div className="divide-y space-y-4 divide-gray-100">
                 <div className="mt-8 flex gap-4 md:items-center">
-                  <div className="w-12 h-12 flex gap-4 rounded-full bg-indigo-100 hover:animate-bounce" data-aos="zoom-in" data-aos-delay="400">
+                  <div
+                    className="w-12 h-12 flex gap-4 rounded-full bg-indigo-100 hover:animate-bounce"
+                    data-aos="zoom-in"
+                    data-aos-delay="400"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
@@ -244,10 +256,18 @@ const Land = () => {
                     </svg>
                   </div>
                   <div className="w-5/6">
-                    <h4 className="font-semibold text-lg text-gray-700" data-aos="fade-left" data-aos-delay="400">
+                    <h4
+                      className="font-semibold text-lg text-gray-700"
+                      data-aos="fade-left"
+                      data-aos-delay="400"
+                    >
                       Chat Anytime
                     </h4>
-                    <p className="text-gray-500" data-aos="fade-left" data-aos-delay="400">
+                    <p
+                      className="text-gray-500"
+                      data-aos="fade-left"
+                      data-aos-delay="400"
+                    >
                       Asperiores nemo possimus nesciunt quam mollitia.
                     </p>
                   </div>
@@ -259,7 +279,8 @@ const Land = () => {
                       viewBox="0 0 24 24"
                       fill="currentColor"
                       className="w-6 h-6 m-auto text-teal-600"
-                      data-aos="fade-left" data-aos-delay="400"
+                      data-aos="fade-left"
+                      data-aos-delay="400"
                     >
                       <path
                         fillRule="evenodd"
@@ -269,10 +290,18 @@ const Land = () => {
                     </svg>
                   </div>
                   <div className="w-5/6">
-                    <h4 className="font-semibold text-lg text-gray-700" data-aos="fade-left" data-aos-delay="400">
+                    <h4
+                      className="font-semibold text-lg text-gray-700"
+                      data-aos="fade-left"
+                      data-aos-delay="400"
+                    >
                       Real Time Location
                     </h4>
-                    <p className="text-gray-500" data-aos="fade-left" data-aos-delay="400">
+                    <p
+                      className="text-gray-500"
+                      data-aos="fade-left"
+                      data-aos-delay="400"
+                    >
                       Asperiores nemo possimus nesciunt quam mollitia.
                     </p>
                   </div>
@@ -300,10 +329,18 @@ const Land = () => {
               />
             </svg>
 
-            <h2 className="my-8 text-2xl font-bold text-gray-700 md:text-4xl" data-aos="zoom-in" data-aos-delay="400">
+            <h2
+              className="my-8 text-2xl font-bold text-gray-700 md:text-4xl"
+              data-aos="zoom-in"
+              data-aos-delay="400"
+            >
               A technology-first approach to payments and finance
             </h2>
-            <p className="text-gray-600" data-aos="zoom-in-up" data-aos-delay="450">
+            <p
+              className="text-gray-600"
+              data-aos="zoom-in-up"
+              data-aos-delay="450"
+            >
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus ad
               ipsum pariatur autem, fugit laborum in atque amet obcaecati? Nisi
               minima aspernatur, quidem nulla cupiditate nam consequatur
@@ -312,7 +349,11 @@ const Land = () => {
           </div>
           <div className="mt-16 grid divide-x divide-y divide-gray-100 overflow-hidden rounded-3xl border border-gray-100 text-gray-600 sm:grid-cols-2 lg:grid-cols-4 lg:divide-y-0 xl:grid-cols-4">
             <div className="group relative bg-white transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
-              <div className="relative space-y-8 py-12 p-8" data-aos="zoom-in-right" data-aos-delay="400">
+              <div
+                className="relative space-y-8 py-12 p-8"
+                data-aos="zoom-in-right"
+                data-aos-delay="400"
+              >
                 <img
                   src={Feature1}
                   className="w-12"
@@ -353,7 +394,11 @@ const Land = () => {
               </div>
             </div>
             <div className="group relative bg-white transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
-              <div className="relative space-y-8 py-12 p-8" data-aos="zoom-in-right" data-aos-delay="600">
+              <div
+                className="relative space-y-8 py-12 p-8"
+                data-aos="zoom-in-right"
+                data-aos-delay="600"
+              >
                 <img
                   src={Feature2}
                   className="w-12"
@@ -394,7 +439,11 @@ const Land = () => {
               </div>
             </div>
             <div className="group relative bg-white transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
-              <div className="relative space-y-8 py-12 p-8" data-aos="zoom-in-right" data-aos-delay="800">
+              <div
+                className="relative space-y-8 py-12 p-8"
+                data-aos="zoom-in-right"
+                data-aos-delay="800"
+              >
                 <img
                   src={Feature3}
                   className="w-12"
@@ -435,7 +484,11 @@ const Land = () => {
               </div>
             </div>
             <div className="group relative bg-gray-50 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
-              <div className="relative space-y-8 py-12 p-8 transition duration-300 group-hover:bg-white" data-aos="zoom-in-right" data-aos-delay="1000">
+              <div
+                className="relative space-y-8 py-12 p-8 transition duration-300 group-hover:bg-white"
+                data-aos="zoom-in-right"
+                data-aos-delay="1000"
+              >
                 <img
                   src={Feature4}
                   className="w-12"
@@ -444,7 +497,7 @@ const Land = () => {
                   alt="burger illustration"
                   data-aos="zoom-in"
                   data-aos-delay="500"
-                />  
+                />
 
                 <div className="space-y-2">
                   <h5 className="text-xl font-semibold text-gray-700 transition group-hover:text-secondary">
@@ -480,7 +533,7 @@ const Land = () => {
       </div>
 
       {/* Agent Section */}
-      <div id="Agent" className="relative py-16" >
+      <div id="Agent" className="relative py-16">
         <div
           aria-hidden="true"
           className="absolute inset-0 h-max w-full m-auto grid grid-cols-2 -space-x-52 opacity-40"
@@ -502,17 +555,25 @@ const Land = () => {
               />
             </div>
             <div className="mt-6 m-auto space-y-6 md:w-8/12 lg:w-7/12">
-              <h1 className="text-center text-4xl font-bold text-gray-800 md:text-5xl" data-aos="zoom-out-up" data-aos-delay="300">
+              <h1
+                className="text-center text-4xl font-bold text-gray-800 md:text-5xl"
+                data-aos="zoom-out-up"
+                data-aos-delay="300"
+              >
                 Agent Or Entrepreneur
               </h1>
-              <p className="text-center text-xl text-gray-600" data-aos="zoom-out" data-aos-delay="400">
+              <p
+                className="text-center text-xl text-gray-600"
+                data-aos="zoom-out"
+                data-aos-delay="400"
+              >
                 Be a part to Contribute and work together.
               </p>
               <div className="flex flex-wrap justify-center gap-6">
                 <a
                   href="/agent-form"
                   className="relative flex h-12 w-full items-center justify-center px-8 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
-                data-aos="fade-right"
+                  data-aos="fade-right"
                 >
                   <span className="relative text-base font-semibold text-white">
                     Click Here
@@ -521,7 +582,7 @@ const Land = () => {
                 <a
                   href="#"
                   className="relative flex h-12 w-full items-center justify-center px-8 before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-primary/10 before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-gray-800 sm:w-max"
-                data-aos="fade-left"
+                  data-aos="fade-left"
                 >
                   <span className="relative text-base font-semibold text-primary">
                     Help

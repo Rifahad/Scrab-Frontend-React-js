@@ -1,76 +1,74 @@
-const AgentProductList = () => {
+import { useEffect, useState } from "react";
+import AgentProductCard from "../../Components/Admin/AgentCard";
+import axios from "axios";
+import Swal from "sweetalert2";
+
+function AgentProductList() {
+
+  const [agentproduct, setagentProduct] = useState([]);
+
+  async function listProduct() {
+    const response = await  axios.get("http://localhost:7000/adminagentProduct")
+    console.log(response.data.Agent,'data gooted from backend');
+    setagentProduct(response.data.Agent);
+    
+  }
+  useEffect(() => {
+    listProduct();
+  }, []);
+
+  // product delete function
+  const agentproductdelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          console.log("delete here", id);
+          const response = await axios.post(
+            `http://localhost:7000/adminagentProductdelete?id=${id}`
+          );
+          if (response.status === 200) {
+            setagentProduct(agentproduct.filter((product) => product._id !== id));
+            Swal.fire("Deleted!", "Your product has been deleted.", "success");
+          } else {
+            Swal.fire(
+              "Error!",
+              "There was an error deleting your product.",
+              "error"
+            );
+          }
+          console.log(response.status);
+        } catch (error) {
+          console.log(error, "error in product delete");
+          Swal.fire(
+            "Error!",
+            "There was an error deleting your product.",
+            "error"
+          );
+        }
+      }
+    });
+  };  
   return (
     <>
-      <div className="bg-black w-full">
-        <div className="max-w-2xl px-4 py-6 sm:px-6 sm:py-24 lg:max-w-7xl">
-          <h2 className="sr-only">Products</h2>
-
-          <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 xl:gap-x-8">
-            <a href="#" className="group">
-              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-                <img
-                  src="https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg"
-                  alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
-                  className="h-full w-full object-cover object-center group-hover:opacity-75"
-                />
-              </div>
-              <h3 className="mt-4 text-sm text-gray-700">Earthen Bottle</h3>
-              <p className="mt-1 text-lg font-medium text-gray-900">$48</p>
-            </a>
-            <a href="#" className="group">
-              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-                <img
-                  src="https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg"
-                  alt="Olive drab green insulated bottle with flared screw lid and flat top."
-                  className="h-full w-full object-cover object-center group-hover:opacity-75"
-                />
-              </div>
-              <h3 className="mt-4 text-sm text-gray-700">Nomad Tumbler</h3>
-              <p className="mt-1 text-lg font-medium text-gray-900">$35</p>
-            </a>
-            <a href="#" className="group">
-              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-                <img
-                  src="https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg"
-                  alt="Person using a pen to cross a task off a productivity paper card."
-                  className="h-full w-full object-cover object-center group-hover:opacity-75"
-                />
-              </div>
-              <h3 className="mt-4 text-sm text-gray-700">Focus Paper Refill</h3>
-              <p className="mt-1 text-lg font-medium text-gray-900">$89</p>
-            </a>
-            
-            <a href="#" className="group">
-              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-                <img
-                  src="https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg"
-                  alt="Hand holding black machined steel mechanical pencil with brass tip and top."
-                  className="h-full w-full object-cover object-center group-hover:opacity-75"
-                />
-              </div>
-              <h3 className="mt-4 text-sm text-gray-700">
-                Machined Mechanical Pencil
-              </h3>
-              <p className="mt-1 text-lg font-medium text-gray-900">$35</p>
-            </a>
-            <a href="#" className="group">
-              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-                <img
-                  src="https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg"
-                  alt="Hand holding black machined steel mechanical pencil with brass tip and top."
-                  className="h-full w-full object-cover object-center group-hover:opacity-75"
-                />
-              </div>
-              <h3 className="mt-4 text-sm text-gray-700">
-                Machined Mechanical Pencil
-              </h3>
-              <p className="mt-1 text-lg font-medium text-gray-900">$35</p>
-            </a>
-          </div>
-        </div>
+      <div className="flex flex-wrap gap-3">
+        {agentproduct.map((val) => (
+          <AgentProductCard
+            key={val._id}
+            data={val}
+            carddelete={agentproductdelete}
+          />
+        ))}
       </div>
     </>
   );
-};
+}
 
 export default AgentProductList;

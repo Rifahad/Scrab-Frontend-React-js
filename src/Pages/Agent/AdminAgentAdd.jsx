@@ -1,24 +1,19 @@
-import { useState } from 'react';
+import  { useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2'; // Ensure you have SweetAlert2 installed and imported
-
+import { useNavigate } from 'react-router-dom';
 const CardForm = () => {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         title: '',
         price: '',
         file: null,
-        preview: '', // Added for image preview
     });
 
     const handleChange = (e) => {
         const { name, value, files } = e.target;
         if (name === 'file') {
-            const file = files[0];
-            setFormData({
-                ...formData,
-                file: file,
-                preview: URL.createObjectURL(file), // Create a preview URL for the image
-            });
+            setFormData({ ...formData, [name]: files[0] });
         } else {
             setFormData({ ...formData, [name]: value });
         }
@@ -27,12 +22,14 @@ const CardForm = () => {
     const handleSubmitting = async (e) => {
         e.preventDefault();
         try {
+            console.log(formData,'form data');
+            
             const formDataObj = new FormData();
             formDataObj.append("file", formData.file); 
             formDataObj.append("title", formData.title);
             formDataObj.append("price", formData.price);
 
-            const response = await axios.post('http://localhost:7000/card', formDataObj, {
+            const response = await axios.post('http://localhost:7000/companycard', formDataObj, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -46,6 +43,10 @@ const CardForm = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
+              
+                    navigate('/admin/Agentproducts');
+             
+
             }
         } catch (error) {
             console.error('Error:', error);
@@ -60,10 +61,10 @@ const CardForm = () => {
     return (
         <div className="flex items-center justify-center">
             <div className="mx-auto w-full max-w-[550px] bg-white border rounded">
-                <form action='/card' className="py-4 px-9" onSubmit={handleSubmitting} method='post' encType='multipart/form-data'>
+                <form action='/card' className="py-4 px-4" onSubmit={handleSubmitting} method='post' encType='multipart/form-data'>
                     <div className="mb-5">
                         <label htmlFor="title" className="mb-3 block text-base font-medium text-[#07074D]">
-                            Add Products Here:
+                            Add company Products Here:
                         </label>
                         <input
                             type="text"
@@ -73,8 +74,10 @@ const CardForm = () => {
                             placeholder="Product Name"
                             className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-green-500 focus:shadow-md"
                             value={formData.title}
+                            required
                         />
                     </div>
+
                     <div className="mb-5">
                         <label htmlFor="price" className="mb-3 block text-base font-medium text-[#07074D]">
                             Add Price:
@@ -87,6 +90,7 @@ const CardForm = () => {
                             placeholder="Product Price"
                             className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-green-500 focus:shadow-md"
                             value={formData.price}
+                            required
                         />
                     </div>
 
@@ -95,7 +99,7 @@ const CardForm = () => {
                             Upload Image Here
                         </label>
                         <div className="mb-8">
-                            <input type="file" name="file" id="file" className="sr-only" onChange={handleChange} accept="image/*"/>
+                            <input type="file" name="file" id="file" className="sr-only" onChange={handleChange} required accept="image/*"/>
                             <label
                                 htmlFor="file"
                                 className="relative flex min-h-[200px] items-center justify-center rounded-md border border-dashed border-[#e0e0e0] p-12 text-center"
@@ -110,16 +114,11 @@ const CardForm = () => {
                                 </div>
                             </label>
                         </div>
-                        {formData.preview && (
-                            <div className="mb-4">
-                                <img src={formData.preview} alt="Selected" className="rounded-md max-h-48 object-cover" />
-                            </div>
-                        )}
                     </div>
 
                     <div>
                         <button
-                            type="submit" // Add this to ensure the form is submitted
+                            type="submit"
                             className="hover:shadow-form w-full rounded-md bg-green-500 py-3 px-8 text-center text-base font-semibold text-white outline-none"
                         >
                             Confirm adding Products

@@ -240,7 +240,7 @@ const AgentForm = () => {
                 Contact Information
               </h2>
               <p className="text-black flex gap-2">
-                tel: 813 7869 563
+                Phone: 813 7869 563
               </p>
               <p className="text-black">Email: mubeensiraj13@gmail.com</p>
             </div>

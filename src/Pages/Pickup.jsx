@@ -3,6 +3,7 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const validationSchema = Yup.object({
   full_name: Yup.string().required("Full Name is required"),
@@ -48,11 +49,18 @@ const handleLocation = async (setFieldValue) => {
 
           const street = address.road || address.pedestrian || address.footway || address.cycleway || address.residential || address.path || "";
 
-          setFieldValue("address", street || "");
-          setFieldValue("city", address.city || address.town || address.village || "");
-          setFieldValue("country", address.country || "");
-          setFieldValue("state", address.state || "");
-          setFieldValue("zipcode", address.postcode || "");
+          Swal.fire({
+            title: "Please Verify Location",
+            text: "Make sure the address details are correct before proceeding.",
+            icon: "warning",
+            confirmButtonText: "OK",
+          }).then(() => {
+            setFieldValue("address", street || "");
+            setFieldValue("city", address.city || address.town || address.village || "");
+            setFieldValue("country", address.country || "");
+            setFieldValue("state", address.state || "");
+            setFieldValue("zipcode", address.postcode || "");
+          });
         } catch (error) {
           console.error("Error fetching location data:", error);
         }
@@ -274,7 +282,7 @@ const Pickup = () => {
                       <div className="md:col-span-5 text-right">
                         <button
                           type="submit"
-                          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                          className="bg-primary hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                           disabled={isSubmitting}
                         >
                           Submit
