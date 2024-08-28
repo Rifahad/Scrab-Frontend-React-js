@@ -56,7 +56,7 @@ function ProductCard({ data, carddelete }) {
       </div>
       <img
         className="object-fill w-full h-80"
-        src={"http://localhost:7000/" + data.Image}
+        src={data.Url}
         alt="Demo Image"
       />
       <div className="p-4 leading-normal">

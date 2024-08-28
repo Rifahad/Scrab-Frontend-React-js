@@ -143,9 +143,9 @@ function Contact() {
                     <div className="ml-6 grow">
                       <p className="mb-2 font-bold">Technical support</p>
                       <p className="text-sm text-neutral-500">
-                        example@gmail.com
+                        mubeentkm7@gmail.com
                       </p>
-                      <p className="text-sm text-neutral-500">1-600-890-4567</p>
+                      <p className="text-sm text-neutral-500">+91 8137869563</p>
                     </div>
                   </div>
                 </div>
@@ -172,9 +172,9 @@ function Contact() {
                     <div className="ml-6 grow">
                       <p className="mb-2 font-bold">Sales questions</p>
                       <p className="text-sm text-neutral-500">
-                        example@gmail.com
+                      mubeentkm7@gmail.com
                       </p>
-                      <p className="text-sm text-neutral-500">1-600-890-4567</p>
+                      <p className="text-sm text-neutral-500">+91 8137869563</p>
                     </div>
                   </div>
                 </div>
@@ -201,9 +201,9 @@ function Contact() {
                     <div className="ml-6 grow">
                       <p className="mb-2 font-bold">Content info</p>
                       <p className="text-sm text-neutral-500">
-                        example@gmail.com
+                      mubeentkm7@gmail.com
                       </p>
-                      <p className="text-sm text-neutral-500">1-600-890-4567</p>
+                      <p className="text-sm text-neutral-500">+91 8137869563</p>
                     </div>
                   </div>
                 </div>

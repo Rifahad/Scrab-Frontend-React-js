@@ -29,7 +29,7 @@ function Products() {
           <div className="relative">
             <img
               className="w-full h-48 object-fill"
-              src={'http://localhost:7000/' +card.Image}
+              src={card?.Url}
               alt="card Image"
             />
           </div>

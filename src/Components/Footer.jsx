@@ -19,11 +19,10 @@ function Footer() {
             <div className="col-span-2">
               <div>
                 <h2 className="text-2xl font-bold text-gray-900">
-                  Get the latest news!
+                  Turning Your Scrap into Cash
                 </h2>
                 <p className="mt-4 text-gray-500">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse
-                  non cupiditate quae nam molestias.
+                  Turning Your Scrap into Cash at your doorstep.
                 </p>
               </div>
             </div>
@@ -58,8 +57,7 @@ function Footer() {
                     href="#"
                     className="text-gray-700 transition hover:opacity-75"
                   >
-                    {" "}
-                    Sell products{" "}
+                    Sell products
                   </a>
                 </li>
 
@@ -68,8 +66,7 @@ function Footer() {
                     href="#"
                     className="text-gray-700 transition hover:opacity-75"
                   >
-                    {" "}
-                    Buy products{" "}
+                    Buy products
                   </a>
                 </li>
 
@@ -78,8 +75,7 @@ function Footer() {
                     href="#"
                     className="text-gray-700 transition hover:opacity-75"
                   >
-                    {" "}
-                    Pickup service{" "}
+                    Pickup service
                   </a>
                 </li>
 
@@ -88,8 +84,7 @@ function Footer() {
                     href="#"
                     className="text-gray-700 transition hover:opacity-75"
                   >
-                    {" "}
-                    24x7{" "}
+                    24x7
                   </a>
                 </li>
 
@@ -132,7 +127,7 @@ function Footer() {
                     href="#"
                     className="text-gray-700 transition hover:opacity-75"
                   >
-                    Instagram{" "}
+                    Instagram
                   </a>
                 </li>
 
@@ -141,8 +136,7 @@ function Footer() {
                     href="#"
                     className="text-gray-700 transition hover:opacity-75"
                   >
-                    {" "}
-                    Whatsupp{" "}
+                    Whatsupp
                   </a>
                 </li>
               </ul>
@@ -157,8 +151,7 @@ function Footer() {
                     href="#"
                     className="text-gray-700 transition hover:opacity-75"
                   >
-                    {" "}
-                    Accessibility{" "}
+                    Accessibility
                   </a>
                 </li>
 
@@ -167,8 +160,7 @@ function Footer() {
                     href="#"
                     className="text-gray-700 transition hover:opacity-75"
                   >
-                    {" "}
-                    Returns Policy{" "}
+                    Returns Policy
                   </a>
                 </li>
 
@@ -177,8 +169,7 @@ function Footer() {
                     href="#"
                     className="text-gray-700 transition hover:opacity-75"
                   >
-                    {" "}
-                    Refund Policy{" "}
+                    Refund Policy
                   </a>
                 </li>
 
@@ -187,8 +178,7 @@ function Footer() {
                     href="#"
                     className="text-gray-700 transition hover:opacity-75"
                   >
-                    {" "}
-                    Hiring Statistics{" "}
+                    Hiring Statistics
                   </a>
                 </li>
               </ul>
@@ -204,8 +194,7 @@ function Footer() {
                     href="#"
                     className="text-gray-700 transition hover:opacity-75"
                   >
-                    {" "}
-                    Marketing Calendar{" "}
+                    Marketing Calendar
                   </a>
                 </li>
 
@@ -214,8 +203,7 @@ function Footer() {
                     href="#"
                     className="text-gray-700 transition hover:opacity-75"
                   >
-                    {" "}
-                    SEO Infographics{" "}
+                    SEO Infographics
                   </a>
                 </li>
               </ul>
@@ -290,8 +278,7 @@ function Footer() {
                   href="#"
                   className="text-gray-500 transition hover:opacity-75"
                 >
-                  {" "}
-                  Terms & Conditions{" "}
+                  Terms & Conditions
                 </a>
               </li>
 
@@ -300,8 +287,7 @@ function Footer() {
                   href="#"
                   className="text-gray-500 transition hover:opacity-75"
                 >
-                  {" "}
-                  Privacy Policy{" "}
+                  Privacy Policy
                 </a>
               </li>
 
@@ -310,8 +296,7 @@ function Footer() {
                   href="#"
                   className="text-gray-500 transition hover:opacity-75"
                 >
-                  {" "}
-                  Cookies{" "}
+                  Cookies
                 </a>
               </li>
             </ul>

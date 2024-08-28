@@ -228,12 +228,11 @@ const Land = () => {
                 data-aos="fade-up"
                 data-aos-delay="150"
               >
-                Nobis minus voluptatibus pariatur dignissimos libero quaerat
-                iure expedita at? Asperiores nemo possimus nesciunt dicta veniam
-                aspernatur quam mollitia. <br /> <br /> Vitae error, quaerat
-                officia delectus voluptatibus explicabo quo pariatur impedit, at
-                reprehenderit aliquam a ipsum quas voluptatem. Quo pariatur
-                asperiores eum amet.
+                We prioritize your privacy by securely handling and storing your
+                information, ensuring that your data is protected from
+                unauthorized access.We use your information to tailor our
+                services to your needs, providing relevant offers and ensuring a
+                smooth and efficient user experience.
               </p>
               <div className="divide-y space-y-4 divide-gray-100">
                 <div className="mt-8 flex gap-4 md:items-center">
@@ -261,14 +260,14 @@ const Land = () => {
                       data-aos="fade-left"
                       data-aos-delay="400"
                     >
-                      Chat Anytime
+                      Feedback Anytime
                     </h4>
                     <p
                       className="text-gray-500"
                       data-aos="fade-left"
                       data-aos-delay="400"
                     >
-                      Asperiores nemo possimus nesciunt quam mollitia.
+                      Express your thoughts and complaints throw contact option
                     </p>
                   </div>
                 </div>
@@ -295,14 +294,14 @@ const Land = () => {
                       data-aos="fade-left"
                       data-aos-delay="400"
                     >
-                      Real Time Location
+                      Easy to use
                     </h4>
                     <p
                       className="text-gray-500"
                       data-aos="fade-left"
                       data-aos-delay="400"
                     >
-                      Asperiores nemo possimus nesciunt quam mollitia.
+                      Created simply and easy to understand for everyone.
                     </p>
                   </div>
                 </div>
@@ -334,17 +333,20 @@ const Land = () => {
               data-aos="zoom-in"
               data-aos-delay="400"
             >
-              A technology-first approach to payments and finance
+              How We Approach and What We Provide
             </h2>
             <p
               className="text-gray-600"
               data-aos="zoom-in-up"
               data-aos-delay="450"
             >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus ad
-              ipsum pariatur autem, fugit laborum in atque amet obcaecati? Nisi
-              minima aspernatur, quidem nulla cupiditate nam consequatur
-              eligendi magni adipisci.
+              Our approach is centered on delivering consistent value and
+              exceptional service tailored to your needs. We believe in
+              continuous improvement and are committed to enhancing our services
+              based on your feedback. You can rely on us for timely and
+              efficient scrap collection, with guaranteed pickups within two to
+              six days. We also provide real-time tracking so you can stay
+              informed every step of the way.
             </p>
           </div>
           <div className="mt-16 grid divide-x divide-y divide-gray-100 overflow-hidden rounded-3xl border border-gray-100 text-gray-600 sm:grid-cols-2 lg:grid-cols-4 lg:divide-y-0 xl:grid-cols-4">
@@ -369,8 +371,8 @@ const Land = () => {
                     First feature
                   </h5>
                   <p className="text-gray-600">
-                    Neque Dolor, fugiat non cum doloribus aperiam voluptates
-                    nostrum.
+                    Continuous Improvement: We take your feedback seriously and
+                    continuously update our services to better meet your needs.
                   </p>
                 </div>
                 <a
@@ -414,8 +416,8 @@ const Land = () => {
                     Second feature
                   </h5>
                   <p className="text-gray-600">
-                    Neque Dolor, fugiat non cum doloribus aperiam voluptates
-                    nostrum.
+                    On Time : Guaranteed scrap collection within two to six
+                    days. Track your collection in real-time.
                   </p>
                 </div>
                 <a
@@ -459,8 +461,8 @@ const Land = () => {
                     Third feature
                   </h5>
                   <p className="text-gray-600">
-                    Neque Dolor, fugiat non cum doloribus aperiam voluptates
-                    nostrum.
+                    Fair Price : Get real-time scrap value estimates based on
+                    current market rates.
                   </p>
                 </div>
                 <a
@@ -504,8 +506,8 @@ const Land = () => {
                     More features
                   </h5>
                   <p className="text-gray-600">
-                    Neque Dolor, fugiat non cum doloribus aperiam voluptates
-                    nostrum.
+                    Auto-Fill Address: Automatically detect and fill out your
+                    location in the request form.
                   </p>
                 </div>
                 <a

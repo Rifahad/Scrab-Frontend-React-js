@@ -24,6 +24,8 @@ const Agentproduct = () => {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <h1 className='text-4xl font-black pb-6'>Agent Products</h1>
+        <br />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {agentcard.length > 0 ? (
           agentcard.map((item, index) => (
@@ -31,7 +33,7 @@ const Agentproduct = () => {
               <div className="relative">
                 <img
                   className="w-full h-48 object-fill"
-                  src={'http://localhost:7000/' + item.Image}
+                  src={item?.Url}
                   alt="card Image"
                 />
               </div>

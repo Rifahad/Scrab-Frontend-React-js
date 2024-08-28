@@ -9,7 +9,7 @@ function ProductList() {
   console.log(product);
 
   async function listProduct() {
-    const response = await  axios.get("http://localhost:7000/adminproducts")
+    const response = await  axios.get("http://localhost:7000/adminproduct")
     setProduct(response.data.adminCard);
   }
   useEffect(() => {

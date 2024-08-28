@@ -11,20 +11,19 @@ function Section1() {
         <div className="w-full h-full flex justify-center mt-[150px]">
           <div className="bg-black bg-opacity-50 p-4 flex items-center justify-center flex-col">
             <div className="font-inter text-2xl font-extrabold tracking-tight text-white">
-              Majestic peaks, nature&apos;s embrace.
+              How We Handle Your Information and Provide Value
             </div>
-            <div className="mt-1 text-sm font-medium text-slate-300">
-              Adventure calls, conquer mountain trails.
-            </div>
-            <p className="mt-4 leading-7 text-slate-300">
-              In the realm of towering mountains, where the air is crisp and the
-              vistas stretch endlessly, one finds solace, exhilaration, and a
-              profound connection with the untamed beauty of the natural world.
+
+            <p className="mt-4 leading-7 text-slate-300 text-center">
+              We prioritize your privacy by securely handling and storing your
+              information, ensuring that your data is protected from <br />
+              unauthorized access.
             </p>
-            <p className="mt-4 leading-7 text-slate-300">
-              As the sun rises over the rugged peaks, casting a golden glow on
-              the majestic landscape, a sense of awe fills the heart, reminding
-              us of the grandeur and power that reside in the mountains.
+            <p className="mt-4 leading-7 text-slate-300 text-center">
+              We use your information to tailor our services to your needs,
+              providing relevant offers and ensuring a smooth and efficient user{" "}
+              <br />
+              experience.
             </p>
           </div>
         </div>
@@ -129,20 +128,16 @@ function Section1() {
         <div className="w-full h-full flex justify-center mt-[150px]">
           <div className="bg-black bg-opacity-50 p-4 flex items-center justify-center flex-col">
             <div className="font-inter text-2xl font-extrabold tracking-tight text-white text-center sm:text-start">
-              Majestic peaks, nature's embrace.
+            How We Approach and What We Provide
             </div>
-            <div className="mt-1 text-sm font-medium text-slate-300">
-              Adventure calls, conquer mountain trails.
-            </div>
-            <p className="mt-4 leading-7 text-slate-300">
-              In the realm of towering mountains, where the air is crisp and the
-              vistas stretch endlessly, one finds solace, exhilaration, and a
-              profound connection with the untamed beauty of the natural world.
-            </p>
-            <p className="mt-4 leading-7 text-slate-300">
-              As the sun rises over the rugged peaks, casting a golden glow on
-              the majestic landscape, a sense of awe fills the heart, reminding
-              us of the grandeur and power that reside in the mountains.
+            <p className="mt-4 leading-7 text-slate-300 text-center">
+               Our approach is centered on
+              delivering consistent value and exceptional service tailored to
+              your needs. We believe in continuous improvement and are committed <br/>
+              to enhancing our services based on your feedback. You can rely on
+              us for timely and efficient scrap collection, with guaranteed <br />
+              pickups within two to six days. We also provide real-time tracking
+              so you can stay informed every step of the way.
             </p>
           </div>
         </div>

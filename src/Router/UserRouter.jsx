@@ -42,14 +42,14 @@ function UserRouter() {
       ) : (
         <Routes>
           <Route path="/" element={<Land />} />
-          <Route path="/help" element={<Help />} />
 
           <Route path="/agent-form" element={<AgentForm />} />
           <Route path='/existingagent' element={<ExistingAgent/>}/>
-          <Route  path='/companyproducts' element={<Agentproductlist/>}/>
 
 
           <Route path="/" element={<UserLayout />}>
+          <Route  path='/companyproducts' element={<Agentproductlist/>}/>
+          <Route path="/help" element={<Help />} />
             <Route path="/home" element={<Home />} />
             <Route path="/pickup" element={<Pickup />} />
             <Route path="/products" element={<Products />} />
