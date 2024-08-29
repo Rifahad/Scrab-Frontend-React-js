@@ -42,6 +42,7 @@ const ExistingAgent = () => {
       }
     } catch (error) {
       console.error(error);
+      // Optionally handle error state or display error messages
     }
   };
 
@@ -53,46 +54,44 @@ const ExistingAgent = () => {
   };
 
   return (
-    <>
-      <div className="flex min-h-screen items-center justify-center bg-background px-4 py-12 sm:px-6 lg:px-8">
-        <div className="w-full max-w-md space-y-8">
-          <div>
-            <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-foreground">
-              Existing users can login using phone number
-            </h2>
-          </div>
-          <form className="mt-8 space-y-6" onSubmit={existing}>
-            <div className="-space-y-px rounded-md shadow-sm">
-              <div>
-                <label htmlFor="phone" className="sr-only">
-                  Phone Number
-                </label>
-                <input
-                  id="number"
-                  name="number"
-                  type="number"
-                  autoComplete="number"
-                  required
-                  onChange={handleChange}
-                  value={existingAgent.number}
-                  ref={inputRef}
-                  className="relative block w-full appearance-none rounded-md border border-input bg-background px-3 py-2 text-foreground placeholder-muted-foreground focus:z-10 focus:border-primary focus:outline-none focus:ring-primary sm:text-sm"
-                  placeholder="Phone Number"
-                />
-              </div>
-            </div>
-            <div>
-              <button
-                type="submit"
-                className="group relative flex w-full justify-center rounded-md border border-transparent bg-primary py-2 px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-              >
-                Login
-              </button>
-            </div>
-          </form>
+    <div className="flex min-h-screen items-center justify-center bg-background px-4 py-12 sm:px-6 lg:px-8">
+      <div className="w-full max-w-md space-y-8">
+        <div>
+          <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-foreground">
+            Existing users can login using phone number
+          </h2>
         </div>
+        <form className="mt-8 space-y-6" onSubmit={existing}>
+          <div className="-space-y-px rounded-md shadow-sm">
+            <div>
+              <label htmlFor="phone" className="sr-only">
+                Phone Number
+              </label>
+              <input
+                id="number"
+                name="number"
+                type="number"
+                autoComplete="off"
+                required
+                onChange={handleChange}
+                value={existingAgent.number}
+                ref={inputRef}
+                className="relative block w-full appearance-none rounded-md border border-input bg-background px-3 py-2 text-foreground placeholder-muted-foreground focus:z-10 focus:border-primary focus:outline-none focus:ring-primary sm:text-sm"
+                placeholder="Phone Number"
+              />
+            </div>
+          </div>
+          <div>
+            <button
+              type="submit"
+              className="group relative flex w-full justify-center rounded-md border border-transparent bg-primary py-2 px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+            >
+              Login
+            </button>
+          </div>
+        </form>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -10,43 +10,55 @@ const UserList = () => {
   const [filterdata, setFilterdata] = useState([]);
 
   const handleStartDateChange = async (e) => {
-    setStartDate(e.target.value);
     const searchDate = e.target.value;
+    setStartDate(searchDate);
     const filteredData = filterdata.filter((person) =>
       person.createdAt.startsWith(searchDate)
     );
     setUserData(filteredData);
   };
 
-  async function fetchUser() {
-    try {
-      const response = await axios.get("http://localhost:7000/Users");
-      setUserData(response.data.userData);
-      setFilterdata(response.data.userData);
-    } catch (error) {
-      console.log(
-        error,
-        "error in fetching user data from backend to frontend"
-      );
-    }
-  }
-
   useEffect(() => {
+    const abortController = new AbortController();
+
+    const fetchUser = async () => {
+      try {
+        const response = await axios.get("http://localhost:7000/Users", {
+          signal: abortController.signal,
+        });
+        setUserData(response.data.userData);
+        setFilterdata(response.data.userData);
+      } catch (error) {
+        if (axios.isCancel(error)) {
+          console.log("Request canceled:", error.message);
+        } else {
+          console.error("Error fetching user data:", error);
+        }
+      }
+    };
+
     fetchUser();
+
+    return () => {
+      abortController.abort();
+    };
   }, []);
 
-  async function deleteDoc(id) {
+  const deleteDoc = async (id) => {
     try {
       const response = await axios.post(
         `http://localhost:7000/admin/User/delete?id=${id}`
       );
       if (response.status === 200) {
-        setUserData(userData.filter((user) => user._id !== id));
+        setUserData((prevUserData) =>
+          prevUserData.filter((user) => user._id !== id)
+        );
       }
     } catch (error) {
-      console.log(error, "error in delete doc check into the delete btn");
+      console.error("Error deleting document:", error);
     }
-  }
+  };
+
   const downloadPDF = (user) => {
     const input = document.getElementById(`user-${user._id}`);
     html2canvas(input).then((canvas) => {
@@ -57,7 +69,6 @@ const UserList = () => {
       const img = new Image();
       img.src = Logo;
       img.onload = () => {
-        // Convert the image to a base64 URL
         const canvas = document.createElement("canvas");
         const ctx = canvas.getContext("2d");
         canvas.width = img.width;
@@ -109,28 +120,26 @@ const UserList = () => {
           <table className="w-full table-auto">
             <thead>
               <tr className="bg-gray-200">
-                <th className="px-4 py-2 text-center">Name </th>
-                <th className="px-4 py-2 text-center">Image </th>
-                <th className="px-4 py-2 text-center">Phone </th>
-                <th className="px-4 py-2 text-center">Location </th>
-                <th className="px-4 py-2 text-center">Country </th>
+                <th className="px-4 py-2 text-center">Name</th>
+                <th className="px-4 py-2 text-center">Image</th>
+                <th className="px-4 py-2 text-center">Phone</th>
+                <th className="px-4 py-2 text-center">Location</th>
+                <th className="px-4 py-2 text-center">Country</th>
                 <th className="px-4 py-2 text-center">Date / Time</th>
-                <th className="px-4 py-2 text-center">Actions </th>
+                <th className="px-4 py-2 text-center">Actions</th>
               </tr>
             </thead>
             <tbody>
-              {userData.map((user, index) => (
+              {userData.map((user) => (
                 <tr
-                  key={index}
+                  key={user._id}
                   id={`user-${user._id}`}
                   className="hover:bg-gray-100 hover:bg-opacity-25"
                 >
                   <td className="px-4 py-2 text-center">{user.full_name}</td>
                   <td className="px-4 py-2 text-center">
                     <img
-                      src={
-                        user.Url
-                      }
+                      src={user.Url}
                       className="w-32 h-32"
                       alt=""
                     />

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
@@ -118,6 +118,21 @@ const Pickup = () => {
   const [previewImage, setPreviewImage] = useState(null);
   const navigate = useNavigate();
 
+  // Cleanup object URL on component unmount
+  useEffect(() => {
+    return () => {
+      if (previewImage) {
+        URL.revokeObjectURL(previewImage);
+      }
+    };
+  }, [previewImage]);
+
+  const handleImageChange = (event, setFieldValue) => {
+    const file = event.currentTarget.files[0];
+    setFieldValue("pickupImage", file);
+    setPreviewImage(URL.createObjectURL(file));
+  };
+
   return (
     <div className="p-6 bg-white flex items-center justify-center">
       <div className="container max-w-screen-lg mx-auto">
@@ -126,7 +141,7 @@ const Pickup = () => {
           validationSchema={validationSchema}
           onSubmit={(values, actions) => handleSubmit(values, actions, navigate)}
         >
-          {({ setFieldValue, isSubmitting, resetForm }) => (
+          {({ setFieldValue, isSubmitting }) => (
             <Form>
               <div className="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
                 <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
@@ -267,11 +282,7 @@ const Pickup = () => {
                           capture="environment"
                           accept="image/*;capture=camera"
                           className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                          onChange={(event) => {
-                            const file = event.currentTarget.files[0];
-                            setFieldValue("pickupImage", file);
-                            setPreviewImage(URL.createObjectURL(file));
-                          }}
+                          onChange={(event) => handleImageChange(event, setFieldValue)}
                         />
                         <ErrorMessage
                           name="pickupImage"

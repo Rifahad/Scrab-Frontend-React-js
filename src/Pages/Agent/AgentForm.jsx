@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { FaPhone, FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa";
-
+import { FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa";
 import Logo from "../../assets/img/Logo.png";
 
 const AgentForm = () => {
@@ -15,19 +14,25 @@ const AgentForm = () => {
     location: "",
     message: "",
   });
-
   const [error, setError] = useState("");
 
-  const handleFileChange = (e) => {
-    setAgentData({ ...agentData, scrapImage: e.target.files[0] });
-  };
+  const handleFileChange = useCallback((e) => {
+    setAgentData((prevData) => ({
+      ...prevData,
+      scrapImage: e.target.files[0],
+    }));
+  }, []);
 
-  const handleChange = (e) => {
-    setAgentData({ ...agentData, [e.target.name]: e.target.value });
-    if (e.target.name === "tonAmount") {
-      validateInput(e.target.value);
+  const handleChange = useCallback((e) => {
+    const { name, value } = e.target;
+    setAgentData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+    if (name === "tonAmount") {
+      validateInput(value);
     }
-  };
+  }, []);
 
   const validateInput = (value) => {
     if (value < 500) {
@@ -62,6 +67,7 @@ const AgentForm = () => {
           },
         }
       );
+
       if (response.data.msg === "complete the form please") {
         alert("Please complete the form");
       }
@@ -71,8 +77,8 @@ const AgentForm = () => {
         setAgentData({
           companyName: "",
           phone: "",
+          tonAmount: 500,
           location: "",
-          tonAmount: "",
           message: "",
         });
         navigate("/companyproducts");
@@ -108,7 +114,7 @@ const AgentForm = () => {
         </nav>
       </header>
       <main className="flex-1 bg-white py-12 px-6 md:px-12 lg:px-24 relative">
-        <div className="absolute inset-0  opacity-10 animate-gradient-x" />
+        <div className="absolute inset-0 opacity-10 animate-gradient-x" />
         <div className="max-w-4xl mx-auto grid gap-8 relative z-10">
           <div>
             <h1 className="text-3xl font-bold mb-4 text-black">
@@ -226,7 +232,7 @@ const AgentForm = () => {
               <h2 className="text-xl font-bold mb-4 text-black">
                 Office Location
               </h2>
-              <p className="text-black">moonunirath ,kannur</p>
+              <p className="text-black">moonunirath, Kannur</p>
             </div>
             <div>
               <h2 className="text-xl font-bold mb-4 text-black">
@@ -244,14 +250,16 @@ const AgentForm = () => {
                 <a href="https://www.instagram.com/mubeen3_07/">
                   <FaInstagram className="text-xl text-black hover:text-gray-800" />
                 </a>
-                <FaFacebookF className="text-xl text-black hover:text-gray-800" />
+                <a href="https://www.facebook.com">
+                  <FaFacebookF className="text-xl text-black hover:text-gray-800" />
+                </a>
               </div>
             </div>
           </div>
         </div>
       </main>
       <footer className="bg-primary text-white py-4 px-6 flex justify-between items-center">
-        <p className="text-sm">&copy; 2024 Eco scrap</p>
+        <p className="text-sm">&copy; 2024 Eco Scrap</p>
         <nav className="flex items-center gap-6">
           <Link to="/terms" className="hover:underline text-white">
             Terms

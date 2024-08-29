@@ -62,7 +62,6 @@ const EditForm = () => {
         alert("Product updated successfully");
         navigate("/admin/adminProduct"); // Redirect to the product list page
       } else {
-        // Handle error (e.g., show an error message)
         alert("Error updating product");
       }
     } catch (error) {

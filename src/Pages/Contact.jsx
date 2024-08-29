@@ -6,7 +6,9 @@ function Contact() {
   const [message, setMessage] = useState("");
   const [sendCopy, setSendCopy] = useState(true);
 
-  const handleFormSubmit = async () => {
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+
     const formattedMessage = `
       Name: ${name}
       Email: ${email}
@@ -33,6 +35,9 @@ function Contact() {
       if (response.ok) {
         console.log("Message sent successfully");
         // You can add additional logic here, such as clearing the form fields or showing a success message
+        setName("");
+        setEmail("");
+        setMessage("");
       } else {
         console.error("Failed to send message");
         // You can add error handling logic here
@@ -60,10 +65,7 @@ function Contact() {
           <div className="flex flex-wrap">
             <div className="mb-12 w-full shrink-0 grow-0 basis-auto md:px-3 lg:mb-0 lg:w-5/12 lg:px-6">
               <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  handleFormSubmit();
-                }}
+                onSubmit={handleFormSubmit}
               >
                 <div className="relative mb-6">
                   <input
@@ -118,6 +120,7 @@ function Contact() {
                 </button>
               </form>
             </div>
+            {/* Contact information section */}
             <div className="w-full shrink-0 grow-0 basis-auto lg:w-7/12">
               <div className="flex flex-wrap">
                 <div className="mb-12 w-full md:w-6/12 lg:w-full xl:w-6/12">

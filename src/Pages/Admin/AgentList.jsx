@@ -4,29 +4,49 @@ import { FaLocationDot } from "react-icons/fa6";
 
 const AgentList = () => {
   const [agent, setAgent] = useState([]);
+  const [loading, setLoading] = useState(true); // Optional: For loading state management
 
-  const Getagent = async () => {
-    const response = await axios.get("http://localhost:7000/companydata");
-    console.log(response.data.Agent, "datagotted");
-    setAgent(response.data.Agent);
-    console.log(agent, "saved data");
-  };
+  // Fetch agent data
   useEffect(() => {
+    let isMounted = true; // Flag to track component mounting status
+
+    const Getagent = async () => {
+      try {
+        const response = await axios.get("http://localhost:7000/companydata");
+        console.log(response.data.Agent, "datagotted");
+        if (isMounted) {
+          setAgent(response.data.Agent);
+        }
+      } catch (error) {
+        console.error(error, "error fetching agent data");
+      } finally {
+        if (isMounted) {
+          setLoading(false); // Set loading to false if needed
+        }
+      }
+    };
+
     Getagent();
+
+    // Cleanup function
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
-  async function deleteDoc(id) {
+  // Delete document
+  const deleteDoc = async (id) => {
     try {
       const response = await axios.post(
         `http://localhost:7000/admin/adminAgentlistDelete?id=${id}`
       );
       if (response.status === 200) {
-        setAgent(agent.filter((user) => user._id !== id));
+        setAgent((prevAgents) => prevAgents.filter((user) => user._id !== id));
       }
     } catch (error) {
-      console.log(error, "error in delete doc check into the delete btn");
+      console.error(error, "error in delete doc");
     }
-  }
+  };
 
   return (
     <>
@@ -41,28 +61,22 @@ const AgentList = () => {
               <thead>
                 <tr className="bg-gray-200">
                   <th className="px-4 py-2 text-center">Name </th>
-                  <th className="px-4 py-2 text-center">location </th>
-
+                  <th className="px-4 py-2 text-center">Location </th>
                   <th className="px-4 py-2 text-center">Phone </th>
                   <th className="px-4 py-2 text-center">Kilogram </th>
                   <th className="px-4 py-2 text-center">Actions </th>
                 </tr>
               </thead>
               <tbody>
-                {agent.map((user, index) => (
+                {agent.map((user) => (
                   <tr
-                    key={index}
-                    id={`user-${user._id}`}
+                    key={user._id}
                     className="hover:bg-gray-100 hover:bg-opacity-25"
                   >
+                    <td className="px-4 py-2 text-center">{user.Companyname}</td>
                     <td className="px-4 py-2 text-center">
-                      {user.Companyname}
+                      <FaLocationDot className="text-red-500" /> {user.location}
                     </td>
-                    <td className="px-4 py-2 text-center">
-                      {" "}
-                      <FaLocationDot  className="text-red-500" /> {user.location}
-                    </td>
-
                     <td className="px-4 py-2 text-center">{user.phone}</td>
                     <td className="px-4 py-2 text-center">{user.kilogram}</td>
                     <td className="px-4 py-2 flex items-center justify-center space-x-2">

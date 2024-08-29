@@ -15,7 +15,7 @@ const Navbar = () => {
   };
 
   const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
+    setDropdownOpen(prev => !prev);
   };
 
   const handleDoubleClick = () => {
@@ -90,7 +90,7 @@ const Navbar = () => {
                   : "text-white border border-white bg-gray-50"
               } cursor-pointer px-3 py-2.5 font-normal text-xs leading-3 shadow-md rounded`}
             >
-              <FaTruckPickup className="text-[25px] " />
+              <FaTruckPickup className="text-[25px]" />
               PickUp
             </button>
           </div>
@@ -119,7 +119,7 @@ const Navbar = () => {
                 <li>
                   <Link
                     to="/"
-                    onClick={() => handleSelect("Home")}
+                    onClick={() => handleSelect("Home", "/")}
                     className={`cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-primary focus:text-primary focus:outline-none ${
                       selected === "Home" ? "font-bold" : ""
                     }`}
@@ -130,7 +130,7 @@ const Navbar = () => {
                 <li>
                   <Link
                     to="/products"
-                    onClick={() => handleSelect("Products")}
+                    onClick={() => handleSelect("Products", "/products")}
                     className={`cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-primary focus:text-primary focus:outline-none ${
                       selected === "Products" ? "font-bold" : ""
                     }`}
@@ -141,7 +141,7 @@ const Navbar = () => {
                 <li>
                   <Link
                     to="/contact"
-                    onClick={() => handleSelect("Contact")}
+                    onClick={() => handleSelect("Contact", "/contact")}
                     className={`cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-primary focus:text-primary focus:outline-none ${
                       selected === "Contact" ? "font-bold" : ""
                     }`}
@@ -152,7 +152,7 @@ const Navbar = () => {
                 <li>
                   <Link
                     to="/about-us"
-                    onClick={() => handleSelect("About Us")}
+                    onClick={() => handleSelect("About Us", "/about-us")}
                     className={`cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-primary focus:text-primary focus:outline-none ${
                       selected === "About Us" ? "font-bold" : ""
                     }`}

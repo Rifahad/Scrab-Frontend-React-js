@@ -42,7 +42,7 @@ export default function Component() {
           />
           <div className="flex flex-col items-start justify-center gap-4">
             <p className="max-w-[600px] text-foreground/80 md:text-xl/relaxed font-malayalam">
-              'Use Location' ബട്ടണിൽ ക്ലിക്ക് ചെയ്യുക, പിന്നെ അത് നിങ്ങളുടെ
+              &apos;Use Location&apos; ബട്ടണിൽ ക്ലിക്ക് ചെയ്യുക, പിന്നെ അത് നിങ്ങളുടെ
               വിലാസം സ്വയം പൂരിപ്പിക്കും
             </p>
             <div className="text-sm text-muted-foreground">Step 2 of 5</div>

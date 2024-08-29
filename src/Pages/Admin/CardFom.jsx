@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2'; // Ensure you have SweetAlert2 installed and imported
 
@@ -10,15 +10,24 @@ const CardForm = () => {
         preview: '', // Added for image preview
     });
 
+    useEffect(() => {
+        // Cleanup function to revoke object URL when the component unmounts or file changes
+        return () => {
+            if (formData.preview) {
+                URL.revokeObjectURL(formData.preview);
+            }
+        };
+    }, [formData.preview]);
+
     const handleChange = (e) => {
         const { name, value, files } = e.target;
         if (name === 'file') {
             const file = files[0];
-            setFormData({
-                ...formData,
+            setFormData((prevFormData) => ({
+                ...prevFormData,
                 file: file,
-                preview: URL.createObjectURL(file), // Create a preview URL for the image
-            });
+                preview: file ? URL.createObjectURL(file) : '', // Create a preview URL for the image
+            }));
         } else {
             setFormData({ ...formData, [name]: value });
         }
@@ -56,11 +65,11 @@ const CardForm = () => {
             });
         }
     };
-    
+
     return (
         <div className="flex items-center justify-center">
             <div className="mx-auto w-full max-w-[550px] bg-white border rounded">
-                <form action='/card' className="py-4 px-9" onSubmit={handleSubmitting} method='post' encType='multipart/form-data'>
+                <form className="py-4 px-9" onSubmit={handleSubmitting} encType='multipart/form-data'>
                     <div className="mb-5">
                         <label htmlFor="title" className="mb-3 block text-base font-medium text-[#07074D]">
                             Add Products Here:
@@ -119,7 +128,7 @@ const CardForm = () => {
 
                     <div>
                         <button
-                            type="submit" // Add this to ensure the form is submitted
+                            type="submit"
                             className="hover:shadow-form w-full rounded-md bg-green-500 py-3 px-8 text-center text-base font-semibold text-white outline-none"
                         >
                             Confirm adding Products

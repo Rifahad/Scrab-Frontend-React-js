@@ -6,22 +6,20 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const navigate = useNavigate();
 
-  const onFinish = (values) => {
-    console.log("Success:", values);
-    axios
-      .post("http://localhost:7000/AdminLogin", values)
-      .then((response) => {
-        console.log(response.data);
-        localStorage.setItem("token", response.data.token);
-        navigate("/admin");
-      })
-      .catch((error) => {
-        console.error("There was an error!", error);
-      });
+  const onFinish = async (values) => {
+    try {
+      console.log("Success:", values); // Optional, for debugging
+      const response = await axios.post("http://localhost:7000/AdminLogin", values);
+      console.log(response.data); // Optional, for debugging
+      localStorage.setItem("token", response.data.token);
+      navigate("/admin");
+    } catch (error) {
+      console.error("There was an error!", error);
+    }
   };
 
   const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
+    console.log("Failed:", errorInfo); // Optional, for debugging
   };
 
   return (
@@ -30,7 +28,7 @@ const Login = () => {
     >
       <div className="p-4 md:p-0">
         <Form
-          className="bg-white  bg-opacity-5 p-4 rounded-lg shadow-sm shadow-black"
+          className="bg-white bg-opacity-5 p-4 rounded-lg shadow-sm shadow-black"
           name="basic"
           labelCol={{
             xs: { span: 24 },

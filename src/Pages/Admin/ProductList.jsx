@@ -4,19 +4,38 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 function ProductList() {
-
   const [product, setProduct] = useState([]);
-  console.log(product);
 
-  async function listProduct() {
-    const response = await  axios.get("http://localhost:7000/adminproduct")
-    setProduct(response.data.adminCard);
-  }
+  // Function to fetch products
+  const listProduct = async (abortController) => {
+    try {
+      const response = await axios.get("http://localhost:7000/adminproduct", {
+        signal: abortController.signal,
+      });
+      setProduct(response.data.adminCard);
+    } catch (error) {
+      if (axios.isCancel(error)) {
+        console.log("Request canceled:", error.message);
+      } else {
+        console.error("Error fetching products:", error);
+      }
+    }
+  };
+
   useEffect(() => {
-    listProduct();
+    // Create an AbortController instance
+    const abortController = new AbortController();
+
+    // Call the function to list products
+    listProduct(abortController);
+
+    // Cleanup function to abort the request on component unmount
+    return () => {
+      abortController.abort();
+    };
   }, []);
 
-  // product delete function
+  // Product delete function
   const productdelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -29,47 +48,33 @@ function ProductList() {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          console.log("delete here", id);
           const response = await axios.post(
             `http://localhost:7000/productdelete?id=${id}`
           );
           if (response.status === 200) {
-            setProduct(product.filter((user) => user._id !== id));
+            setProduct((prevProduct) => prevProduct.filter((user) => user._id !== id));
             Swal.fire("Deleted!", "Your product has been deleted.", "success");
           } else {
-            Swal.fire(
-              "Error!",
-              "There was an error deleting your product.",
-              "error"
-            );
+            Swal.fire("Error!", "There was an error deleting your product.", "error");
           }
-          console.log(response.status);
         } catch (error) {
-          console.log(error, "error in product delete");
-          Swal.fire(
-            "Error!",
-            "There was an error deleting your product.",
-            "error"
-          );
+          console.error("Error in product delete:", error);
+          Swal.fire("Error!", "There was an error deleting your product.", "error");
         }
       }
     });
   };
 
-
-  
   return (
-    <>
-      <div className="flex flex-wrap gap-3">
-        {product.map((val) => (
-          <ProductCard
-            key={val._id}
-            data={val}
-            carddelete={productdelete}
-          />
-        ))}
-      </div>
-    </>
+    <div className="flex flex-wrap gap-3">
+      {product.map((val) => (
+        <ProductCard
+          key={val._id}
+          data={val}
+          carddelete={productdelete}
+        />
+      ))}
+    </div>
   );
 }
 
