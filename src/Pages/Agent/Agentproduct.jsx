@@ -35,7 +35,7 @@ const Agentproduct = () => {
                   className="w-full h-48 object-fill"
                   src={item?.Url}
                   alt="card Image"
-                />
+                />  
               </div>
               <div className="px-6 py-4">
                 <div className="text-xl font-semibold text-gray-800">{item.title}</div>

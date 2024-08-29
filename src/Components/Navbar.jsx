@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaTruckPickup } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
-import Logo from '../assets/img/Logo.png';
+import { Link, useNavigate } from "react-router-dom";
+import Logo from "../assets/img/Logo.png";
 
 const Navbar = () => {
   const [selected, setSelected] = useState("Collections");
@@ -19,7 +19,7 @@ const Navbar = () => {
   };
 
   const handleDoubleClick = () => {
-    navigate('/admin');
+    navigate("/admin");
   };
 
   return (
@@ -27,8 +27,15 @@ const Navbar = () => {
       <div className="bg-white rounded shadow-lg py-5 px-7">
         <nav className="flex justify-between">
           <div className="flex items-center space-x-3 lg:pr-16 pr-6">
-            <img src={Logo} onDoubleClick={handleDoubleClick} className="w-12" alt="Logo" />
-            <h2 className="text-2xl leading-6 text-black font-black">Eco Scrap</h2>
+            <img
+              src={Logo}
+              onDoubleClick={handleDoubleClick}
+              className="w-12"
+              alt="Logo"
+            />
+            <h2 className="text-2xl leading-6 text-black font-black">
+              Eco Scrap
+            </h2>
           </div>
 
           <ul className="hidden md:flex flex-auto space-x-2">
@@ -78,7 +85,9 @@ const Navbar = () => {
             <button
               onClick={() => navigate("/pickup")}
               className={`flex items-center bg-primary gap-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary ${
-                selected === "PickUp" ? "text-white bg-primary" : "text-white border border-white bg-gray-50"
+                selected === "PickUp"
+                  ? "text-white bg-primary"
+                  : "text-white border border-white bg-gray-50"
               } cursor-pointer px-3 py-2.5 font-normal text-xs leading-3 shadow-md rounded`}
             >
               <FaTruckPickup className="text-[25px] " />
@@ -107,41 +116,51 @@ const Navbar = () => {
             </svg>
             {dropdownOpen && (
               <ul className="p-2 w-40 border-r bg-white absolute rounded z-40 right-0 shadow mt-2 top-10">
-                <li
-                  onClick={() => handleSelect("Home", "/")}
-                  className={`cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-primary focus:text-primary focus:outline-none ${
-                    selected === "Home" ? "font-bold" : ""
-                  }`}
-                >
-                  Home
+                <li>
+                  <Link
+                    to="/"
+                    onClick={() => handleSelect("Home")}
+                    className={`cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-primary focus:text-primary focus:outline-none ${
+                      selected === "Home" ? "font-bold" : ""
+                    }`}
+                  >
+                    Home
+                  </Link>
                 </li>
-                <li
-                  onClick={() => handleSelect("Products", "/products")}
-                  className={`cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-primary focus:text-primary focus:outline-none ${
-                    selected === "Products" ? "font-bold" : ""
-                  }`}
-                >
-                  Products
+                <li>
+                  <Link
+                    to="/products"
+                    onClick={() => handleSelect("Products")}
+                    className={`cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-primary focus:text-primary focus:outline-none ${
+                      selected === "Products" ? "font-bold" : ""
+                    }`}
+                  >
+                    Products
+                  </Link>
                 </li>
-                <li
-                  onClick={() => handleSelect("Contact", "/contact")}
-                  className={`cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-primary focus:text-primary focus:outline-none ${
-                    selected === "Contact" ? "font-bold" : ""
-                  }`}
-                >
-                  Contact
+                <li>
+                  <Link
+                    to="/contact"
+                    onClick={() => handleSelect("Contact")}
+                    className={`cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-primary focus:text-primary focus:outline-none ${
+                      selected === "Contact" ? "font-bold" : ""
+                    }`}
+                  >
+                    Contact
+                  </Link>
                 </li>
-                <li
-                  onClick={() => handleSelect("About Us", "/about-us")}
-                  className={`cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-primary focus:text-primary focus:outline-none ${
-                    selected === "About Us" ? "font-bold" : ""
-                  }`}
-                >
-                  About Us
+                <li>
+                  <Link
+                    to="/about-us"
+                    onClick={() => handleSelect("About Us")}
+                    className={`cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-primary focus:text-primary focus:outline-none ${
+                      selected === "About Us" ? "font-bold" : ""
+                    }`}
+                  >
+                    About Us
+                  </Link>
                 </li>
-                <img src={Logo} onClick={handleDoubleClick} className="w-12" alt="Logo" />
               </ul>
-
             )}
           </div>
         </nav>

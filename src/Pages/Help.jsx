@@ -10,8 +10,8 @@ export default function Component() {
       <div className="flex flex-col items-center justify-center">
         <main className="container mx-auto my-24 grid grid-cols-1 gap-24 px-4 md:grid-cols-2 md:gap-32 lg:gap-40">
           <section className="flex flex-col items-start justify-center gap-4">
-            <h1 className="text-5xl font-bold tracking-tighter text-foreground">
-              Get Started with Our Platform
+            <h1 className="text-3xl font-bold tracking-widest text-foreground">
+              ഈ വെബ്സൈറ്റിലൂടെ ഉപയോഗശൂന്യമായ സാധനങ്ങൾ എങ്ങനെ വിൽക്കാം.
             </h1>
             <p className="max-w-[600px] text-foreground/80 md:text-xl/relaxed font-malayalam">
               ഈ വെബ്സൈറ്റ് ഓൺലൈനായി നിങ്ങളുടെ ഉപയോഗശൂന്യമായ വസ്തുക്കൾ
@@ -41,10 +41,10 @@ export default function Component() {
             className="mx-auto aspect-square w-full max-w-[300px] rounded-xl object-cover"
           />
           <div className="flex flex-col items-start justify-center gap-4">
-          
             <p className="max-w-[600px] text-foreground/80 md:text-xl/relaxed font-malayalam">
-  'Use Location' ബട്ടണിൽ ക്ലിക്ക് ചെയ്യുക, പിന്നെ അത് നിങ്ങളുടെ വിലാസം സ്വയം പൂരിപ്പിക്കും
-</p>
+              'Use Location' ബട്ടണിൽ ക്ലിക്ക് ചെയ്യുക, പിന്നെ അത് നിങ്ങളുടെ
+              വിലാസം സ്വയം പൂരിപ്പിക്കും
+            </p>
             <div className="text-sm text-muted-foreground">Step 2 of 5</div>
             <div className="flex items-center gap-2">
               <span>Next</span>
@@ -57,9 +57,10 @@ export default function Component() {
             {/* <h3 className="text-2xl font-bold tracking-tighter text-foreground sm:text-3xl">
               Scalable Infrastructure
             </h3> */}
-          <p className="max-w-[600px] text-foreground/80 md:text-xl/relaxed font-malayalam">
-  ദയവായി വിലാസം ശരിയാണോ എന്ന് പരിശോധിക്കുക. തെറ്റാണെങ്കിൽ അത് തിരുത്തുക.
-</p>
+            <p className="max-w-[600px] text-foreground/80 md:text-xl/relaxed font-malayalam">
+              ദയവായി വിലാസം ശരിയാണോ എന്ന് പരിശോധിക്കുക. തെറ്റാണെങ്കിൽ അത്
+              തിരുത്തുക.
+            </p>
             <div className="text-sm text-muted-foreground">Step 3 of 5</div>
             <div className="flex items-center gap-2">
               <span>Next</span>
@@ -82,32 +83,39 @@ export default function Component() {
             alt="Feature 3"
             className="mx-auto aspect-square w-full max-w-[300px] rounded-xl object-cover"
           />
-        <div className="flex flex-col items-start justify-center gap-4">
-  <h3 className="text-2xl font-bold tracking-tighter text-foreground sm:text-3xl font-malayalam">
-  കമ്പനി സ്ക്രാപ്പ് വിൽപ്പന ഈ ഘട്ടങ്ങൾ പാലിക്കാം  </h3>
-  <p className="max-w-[600px] text-foreground/80 md:text-xl/relaxed font-malayalam">
-  നിങ്ങൾ കാണുന്ന പേജിലെ ബട്ടൺ അമർത്തുക  </p>
-  <div className="text-sm text-muted-foreground font-malayalam">നടപടിക്രമം 4/5</div>
-  <div className="flex items-center gap-2">
-    <span className="font-malayalam">അടുത്തത്</span>
-    <ArrowRightIcon className="h-5 w-5" />
-  </div>
-</div>
+          <div className="flex flex-col items-start justify-center gap-4">
+            <h3 className="text-2xl font-bold tracking-tighter text-foreground sm:text-3xl font-malayalam">
+              കമ്പനി സ്ക്രാപ്പ് വിൽപ്പന ഈ ഘട്ടങ്ങൾ പാലിക്കാം{" "}
+            </h3>
+            <p className="max-w-[600px] text-foreground/80 md:text-xl/relaxed font-malayalam">
+              നിങ്ങൾ കാണുന്ന പേജിലെ ബട്ടൺ അമർത്തുക{" "}
+            </p>
+            <div className="text-sm text-muted-foreground font-malayalam">
+              നടപടിക്രമം 4/5
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="font-malayalam">അടുത്തത്</span>
+              <ArrowRightIcon className="h-5 w-5" />
+            </div>
+          </div>
         </section>
         <section className="container mx-auto my-24 grid grid-cols-1 gap-24 px-4 md:grid-cols-2 md:gap-32 lg:gap-40">
-        <div className="flex flex-col items-start justify-center gap-4">
-  <h3 className="text-2xl font-bold tracking-tighter text-foreground sm:text-3xl font-malayalam">
-    അവസാന ഘട്ടം
-  </h3>
-  <p className="max-w-[600px] text-foreground/80 md:text-xl/relaxed font-malayalam">
-    ശേഷം 'Submit' ബട്ടണിൽ ക്ലിക്ക് ചെയ്യുക. നിങ്ങളുടെ അഭ്യർത്ഥന സമർപ്പിക്കപ്പെടും. ഞങ്ങൾ 2-6 ദിവസത്തിനുള്ളിൽ നിങ്ങളെ ബന്ധപ്പെടും.
-  </p>
-  <div className="text-sm text-muted-foreground font-malayalam">നടപടിക്രമം 5/5</div>
-  <div className="flex items-center gap-2">
-    <span className="font-malayalam">പൂർത്തിയാക്കുക</span>
-    <ArrowRightIcon className="h-5 w-5" />
-  </div>
-</div>
+          <div className="flex flex-col items-start justify-center gap-4">
+            <h3 className="text-2xl font-bold tracking-tighter text-foreground sm:text-3xl font-malayalam">
+              അവസാന ഘട്ടം
+            </h3>
+            <p className="max-w-[600px] text-foreground/80 md:text-xl/relaxed font-malayalam">
+              ശേഷം 'Submit' ബട്ടണിൽ ക്ലിക്ക് ചെയ്യുക. നിങ്ങളുടെ അഭ്യർത്ഥന
+              സമർപ്പിക്കപ്പെടും. ഞങ്ങൾ 2-6 ദിവസത്തിനുള്ളിൽ നിങ്ങളെ ബന്ധപ്പെടും.
+            </p>
+            <div className="text-sm text-muted-foreground font-malayalam">
+              നടപടിക്രമം 5/5
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="font-malayalam">പൂർത്തിയാക്കുക</span>
+              <ArrowRightIcon className="h-5 w-5" />
+            </div>
+          </div>
           <img
             src={Img5}
             width="300"
@@ -116,7 +124,6 @@ export default function Component() {
             className="mx-auto aspect-square w-full max-w-[300px] pl-[10px] rounded-xl object-cover"
           />
         </section>
-       
       </div>
     </>
   );

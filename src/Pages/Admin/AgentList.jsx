@@ -60,7 +60,7 @@ const AgentList = () => {
                     </td>
                     <td className="px-4 py-2 text-center">
                       {" "}
-                      <FaLocationDot  className="text-red-500" /> kanuur
+                      <FaLocationDot  className="text-red-500" /> {user.location}
                     </td>
 
                     <td className="px-4 py-2 text-center">{user.phone}</td>

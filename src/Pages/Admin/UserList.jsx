@@ -129,8 +129,7 @@ const UserList = () => {
                   <td className="px-4 py-2 text-center">
                     <img
                       src={
-                        "http://localhost:7000//assets/pickupImage/" +
-                        user.pickupImage
+                        user.Url
                       }
                       className="w-32 h-32"
                       alt=""

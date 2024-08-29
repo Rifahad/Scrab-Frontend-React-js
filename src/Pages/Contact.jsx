@@ -14,7 +14,7 @@ function Contact() {
       Send me a copy: ${sendCopy ? "Yes" : "No"}
     `;
 
-    const whatsappNumber = "+917406941223"; // Replace with the desired WhatsApp number
+    const whatsappNumber = "+91 8137869563"; // Replace with the desired WhatsApp number
     const proxyUrl = "https://cors-anywhere.herokuapp.com/"; // CORS proxy service URL
 
     try {
@@ -47,7 +47,7 @@ function Contact() {
     <section className="mb-32">
       <div className="relative h-[300px] overflow-hidden bg-cover bg-center bg-no-repeat">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11672.945750644447!2d-122.42107853750231!3d37.7730507907087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858070cc2fbd55%3A0xa71491d736f62d5c!2sGolden%20Gate%20Bridge!5e0!3m2!1sen!2sus!4v1619524992238!5m2!1sen!2sus"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5378.907779194857!2d75.3286355715732!3d11.93137708212857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba4170008109f93%3A0xdec77be2f45ce683!2sTKM%20Eco%20scrap!5e0!3m2!1sen!2sin!4v1724926595750!5m2!1sen!2sin"
           width="100%"
           height="480"
           style={{ border: 0 }}

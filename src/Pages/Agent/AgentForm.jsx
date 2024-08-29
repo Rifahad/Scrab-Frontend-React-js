@@ -2,12 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import {
-  FaPhone,
-  FaFacebookF,
-  FaInstagram,
-  FaWhatsapp,
-} from "react-icons/fa";
+import { FaPhone, FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa";
 
 import Logo from "../../assets/img/Logo.png";
 
@@ -104,7 +99,7 @@ const AgentForm = () => {
           <Link to="/help" className="hover:underline text-black">
             Help
           </Link>
-          <Link to="/ExistingAgent" className="hover:underline text-black">
+          <Link to="/ExistingAgent" className="hover:underline text-red-500">
             Existing User
           </Link>
           <Link to="/contact" className="hover:underline text-black">
@@ -231,29 +226,25 @@ const AgentForm = () => {
               <h2 className="text-xl font-bold mb-4 text-black">
                 Office Location
               </h2>
-              <p className="text-black">
-                5555 Tailwind RD, Pleasant Grove, UT 73533
-              </p>
+              <p className="text-black">moonunirath ,kannur</p>
             </div>
             <div>
               <h2 className="text-xl font-bold mb-4 text-black">
                 Contact Information
               </h2>
-              <p className="text-black flex gap-2">
-                Phone: 813 7869 563
-              </p>
+              <p className="text-black flex gap-2">Phone: 813 7869 563</p>
               <p className="text-black">Email: mubeensiraj13@gmail.com</p>
             </div>
             <div>
               <h2 className="text-xl font-bold mb-4 text-black">Follow Us</h2>
               <div className="flex items-center gap-4">
-                <a href="#">
+                <a href="https://wa.me/+918137869563">
                   <FaWhatsapp className="text-xl text-black hover:text-gray-800" />
                 </a>
                 <a href="https://www.instagram.com/mubeen3_07/">
                   <FaInstagram className="text-xl text-black hover:text-gray-800" />
                 </a>
-                <FaFacebookF className="text-xl text-black hover:text-gray-800" />                
+                <FaFacebookF className="text-xl text-black hover:text-gray-800" />
               </div>
             </div>
           </div>

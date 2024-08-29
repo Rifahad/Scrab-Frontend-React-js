@@ -18,7 +18,7 @@ function About() {
             TKM Shop Kannur
             </p>
             <br />
-            <p>For Shop Location <a href="https://maps.app.goo.gl/rJXNieoFjhzg53CZ9" className="text-blue-500">Click Here</a></p>
+            <p>For Shop Location <a href="https://maps.app.goo.gl/rJXNieoFjhzg53CZ9" className="text-blue-500 font-black">Click Here</a></p>
           </div>
           <div className="grid grid-cols-2 gap-4 mt-8">
             <img
