@@ -13,7 +13,6 @@ function AgentProductList() {
     const listProduct = async () => {
       try {
         const response = await axios.get("http://localhost:7000/adminagentProduct");
-        console.log(response.data.Agent, 'data fetched from backend');
         if (isMounted) {
           setAgentProduct(response.data.Agent);
         }
@@ -44,7 +43,6 @@ function AgentProductList() {
 
     if (result.isConfirmed) {
       try {
-        console.log("delete here", id);
         const response = await axios.post(`http://localhost:7000/adminagentProductdelete?id=${id}`);
         if (response.status === 200) {
           setAgentProduct((prevProducts) =>
@@ -54,7 +52,6 @@ function AgentProductList() {
         } else {
           Swal.fire("Error!", "There was an error deleting your product.", "error");
         }
-        console.log(response.status);
       } catch (error) {
         console.error(error, "error in product delete");
         Swal.fire("Error!", "There was an error deleting your product.", "error");
@@ -69,8 +66,8 @@ function AgentProductList() {
           <AgentProductCard
             key={val._id}
             data={val}
-            cardDelete={agentProductDelete} // Fixed naming for consistency
-          />
+            cardDelete={agentProductDelete} // 'cardDelete' here
+            />
         ))}
       </div>
     </>

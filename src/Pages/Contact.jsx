@@ -33,7 +33,6 @@ function Contact() {
       );
 
       if (response.ok) {
-        console.log("Message sent successfully");
         // You can add additional logic here, such as clearing the form fields or showing a success message
         setName("");
         setEmail("");

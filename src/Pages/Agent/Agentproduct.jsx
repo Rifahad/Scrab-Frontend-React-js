@@ -9,7 +9,6 @@ const Agentproduct = () => {
   const getData = async () => {
     try {
       const response = await axios.get('http://localhost:7000/getagentproduct');
-      console.log(response.data.Agent, 'data gotten');
       setAgentcard(response.data.Agent);
     } catch (error) {
       console.error('Error fetching data:', error);

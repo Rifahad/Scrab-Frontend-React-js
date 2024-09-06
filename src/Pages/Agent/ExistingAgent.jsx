@@ -19,14 +19,9 @@ const ExistingAgent = () => {
     e.preventDefault();
 
     try {
-      console.log(existingAgent, "number");
-
       const response = await axios.post("http://localhost:7000/existingagent", {
         number: existingAgent.number,
       });
-
-      console.log(response.data, "backend");
-
       if (
         response.status === 200 &&
         response.data.message === "Number exists"

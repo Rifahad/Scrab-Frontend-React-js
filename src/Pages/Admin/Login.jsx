@@ -8,11 +8,13 @@ const Login = () => {
 
   const onFinish = async (values) => {
     try {
-      console.log("Success:", values); // Optional, for debugging
       const response = await axios.post("http://localhost:7000/AdminLogin", values);
-      console.log(response.data); // Optional, for debugging
       localStorage.setItem("token", response.data.token);
-      navigate("/admin");
+      if (response.status(200)) {
+        navigate("/admin");
+      }else{
+        navigate("/");
+      }
     } catch (error) {
       console.error("There was an error!", error);
     }

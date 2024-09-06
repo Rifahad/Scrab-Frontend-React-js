@@ -45,7 +45,6 @@ const handleLocation = async (setFieldValue) => {
           );
 
           const { address } = response.data;
-          console.log("Nominatim Response:", address);
 
           const street = address.road || address.pedestrian || address.footway || address.cycleway || address.residential || address.path || "";
 
@@ -101,17 +100,15 @@ const handleSubmit = async (values, { resetForm, setSubmitting }, navigate) => {
       }
     );
 
-    console.log("Server Response:", response.data);
     if (response.status === 200) {
       resetForm();
-      navigate("/");
+      navigate("/products");
     }
   } catch (error) {
     console.error("Error submitting form:", error);
   }
 
   setSubmitting(false);
-  console.log("Form submission complete");
 };
 
 const Pickup = () => {

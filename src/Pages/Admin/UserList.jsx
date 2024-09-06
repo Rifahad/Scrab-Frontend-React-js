@@ -59,12 +59,11 @@ const UserList = () => {
     }
   };
 
-  const downloadPDF = (user) => {
+const downloadPDF = (user) => {
     const input = document.getElementById(`user-${user._id}`);
     html2canvas(input).then((canvas) => {
       const pdf = new jsPDF("p", "mm", "a4");
       const pdfWidth = pdf.internal.pageSize.getWidth();
-
       // Create an image element and set its source to the imported logo
       const img = new Image();
       img.src = Logo;

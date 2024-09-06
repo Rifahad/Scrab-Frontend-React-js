@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
-function AgentCard({ data, carddelete }) {
+function AgentCard({ data, cardDelete }) { 
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -37,15 +36,8 @@ function AgentCard({ data, carddelete }) {
         >
           <ul className="py-2" aria-labelledby="dropdownButton">
             <li>
-              <Link to={`/admin/editagentProduct?id=${data._id}`}>
-                <p className="block px-4 py-2 text-sm text-black hover:bg-gray-100">
-                  Edit
-                </p>
-              </Link>
-            </li>
-            <li>
               <p
-                onClick={() => carddelete(data._id)}
+                onClick={() => cardDelete(data._id)} // Use 'cardDelete' here
                 className="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100"
               >
                 Delete
@@ -56,7 +48,7 @@ function AgentCard({ data, carddelete }) {
       </div>
       <img
         className="object-fill w-full h-80"
-        src={ data.Url}
+        src={data.Url}
         alt="Demo Image"
       />
       <div className="p-4 leading-normal">

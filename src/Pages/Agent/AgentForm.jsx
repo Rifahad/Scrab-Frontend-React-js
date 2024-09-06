@@ -73,7 +73,6 @@ const AgentForm = () => {
       }
 
       if (response.status === 200) {
-        console.log("Form submitted successfully");
         setAgentData({
           companyName: "",
           phone: "",

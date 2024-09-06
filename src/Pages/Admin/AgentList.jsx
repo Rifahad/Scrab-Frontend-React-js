@@ -13,7 +13,6 @@ const AgentList = () => {
     const Getagent = async () => {
       try {
         const response = await axios.get("http://localhost:7000/companydata");
-        console.log(response.data.Agent, "datagotted");
         if (isMounted) {
           setAgent(response.data.Agent);
         }
