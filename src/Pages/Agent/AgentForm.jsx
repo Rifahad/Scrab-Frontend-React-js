@@ -1,5 +1,5 @@
-import React, { useState, useCallback } from "react";
-import axios from "axios";
+import { useState, useCallback } from "react";
+import Axios from "../../Instance/Instance"
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa";
@@ -58,8 +58,8 @@ const AgentForm = () => {
     formData.append("message", agentData.message);
 
     try {
-      const response = await axios.post(
-        "http://localhost:7000/pickupcompany",
+      const response = await Axios.post(
+        "/pickupcompany",
         formData,
         {
           headers: {

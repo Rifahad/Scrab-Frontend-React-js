@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import Axios from "../Instance/Instance";
 
 function Products() {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    const source = axios.CancelToken.source(); // Create a cancel token
+    const controller = new AbortController(); // Create an AbortController instance
 
     async function fetchProducts() {
       try {
-        const response = await axios.post("http://localhost:7000/Products", null, {
-          cancelToken: source.token, // Pass the cancel token
+        const response = await Axios.post("/Products", null, {
+          signal: controller.signal, // Pass the signal for request cancellation
         });
         setCards(response.data.carddetails);
       } catch (error) {
-        if (axios.isCancel(error)) {
+        if (error.name === "AbortError") {
           console.log("Request canceled:", error.message);
         } else {
           console.error("Error fetching products:", error);
@@ -25,7 +25,7 @@ function Products() {
     fetchProducts();
 
     return () => {
-      source.cancel("Component unmounted, request canceled"); // Cancel request on unmount
+      controller.abort(); // Cancel request on unmount
     };
   }, []);
 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import Axios from '../../Instance/Instance'
 
 const EditForm = () => {
   const location = useLocation();

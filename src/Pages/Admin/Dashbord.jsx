@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import Axios from "../../Instance/Instance";
 import { FaRoute, FaBuilding, FaUsers } from "react-icons/fa";
 import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid } from "recharts";
 import Todo from "../../Components/Admin/Todo"; // Assuming you have this component
@@ -17,32 +17,32 @@ const Dashboard = () => {
     const controller = new AbortController();
     const fetchData = async () => {
       try {
-        const userResponse = await axios.get("http://localhost:7000/Users", {
+        const userResponse = await Axios.get("/Users", {
           signal: controller.signal,
         });
         setUserData(userResponse.data.userData);
         setFilterData(userResponse.data.userData); // Fix: set data correctly
 
-        const userCountResponse = await axios.get(
-          "http://localhost:7000/dashboard/totalUserCount",
+        const userCountResponse = await Axios.get(
+          "/dashboard/totalUserCount",
           { signal: controller.signal }
         );
         setUserCount(userCountResponse.data.count);
 
-        const agentCountResponse = await axios.get(
-          "http://localhost:7000/dashboard/totalAgentCount",
+        const agentCountResponse = await Axios.get(
+          "/dashboard/totalAgentCount",
           { signal: controller.signal }
         );
         setAgentCount(agentCountResponse.data.count);
 
-        const pickupCountResponse = await axios.get(
-          "http://localhost:7000/dashboard/totalPickupCount",
+        const pickupCountResponse = await Axios.get(
+          "/dashboard/totalPickupCount",
           { signal: controller.signal }
         );
         setPickupCount(pickupCountResponse.data.count);
 
-        const agentPickupCountResponse = await axios.get(
-          "http://localhost:7000/dashboard/totalAgentPickupCount",
+        const agentPickupCountResponse = await Axios.get(
+          "/dashboard/totalAgentPickupCount",
           { signal: controller.signal }
         );
         setAgentPickupCount(agentPickupCountResponse.data.count);

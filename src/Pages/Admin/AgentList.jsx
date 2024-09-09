@@ -1,4 +1,4 @@
-import axios from "axios";
+import Axios from "../../Instance/Instance";
 import { useEffect, useState } from "react";
 import { FaLocationDot } from "react-icons/fa6";
 
@@ -12,7 +12,7 @@ const AgentList = () => {
 
     const Getagent = async () => {
       try {
-        const response = await axios.get("http://localhost:7000/companydata");
+        const response = await Axios.get("/companydata");
         if (isMounted) {
           setAgent(response.data.Agent);
         }
@@ -36,8 +36,8 @@ const AgentList = () => {
   // Delete document
   const deleteDoc = async (id) => {
     try {
-      const response = await axios.post(
-        `http://localhost:7000/admin/adminAgentlistDelete?id=${id}`
+      const response = await Axios.post(
+        `/admin/adminAgentlistDelete?id=${id}`
       );
       if (response.status === 200) {
         setAgent((prevAgents) => prevAgents.filter((user) => user._id !== id));

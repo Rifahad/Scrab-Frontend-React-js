@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import AgentProductCard from "../../Components/Admin/AgentCard";
-import axios from "axios";
+import Axios from "../../Instance/Instance";
 import Swal from "sweetalert2";
 
 function AgentProductList() {
@@ -12,7 +12,7 @@ function AgentProductList() {
 
     const listProduct = async () => {
       try {
-        const response = await axios.get("http://localhost:7000/adminagentProduct");
+        const response = await Axios.get("/adminagentProduct");
         if (isMounted) {
           setAgentProduct(response.data.Agent);
         }
@@ -43,7 +43,7 @@ function AgentProductList() {
 
     if (result.isConfirmed) {
       try {
-        const response = await axios.post(`http://localhost:7000/adminagentProductdelete?id=${id}`);
+        const response = await Axios.post(`/adminagentProductdelete?id=${id}`);
         if (response.status === 200) {
           setAgentProduct((prevProducts) =>
             prevProducts.filter((product) => product._id !== id)

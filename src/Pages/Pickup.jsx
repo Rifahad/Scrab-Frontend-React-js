@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import Axios from '../Instance/Instance'
 
 const validationSchema = Yup.object({
   full_name: Yup.string().required("Full Name is required"),
@@ -90,8 +91,8 @@ const handleSubmit = async (values, { resetForm, setSubmitting }, navigate) => {
     formData.append("zipcode", values.zipcode);
     formData.append("pickupImage", values.pickupImage);
 
-    const response = await axios.post(
-      "http://localhost:7000/pickup",
+    const response = await Axios.post(
+      "/pickup",
       formData,
       {
         headers: {

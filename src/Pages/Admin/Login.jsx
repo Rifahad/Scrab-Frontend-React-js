@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Form, Input } from "antd";
-import axios from "axios";
+import Axios from "../../Instance/Instance";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -8,11 +8,11 @@ const Login = () => {
 
   const onFinish = async (values) => {
     try {
-      const response = await axios.post("http://localhost:7000/AdminLogin", values);
+      const response = await Axios.post("/AdminLogin", values);
       localStorage.setItem("token", response.data.token);
-      if (response.status(200)) {
+      if (response.status === 200) {  // Corrected status check
         navigate("/admin");
-      }else{
+      } else {
         navigate("/");
       }
     } catch (error) {

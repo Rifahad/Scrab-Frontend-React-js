@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ProductCard from "../../Components/Admin/ProductCard";
-import axios from "axios";
+import Axios from '../../Instance/Instance'
 import Swal from "sweetalert2";
 
 function ProductList() {
@@ -9,12 +9,12 @@ function ProductList() {
   // Function to fetch products
   const listProduct = async (abortController) => {
     try {
-      const response = await axios.get("http://localhost:7000/adminproduct", {
+      const response = await Axios.get("/adminproduct", {
         signal: abortController.signal,
       });
       setProduct(response.data.adminCard);
     } catch (error) {
-      if (axios.isCancel(error)) {
+      if (Axios.isCancel(error)) {
         console.log("Request canceled:", error.message);
       } else {
         console.error("Error fetching products:", error);
@@ -48,8 +48,8 @@ function ProductList() {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const response = await axios.post(
-            `http://localhost:7000/productdelete?id=${id}`
+          const response = await Axios.post(
+            `/productdelete?id=${id}`
           );
           if (response.status === 200) {
             setProduct((prevProduct) => prevProduct.filter((user) => user._id !== id));

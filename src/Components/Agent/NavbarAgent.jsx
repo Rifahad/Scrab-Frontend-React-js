@@ -61,20 +61,20 @@ const NavbarAgent = () => {
             >
               <ul className="tracking-wide font-medium text-gray-600 flex-col flex lg:flex-row gap-6 lg:gap-0 lg:text-sm">
                 <li>
-                  <a
-                    href="#Agent"
-                    className="block md:px-4 transition hover:text-primary"
-                  >
-                    <span>Agent</span>
-                  </a>
-                </li>
-                <li>
                   <Link
                     to="/home"
                     className="block md:px-4 transition hover:text-primary"
                   >
                     <span>User</span>
                   </Link>
+                </li>
+                <li>
+                  <a
+                    href="#Agent"
+                    className="block md:px-4 transition hover:text-primary"
+                  >
+                    <span>Agent</span>
+                  </a>
                 </li>
                 <li>
                   <Link

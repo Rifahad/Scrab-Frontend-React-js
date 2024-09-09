@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import Axios from '../../Instance/Instance';
 import Swal from 'sweetalert2'; // Ensure you have SweetAlert2 installed and imported
 
 const CardForm = () => {
@@ -41,7 +41,7 @@ const CardForm = () => {
             formDataObj.append("title", formData.title);
             formDataObj.append("price", formData.price);
 
-            const response = await axios.post('http://localhost:7000/card', formDataObj, {
+            const response = await Axios.post('/card', formDataObj, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

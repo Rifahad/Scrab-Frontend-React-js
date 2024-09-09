@@ -1,4 +1,4 @@
-import axios from 'axios';
+import Axios from '../../Instance/Instance';
 import { useEffect, useState } from 'react';
 
 const Agentproduct = () => {
@@ -8,7 +8,7 @@ const Agentproduct = () => {
 
   const getData = async () => {
     try {
-      const response = await axios.get('http://localhost:7000/getagentproduct');
+      const response = await Axios.get('/getagentproduct');
       setAgentcard(response.data.Agent);
     } catch (error) {
       console.error('Error fetching data:', error);

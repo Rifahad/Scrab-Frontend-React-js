@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Axios from "../../Instance/Instance"
 
 const ExistingAgent = () => {
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ const ExistingAgent = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:7000/existingagent", {
+      const response = await Axios.post("/existingagent", {
         number: existingAgent.number,
       });
       if (

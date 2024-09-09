@@ -1,5 +1,5 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import Axios from "../../Instance/Instance";
+import { useEffect, useState } from "react";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 import Logo from "../../assets/img/Logo.png";
@@ -23,13 +23,13 @@ const UserList = () => {
 
     const fetchUser = async () => {
       try {
-        const response = await axios.get("http://localhost:7000/Users", {
+        const response = await Axios.get("/Users", {
           signal: abortController.signal,
         });
         setUserData(response.data.userData);
         setFilterdata(response.data.userData);
       } catch (error) {
-        if (axios.isCancel(error)) {
+        if (Axios.isCancel(error)) {
           console.log("Request canceled:", error.message);
         } else {
           console.error("Error fetching user data:", error);
@@ -46,8 +46,8 @@ const UserList = () => {
 
   const deleteDoc = async (id) => {
     try {
-      const response = await axios.post(
-        `http://localhost:7000/admin/User/delete?id=${id}`
+      const response = await Axios.post(
+        `/admin/User/delete?id=${id}`
       );
       if (response.status === 200) {
         setUserData((prevUserData) =>

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import axios from 'axios';
+import Axios from '../../Instance/Instance';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 
@@ -38,7 +38,7 @@ const CardForm = () => {
     formDataObj.append("price", price);
 
     try {
-      const response = await axios.post('http://localhost:7000/companycard', formDataObj, {
+      const response = await Axios.post('/companycard', formDataObj, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
