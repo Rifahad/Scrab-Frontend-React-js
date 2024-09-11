@@ -176,31 +176,7 @@ function Footer() {
               </ul>
             </div>
 
-            <div className="col-span-2 sm:col-span-1">
-              {/* ********************  */}
-              <p className="font-medium text-gray-900">Downloads</p>
-
-              <ul className="mt-6 space-y-4 text-sm">
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-700 transition hover:opacity-75"
-                  >
-                    Marketing Calendar
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-700 transition hover:opacity-75"
-                  >
-                    SEO Infographics
-                  </a>
-                </li>
-              </ul>
-            </div>
-            {/* ************** */}
+         
 
             <ul className="col-span-2   flex justify-start gap-6 lg:col-span-5 lg:justify-between">
               <div>

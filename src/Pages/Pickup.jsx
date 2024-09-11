@@ -79,7 +79,7 @@ const handleLocation = async (setFieldValue) => {
   }
 };
 
-const handleSubmit = async (values, { resetForm, setSubmitting }, navigate) => {
+const handleSubmit = async (values, { resetForm, setSubmitting }) => {
   try {
     const formData = new FormData();
     formData.append("full_name", values.full_name);
@@ -91,26 +91,33 @@ const handleSubmit = async (values, { resetForm, setSubmitting }, navigate) => {
     formData.append("zipcode", values.zipcode);
     formData.append("pickupImage", values.pickupImage);
 
-    const response = await Axios.post(
-      "/pickup",
-      formData,
-      {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      }
-    );
+    const response = await Axios.post("/pickup", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
 
     if (response.status === 200) {
       resetForm();
-      navigate("/products");
+      Swal.fire({
+        title: "Success",
+        text: "Pickup request submitted successfully!",
+        icon: "success",
+        confirmButtonText: "OK",
+      });
     }
   } catch (error) {
     console.error("Error submitting form:", error);
+    Swal.fire({
+      title: "Error",
+      text: "Failed to submit the pickup request. Please try again later.",
+      icon: "error",
+      confirmButtonText: "OK",
+    });
   }
-
   setSubmitting(false);
 };
+
 
 const Pickup = () => {
   const [previewImage, setPreviewImage] = useState(null);

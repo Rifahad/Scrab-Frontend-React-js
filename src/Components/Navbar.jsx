@@ -103,35 +103,35 @@ const Navbar = () => {
           </nav>
         </div>
       </div>
-      <div className="md:hidden w-full fixed bottom-0 h-24 bg-white z-50 flex items-center justify-center gap-2">
+      <div className="md:hidden w-full fixed bottom-0 h-20 bg-white z-50 flex items-center justify-center gap-4 drop-shadow-2xl shadow-primary">
         <Link to="/help"> <IoMdHelp className="fixed bottom-24 right-8 text-4xl animate-pulse text-primary" /></Link>
         <Link
           to="/"
-          className="w-16 h-16 bg-white shadow-inner shadow-black rounded-full flex items-center justify-center"
+          className="w-12 h-12 bg-white shadow-inner shadow-black rounded-full flex items-center justify-center"
         >
           <IoMdHome className="text-3xl" />
         </Link>
         <Link
           to="/products"
-          className="w-16 h-16 bg-white shadow-inner shadow-black rounded-full flex items-center justify-center"
+          className="w-12 h-12 bg-white shadow-inner shadow-black rounded-full flex items-center justify-center"
         >
           <AiFillProduct className="text-3xl" />
         </Link>
         <Link
           to="/pickup"
-          className="w-24 h-24 bg-white shadow-inner shadow-primary rounded-full flex items-center justify-center"
+          className="w-20 h-20 bg-white shadow-inner shadow-primary rounded-full flex items-center justify-center"
         >
           <FaTruckPickup className="text-5xl text-primary" />
         </Link>
         <Link
           to="/about-us"
-          className="w-16 h-16 bg-white shadow-inner shadow-black rounded-full flex items-center justify-center"
+          className="w-12 h-12 bg-white shadow-inner shadow-black rounded-full flex items-center justify-center"
         >
           <FaShop className="text-3xl" />
         </Link>
         <Link
           to="/contact"
-          className="w-16 h-16 bg-white shadow-inner shadow-black rounded-full flex items-center justify-center"
+          className="w-12 h-12 bg-white shadow-inner shadow-black rounded-full flex items-center justify-center"
         >
           <BiSolidContact className="text-3xl" />
         </Link>

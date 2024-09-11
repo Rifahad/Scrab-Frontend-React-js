@@ -55,7 +55,7 @@ const Land = () => {
                 <Link
                   to="/home"
                   className="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
-                  data-aos="fade-right"
+                  data-aos="fade-up"
                   data-aos-delay="700"
                 >
                   <span className="relative text-base font-semibold text-white">
@@ -65,7 +65,7 @@ const Land = () => {
                 <Link
                   to="/help"
                   className="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-primary/10 before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
-                  data-aos="fade-left"
+                  data-aos="fade-up"
                   data-aos-delay="700"
                 >
                   <span className="relative text-base font-semibold text-primary">
@@ -74,7 +74,7 @@ const Land = () => {
                 </Link>
               </div>
               <div className="hidden py-8 mt-16 border-y border-gray-100 sm:flex justify-between">
-                <div className="text-left" data-aos="zoom-out">
+                <div className="text-up" data-aos="zoom-out">
                   <h6 className="text-lg font-semibold text-gray-700">
                     The Best Value
                   </h6>
@@ -83,7 +83,7 @@ const Land = () => {
                     competitive rates.
                   </p>
                 </div>
-                <div className="text-left" data-aos="zoom-out">
+                <div className="text-up" data-aos="zoom-out">
                   <h6 className="text-lg font-semibold text-gray-700">
                     Fastest Service
                   </h6>
@@ -92,7 +92,7 @@ const Land = () => {
                     recycling.
                   </p>
                 </div>
-                <div className="text-left" data-aos="zoom-out">
+                <div className="text-up" data-aos="zoom-out">
                   <h6 className="text-lg font-semibold text-gray-700">
                     Most Trusted
                   </h6>
@@ -210,7 +210,7 @@ const Land = () => {
                 alt="image"
                 loading="lazy"
                 className="w-full"
-                data-aos="flip-left"
+                data-aos="flip-up"
                 data-aos-easing="ease-out-cubic"
                 data-aos-duration="800"
               />
@@ -257,14 +257,14 @@ const Land = () => {
                   <div className="w-5/6">
                     <h4
                       className="font-semibold text-lg text-gray-700"
-                      data-aos="fade-left"
+                      data-aos="fade-up"
                       data-aos-delay="400"
                     >
                       Feedback Anytime
                     </h4>
                     <p
                       className="text-gray-500"
-                      data-aos="fade-left"
+                      data-aos="fade-up"
                       data-aos-delay="400"
                     >
                       Express your thoughts and complaints throw contact option
@@ -278,7 +278,7 @@ const Land = () => {
                       viewBox="0 0 24 24"
                       fill="currentColor"
                       className="w-6 h-6 m-auto text-teal-600"
-                      data-aos="fade-left"
+                      data-aos="fade-up"
                       data-aos-delay="400"
                     >
                       <path
@@ -291,14 +291,14 @@ const Land = () => {
                   <div className="w-5/6">
                     <h4
                       className="font-semibold text-lg text-gray-700"
-                      data-aos="fade-left"
+                      data-aos="fade-up"
                       data-aos-delay="400"
                     >
                       Easy to use
                     </h4>
                     <p
                       className="text-gray-500"
-                      data-aos="fade-left"
+                      data-aos="fade-up"
                       data-aos-delay="400"
                     >
                       Created simply and easy to understand for everyone.
@@ -353,7 +353,7 @@ const Land = () => {
             <div className="group relative bg-white transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
               <div
                 className="relative space-y-8 py-12 p-8"
-                data-aos="zoom-in-right"
+                data-aos="zoom-in-up"
                 data-aos-delay="400"
               >
                 <img
@@ -398,7 +398,7 @@ const Land = () => {
             <div className="group relative bg-white transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
               <div
                 className="relative space-y-8 py-12 p-8"
-                data-aos="zoom-in-right"
+                data-aos="zoom-in-up"
                 data-aos-delay="600"
               >
                 <img
@@ -443,7 +443,7 @@ const Land = () => {
             <div className="group relative bg-white transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
               <div
                 className="relative space-y-8 py-12 p-8"
-                data-aos="zoom-in-right"
+                data-aos="zoom-in-up"
                 data-aos-delay="800"
               >
                 <img
@@ -488,7 +488,7 @@ const Land = () => {
             <div className="group relative bg-gray-50 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
               <div
                 className="relative space-y-8 py-12 p-8 transition duration-300 group-hover:bg-white"
-                data-aos="zoom-in-right"
+                data-aos="zoom-in-up"
                 data-aos-delay="1000"
               >
                 <img
@@ -575,7 +575,7 @@ const Land = () => {
                 <a
                   href="/agent-form"
                   className="relative flex h-12 w-full items-center justify-center px-8 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
-                  data-aos="fade-right"
+                  data-aos="fade-up"
                 >
                   <span className="relative text-base font-semibold text-white">
                     Click Here
@@ -584,7 +584,7 @@ const Land = () => {
                 <a
                   href="/help"
                   className="relative flex h-12 w-full items-center justify-center px-8 before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-white before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-white dark:before:bg-[#E7F6ED] sm:w-max"
-                  data-aos="fade-left"
+                  data-aos="fade-up"
                 >
                   <span className="relative text-base font-semibold text-primary">
                     Help

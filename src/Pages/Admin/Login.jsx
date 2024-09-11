@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Form, Input } from "antd";
 import Axios from "../../Instance/Instance";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2"; // Import SweetAlert2
 
 const Login = () => {
   const navigate = useNavigate();
@@ -10,13 +11,32 @@ const Login = () => {
     try {
       const response = await Axios.post("/AdminLogin", values);
       localStorage.setItem("token", response.data.token);
-      if (response.status === 200) {  // Corrected status check
+
+      if (response.status === 200) {
         navigate("/admin");
       } else {
-        navigate("/");
+        throw new Error("Unauthorized");
       }
     } catch (error) {
       console.error("There was an error!", error);
+
+      // SweetAlert to show message if status is not 200
+      Swal.fire({
+        title: "Error",
+        text: "I think you are in the wrong place",
+        icon: "error",
+        showCancelButton: true,
+        confirmButtonText: "Go to Home",
+        customClass: {
+          confirmButton: "bg-primary hover:bg-green-600 text-white", // Apply Tailwind classes for green color
+          cancelButton: "bg-gray-300 text-black", // Optional: Customize cancel button style
+        },
+        cancelButtonText: "Cancel",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/home");
+        }
+      });
     }
   };
 
@@ -26,7 +46,7 @@ const Login = () => {
 
   return (
     <div
-      className={`flex w-full h-screen items-center justify-center bg-cover bg-[url('./assets/admin3.jpg')] md:bg-[url('./assets/admin1.jpg')] `}
+      className={`flex w-full h-screen items-center justify-center bg-cover bg-[url('../../src/assets/BgAuth.jpg')]`}
     >
       <div className="p-4 md:p-0">
         <Form
