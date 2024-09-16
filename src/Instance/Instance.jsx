@@ -1,7 +1,7 @@
   import axios from "axios";
 
   const Instance = axios.create({
-    baseURL: "https://tkmscraps.com", 
+    baseURL: "https://api.tkmscraps.com", 
     timeout: 20000,
   });
 
